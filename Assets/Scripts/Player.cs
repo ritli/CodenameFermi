@@ -22,12 +22,12 @@ public class Player : MonoBehaviour {
 
     Vector2 feetOrigin = new Vector2(0.25f, -0.5f);
     Vector2 input;
-
+    private bool inAirOld;
     private bool isJumping, inAir = false;
 
     float xVel, xVelCurrent = 0, airSnappiness;
     float jumptime = 0, jumpVelocity = 0;
-
+    private float addForceSnappiness;
     const float feetLength = 0.05f;
 
 
@@ -40,8 +40,15 @@ public class Player : MonoBehaviour {
         MovementUpdate();
         JumpUpdate();
 
+        if (inAir != inAirOld && !inAir)
+        {
+            OnLanding();
+        }
+
         inAir = !OnGround;
-	}
+        inAirOld = inAir;
+
+    }
 
     private void MovementUpdate()
     {
@@ -59,7 +66,9 @@ public class Player : MonoBehaviour {
         }
 
         //Actual velocity is calculated here
-        xVel = Mathf.SmoothDamp(xVel, input.x * speed, ref xVelCurrent, snappiness + airSnappiness);
+        xVel = Mathf.SmoothDamp(xVel, input.x * speed, ref xVelCurrent, snappiness + airSnappiness + addForceSnappiness);
+
+        addForceSnappiness = Mathf.Clamp01(addForceSnappiness - Time.deltaTime);
 
         //Translation is multiplied by this
         float collisionMultiplier = 1;
@@ -126,6 +135,30 @@ public class Player : MonoBehaviour {
             isJumping = true;
             jumpVelocity = jumpForce;
             jumptime = 0;
+        }
+    }
+
+    void OnLanding()
+    {
+        addForceSnappiness = 0;
+    }
+
+    public void AddForce(Vector2 force, bool overwrite)
+    {
+        addForceSnappiness = 0.5f;
+
+        if (overwrite)
+        {
+            //isJumping = true;
+            //jumptime = 0;
+            inAir = true;
+            xVel = force.x;
+            jumpVelocity = force.y;
+        }
+        else
+        {
+            xVel += force.x;
+            jumpVelocity += force.y;
         }
     }
 

@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MagGun : MonoBehaviour {
-
+    private Player player;
+    private Rigidbody2D playerBody;
     private Camera cam;
+
+    public float magJumpForce = 1f;
+    public float magJumpRange = 2f;
+    public float magJumpCooldown = 1;
+    float magJumpCooldownElapsed = 0;
 
     public float magRange = 5f;
     public float magAttachTime = 0.2f;
@@ -15,6 +21,8 @@ public class MagGun : MonoBehaviour {
     public Rigidbody2D attachedBody;
 
     void Start() {
+        player = GetComponentInParent<Player>();
+        playerBody = GetComponentInParent<Rigidbody2D>();
         cam = Camera.main;
     }
 
@@ -28,9 +36,13 @@ public class MagGun : MonoBehaviour {
         {
             MagHitUpdate();
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            MagJump();
+        }
 
         MagPullUpdate();
-
+        magJumpCooldownElapsed = Mathf.Clamp(magJumpCooldownElapsed + Time.deltaTime, 0, magJumpCooldown);
     }
 
     void MagHitUpdate()
@@ -66,5 +78,15 @@ public class MagGun : MonoBehaviour {
             attachedBody.gravityScale = 0.4f;
             attachedBody.AddForce((transform.position - attachedBody.transform.position).normalized * magPullForce, ForceMode2D.Impulse);
         }
+    }
+
+    void MagJump()
+    {
+        if (magJumpCooldownElapsed >= magJumpCooldown)
+        {
+            magJumpCooldownElapsed = 0;
+            player.AddForce(transform.up * magJumpForce, true);
+        }
+
     }
 }
