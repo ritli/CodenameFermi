@@ -17,9 +17,9 @@ public class Player : MonoBehaviour {
     [Tooltip("This is added to normal snappiness while in air, 0 is full control while in air")]
     public float airControl = 0.2f;
     public float jumptimeMax = 0.6f, gravity = -1;
-
+    private Animator animator;
     new Rigidbody2D rigidbody;
-
+    private SpriteRenderer sprite;
     Vector2 feetOrigin = new Vector2(0.25f, -0.5f);
     Vector2 input;
     private bool inAirOld;
@@ -30,9 +30,10 @@ public class Player : MonoBehaviour {
     private float addForceSnappiness;
     const float feetLength = 0.05f;
 
-
     void Start () {
+        animator = GetComponentInChildren<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
 	}
 	
 	void Update () {
@@ -83,7 +84,7 @@ public class Player : MonoBehaviour {
 
                 if (Physics2D.Linecast(origin, origin + Vector2.right * xVelSigned * feetLength * 2, obstacleLayermask))
                 {
-                    collisionMultiplier = 0f;
+                    xVel = 0;            
                     break;
                 }
             }
@@ -91,6 +92,23 @@ public class Player : MonoBehaviour {
 
         //Movement is applied
         transform.Translate(Vector3.right * xVel * Time.deltaTime * collisionMultiplier);
+
+        if (xVel < -0.15f)
+        {
+            animator.SetInteger("Dir", 1);
+
+            sprite.flipX = true;
+        }
+        else if (xVel > 0.15f)
+        {
+            animator.SetInteger("Dir", 1);
+
+            sprite.flipX = false;
+        }
+        else
+        {
+            animator.SetInteger("Dir", 0);
+        }
     }
 
     void InputUpdate()
@@ -149,8 +167,6 @@ public class Player : MonoBehaviour {
 
         if (overwrite)
         {
-            //isJumping = true;
-            //jumptime = 0;
             inAir = true;
             xVel = force.x;
             jumpVelocity = force.y;
@@ -168,7 +184,7 @@ public class Player : MonoBehaviour {
         {
             Vector2 origin = feetOrigin;
 
-            if (Physics2D.Linecast((Vector2)transform.position + feetOrigin, (Vector2)transform.position + feetOrigin + Vector2.down * feetLength, obstacleLayermask))
+            if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength, obstacleLayermask))
             {
                 return true;
             }
@@ -176,7 +192,7 @@ public class Player : MonoBehaviour {
             else
             {
                 origin.x = -origin.x;
-                if (Physics2D.Linecast((Vector2)transform.position + feetOrigin, (Vector2)transform.position + feetOrigin + Vector2.down * feetLength, obstacleLayermask))
+                if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength, obstacleLayermask))
                 {
                     return true;
                 }
