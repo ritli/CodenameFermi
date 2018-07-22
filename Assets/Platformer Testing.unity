@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magJumpForce: 7
   magJumpRange: 2
+  magJumpCooldown: 1
   magRange: 10
   magAttachTime: 0.1
   magPullForce: 0.1
@@ -281,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d280105fcc27fac4ca93ffc5e7db776e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebc45159d53fd8d4aacf0adc72957ce1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -574,6 +575,7 @@ GameObject:
   - component: {fileID: 302699087}
   - component: {fileID: 302699086}
   - component: {fileID: 302699090}
+  - component: {fileID: 302699091}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -665,6 +667,25 @@ MonoBehaviour:
   m_mouseExtendMultiplier: 0.1
   m_interpolateCamera: 1
   m_zZoomLevel: -10
+--- !u!114 &302699091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302699085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 64
+  m_RefResolutionX: 512
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &385628779
 GameObject:
   m_ObjectHideFlags: 0
