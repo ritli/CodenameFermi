@@ -1,15 +1,12 @@
 fileFormatVersion: 2
-guid: 5199b4af9759f494ab6b3bb6ec08bc36
+guid: 5387525606f01a2468b2d1620badd8c7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Caliber_Idle_ Right_0
-    21300002: Caliber_Idle_ Right_1
-    21300004: Caliber_Idle_ Right_2
-    21300006: Caliber_Idle_ Right_3
-    21300008: Caliber_Idle_ Right_4
-    21300010: Caliber_Idle_ Right_5
-    21300012: Caliber_Idle_ Right_6
-    21300014: Caliber_Idle_ Right_7
+    21300000: Magnet_Gun_Fire_0
+    21300002: Magnet_Gun_Fire_1
+    21300004: Magnet_Gun_Fire_2
+    21300006: Magnet_Gun_Fire_3
+    21300008: Magnet_Gun_Fire_4
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -103,161 +100,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95dc04a397af22149a42a7a26d067b34
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caliber_Idle_ Right_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6496f1fda8771a40be21bc40d185e96
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caliber_Idle_ Right_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbd36eb7c757dfc41a08eb4902dc2259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caliber_Idle_ Right_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 100c9d7276e8f6b46bb84ea2789bc6a4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caliber_Idle_ Right_4
+      name: Magnet_Gun_Fire_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.90606105, y: 0.4683055}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939e7558b467a3944a7d65e8ef1ab7ce
+      spriteID: 940b050f50c791b49b3e1245c423b113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_5
+      name: Magnet_Gun_Fire_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23684ce6fca217d49adc605b198b2094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magnet_Gun_Fire_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dfd562d634a4854d98b1ecdc2157229
+      spriteID: 72a19f4bc65fa7341823e74676a1a309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_6
+      name: Magnet_Gun_Fire_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8966d592a3bede4c84b8bf74986da6f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magnet_Gun_Fire_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 996dd6a3838a8ae47a75b03fbb80bae8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caliber_Idle_ Right_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cce7971ef2c56f44d999ad232261b0ec
+      spriteID: c422f48634534984eaf3b20d1384f150
       vertices: []
       indices: 
       edges: []
@@ -265,7 +202,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 88214af89723e3447a0103386036d2bf
+    spriteID: be980d34771651440ab7138645a4c711
     vertices: []
     indices: 
     edges: []

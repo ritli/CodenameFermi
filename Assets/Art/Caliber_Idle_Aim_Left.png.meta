@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 5199b4af9759f494ab6b3bb6ec08bc36
+guid: e55d9ef195b478a48a7d26b2c572ed24
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Caliber_Idle_ Right_0
-    21300002: Caliber_Idle_ Right_1
-    21300004: Caliber_Idle_ Right_2
-    21300006: Caliber_Idle_ Right_3
-    21300008: Caliber_Idle_ Right_4
-    21300010: Caliber_Idle_ Right_5
-    21300012: Caliber_Idle_ Right_6
-    21300014: Caliber_Idle_ Right_7
+    21300000: Caliber_Idle_Aim_Left_0
+    21300002: Caliber_Idle_Aim_Left_1
+    21300004: Caliber_Idle_Aim_Left_2
+    21300006: Caliber_Idle_Aim_Left_3
+    21300008: Caliber_Idle_Aim_Left_4
+    21300010: Caliber_Idle_Aim_Left_5
+    21300012: Caliber_Idle_Aim_Left_6
+    21300014: Caliber_Idle_Aim_Left_7
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_0
+      name: Caliber_Idle_Aim_Left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,19 +111,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95dc04a397af22149a42a7a26d067b34
+      spriteID: ea61f843e1612be4faa64a36e5eeb528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_1
+      name: Caliber_Idle_Aim_Left_1
       rect:
         serializedVersion: 2
         x: 64
@@ -131,19 +131,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6496f1fda8771a40be21bc40d185e96
+      spriteID: 4c0da3b88d6cb824580820f9d598beb4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_2
+      name: Caliber_Idle_Aim_Left_2
       rect:
         serializedVersion: 2
         x: 128
@@ -151,19 +151,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbd36eb7c757dfc41a08eb4902dc2259
+      spriteID: d9e6f19cf5757a64498b2fbaa133dd08
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_3
+      name: Caliber_Idle_Aim_Left_3
       rect:
         serializedVersion: 2
         x: 192
@@ -171,19 +171,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 100c9d7276e8f6b46bb84ea2789bc6a4
+      spriteID: 8a5e0b579ca99624a8b88bd897032b1b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_4
+      name: Caliber_Idle_Aim_Left_4
       rect:
         serializedVersion: 2
         x: 0
@@ -191,19 +191,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939e7558b467a3944a7d65e8ef1ab7ce
+      spriteID: bfd0d5befafd47c4b959b420d3fe438b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_5
+      name: Caliber_Idle_Aim_Left_5
       rect:
         serializedVersion: 2
         x: 64
@@ -211,19 +211,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dfd562d634a4854d98b1ecdc2157229
+      spriteID: 9635825244542814ba18b9cba8a72aca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_6
+      name: Caliber_Idle_Aim_Left_6
       rect:
         serializedVersion: 2
         x: 128
@@ -231,19 +231,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 996dd6a3838a8ae47a75b03fbb80bae8
+      spriteID: 51e65dd53d47fc049b73fe598c21b5e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caliber_Idle_ Right_7
+      name: Caliber_Idle_Aim_Left_7
       rect:
         serializedVersion: 2
         x: 192
@@ -251,13 +251,13 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cce7971ef2c56f44d999ad232261b0ec
+      spriteID: 30d1560d738e38c4bb73c9cee969434d
       vertices: []
       indices: 
       edges: []
@@ -265,7 +265,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 88214af89723e3447a0103386036d2bf
+    spriteID: dc5387d97de47ef4ebefe7cefac9155c
     vertices: []
     indices: 
     edges: []

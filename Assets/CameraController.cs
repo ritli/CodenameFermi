@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
         m_targetZoom = m_initialZoom;
 
 
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
 

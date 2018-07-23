@@ -17,26 +17,40 @@ public class Player : MonoBehaviour {
     [Tooltip("This is added to normal snappiness while in air, 0 is full control while in air")]
     public float airControl = 0.2f;
     public float jumptimeMax = 0.6f, gravity = -1;
+
     private Animator animator;
     new Rigidbody2D rigidbody;
     private SpriteRenderer sprite;
+    private SpriteRenderer gunSprite;
+    private Camera cam;
+
     Vector2 feetOrigin = new Vector2(0.25f, -0.5f);
     Vector2 input;
+
     private bool inAirOld;
     private bool isJumping, inAir = false;
 
     float xVel, xVelCurrent = 0, airSnappiness;
     float jumptime = 0, jumpVelocity = 0;
+
     private float addForceSnappiness;
+    private Vector3 lookPos;
     const float feetLength = 0.05f;
 
+    [HideInInspector]
+    public bool facingRight, moving;
+
     void Start () {
-        animator = GetComponentInChildren<Animator>();
+        animator = transform.Find("Sprite").GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        gunSprite = sprite.transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
+        cam = Camera.main;
 	}
 	
 	void Update () {
+        lookPos = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
         InputUpdate();
         MovementUpdate();
         JumpUpdate();
@@ -96,18 +110,38 @@ public class Player : MonoBehaviour {
         if (xVel < -0.15f)
         {
             animator.SetInteger("Dir", 1);
+            animator.SetBool("FacingRight" , false);
 
-            sprite.flipX = true;
+            moving = true;
+            facingRight = false;
+            gunSprite.sortingOrder = sprite.sortingOrder - 1;
         }
         else if (xVel > 0.15f)
         {
-            animator.SetInteger("Dir", 1);
 
-            sprite.flipX = false;
+            animator.SetInteger("Dir", 1);
+            animator.SetBool("FacingRight", true);
+
+            moving = true;
+            facingRight = true;
+
+            gunSprite.sortingOrder = sprite.sortingOrder + 1;
         }
         else
         {
+            moving = false;
+
             animator.SetInteger("Dir", 0);
+            animator.SetBool("FacingRight", lookPos.x > 0);
+
+            if (lookPos.x > 0)
+            {
+                gunSprite.sortingOrder = sprite.sortingOrder + 1;
+            }
+            else
+            {
+                gunSprite.sortingOrder = sprite.sortingOrder - 1;
+            }
         }
     }
 
