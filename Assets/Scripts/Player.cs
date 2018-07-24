@@ -107,19 +107,43 @@ public class Player : MonoBehaviour {
         //Movement is applied
         transform.Translate(Vector3.right * xVel * Time.deltaTime * collisionMultiplier);
 
+        if (inAir || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandRight"))
+        {
+            gunSprite.color = Color.clear;
+        }
+        else
+        {
+            gunSprite.color = Color.white;
+        }
+
         if (xVel < -0.15f)
         {
-            animator.SetInteger("Dir", 1);
+            if (inAir)
+            {
+                animator.SetInteger("Dir", 2);
+            }
+            else
+            {
+                animator.SetInteger("Dir", 1);
+            }
             animator.SetBool("FacingRight" , false);
 
+            gunSprite.flipY = false;
             moving = true;
             facingRight = false;
             gunSprite.sortingOrder = sprite.sortingOrder - 1;
         }
         else if (xVel > 0.15f)
         {
-
-            animator.SetInteger("Dir", 1);
+            if (inAir)
+            {
+                animator.SetInteger("Dir", 2);
+            }
+            else
+            {
+                animator.SetInteger("Dir", 1);
+            }
+            gunSprite.flipY = true;
             animator.SetBool("FacingRight", true);
 
             moving = true;
@@ -130,16 +154,25 @@ public class Player : MonoBehaviour {
         else
         {
             moving = false;
+            if (inAir)
+            {
+                animator.SetInteger("Dir", 2);
+            }
+            else
+            {
+                animator.SetInteger("Dir", 0);
+            }
 
-            animator.SetInteger("Dir", 0);
             animator.SetBool("FacingRight", lookPos.x > 0);
 
             if (lookPos.x > 0)
             {
+                gunSprite.flipY = true;
                 gunSprite.sortingOrder = sprite.sortingOrder + 1;
             }
             else
             {
+                gunSprite.flipY = false;
                 gunSprite.sortingOrder = sprite.sortingOrder - 1;
             }
         }
