@@ -28,7 +28,9 @@ public class Player : MonoBehaviour {
     Vector2 input;
 
     private bool inAirOld;
-    private bool isJumping, inAir = false;
+    private bool isJumping;
+    [HideInInspector]
+    public bool inAir = false;
 
     float xVel, xVelCurrent = 0, airSnappiness;
     float jumptime = 0, jumpVelocity = 0;
@@ -268,5 +270,14 @@ public class Player : MonoBehaviour {
             return false;
         }
 
+    }
+
+    public Vector2 Velocity
+    {
+        get
+        {
+            print(new Vector2(xVel, jumpVelocity));
+            return new Vector2(xVel, jumpVelocity);
+        }
     }
 }

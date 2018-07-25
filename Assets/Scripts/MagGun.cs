@@ -9,9 +9,11 @@ public class MagGun : MonoBehaviour {
     private ParticleSystem attractorParticles;
     public GameObject attractParticlesPrefab;
     public GameObject repulsorParticlesPrefab;
+    public GameObject attachParticlesPrefab;
     public GameObject magGlow;
 
-    public SpriteRenderer Gun;
+    public SpriteRenderer gunSprite;
+    Animator gunAnimator;
 
     public float magJumpForce = 1f;
     public float magJumpRange = 2f;
@@ -33,6 +35,7 @@ public class MagGun : MonoBehaviour {
     public float repulseForce = 10;
 
     void Start() {
+        gunAnimator = gunSprite.GetComponent<Animator>();
         player = GetComponentInParent<Player>();
         playerBody = GetComponentInParent<Rigidbody2D>();
         cam = Camera.main;
@@ -57,17 +60,18 @@ public class MagGun : MonoBehaviour {
                 facingX = -facingX;
             }
 
-            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(-0.65f, facingX) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
+            gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(-0.65f, facingX) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
         }
         else
         {
-            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
+            gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
         }
 
         if (Input.GetButton("Fire1"))
         {
             if (canMagPull)
             {
+                gunAnimator.Play("Charge");
                 attractorParticles.transform.position = mousePos;
                 attractorParticles.gameObject.SetActive(true);
                 MagHitUpdate();
@@ -75,6 +79,8 @@ public class MagGun : MonoBehaviour {
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            gunAnimator.Play("Idle");
+
             CancelMagPull(true);
         }
         if (Input.GetButtonDown("Fire2"))
@@ -100,7 +106,6 @@ public class MagGun : MonoBehaviour {
     void MagHitUpdate()
     {
         magPulling = true;
-
 
         Collider2D[] MagHits;
 
@@ -136,6 +141,12 @@ public class MagGun : MonoBehaviour {
                 }
             }
 
+            Instantiate(
+                attachParticlesPrefab,
+                gunSprite.transform.position - gunSprite.transform.right * 0.35f,
+                Quaternion.Euler(0, 0, gunSprite.transform.rotation.eulerAngles.z - 180), player.transform);
+
+
             CancelMagPull(false);
         }
 
@@ -164,14 +175,14 @@ public class MagGun : MonoBehaviour {
     {
         if (magJumpCooldownElapsed >= magJumpCooldown)
         {
-            Gun.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180);
+            gunSprite.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180);
 
-            Collider2D[] colliderHits = Physics2D.OverlapAreaAll(transform.position + Gun.transform.up, transform.position - Gun.transform.right * repulseRange - Gun.transform.up);
+            Collider2D[] colliderHits = Physics2D.OverlapAreaAll(transform.position + gunSprite.transform.up, transform.position - gunSprite.transform.right * repulseRange - gunSprite.transform.up);
 
             Instantiate(
                 repulsorParticlesPrefab, 
-                Gun.transform.position - Gun.transform.right * 0.35f, 
-                Quaternion.Euler(0,0, Gun.transform.rotation.eulerAngles.z - 180));
+                gunSprite.transform.position - gunSprite.transform.right * 0.45f,
+                Quaternion.Euler(0,0, gunSprite.transform.rotation.eulerAngles.z - 180), player.transform);
 
             for (int i = 0; i < colliderHits.Length; i++)
             {
@@ -182,12 +193,21 @@ public class MagGun : MonoBehaviour {
                         Destroy(colliderHits[i].GetComponent<FixedJoint2D>());
                     }
 
-                    colliderHits[i].GetComponent<Rigidbody2D>().AddForce(-Gun.transform.right * repulseForce, ForceMode2D.Impulse);
+                    colliderHits[i].GetComponent<Rigidbody2D>().AddForce(-gunSprite.transform.right * repulseForce, ForceMode2D.Impulse);
+
+                    if (colliderHits[i].transform.childCount > 0)
+                    {
+                        Destroy(colliderHits[i].transform.GetChild(0).gameObject);
+                    }
                 }
             } 
 
             magJumpCooldownElapsed = 0;
-            //player.AddForce(-lookPos.normalized * magJumpForce, true);
+
+            if (player.inAir)
+            {
+                player.AddForce(-lookPos.normalized * magJumpForce, true);
+            }
         }
 
     }
