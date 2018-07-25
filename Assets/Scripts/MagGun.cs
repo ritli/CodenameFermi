@@ -9,6 +9,7 @@ public class MagGun : MonoBehaviour {
     private ParticleSystem attractorParticles;
     public GameObject attractParticlesPrefab;
     public GameObject repulsorParticlesPrefab;
+    public GameObject magGlow;
 
     public SpriteRenderer Gun;
 
@@ -130,6 +131,8 @@ public class MagGun : MonoBehaviour {
                     {
                         MagHits[i].gameObject.AddComponent<FixedJoint2D>().connectedBody = MagHits[firstIndex].GetComponent<Rigidbody2D>();
                     }
+
+                    Instantiate(magGlow, MagHits[i].transform, false);
                 }
             }
 
@@ -179,7 +182,7 @@ public class MagGun : MonoBehaviour {
                         Destroy(colliderHits[i].GetComponent<FixedJoint2D>());
                     }
 
-                    colliderHits[i].GetComponent<Rigidbody2D>().AddForce((colliderHits[i].transform.position- transform.position).normalized * repulseForce, ForceMode2D.Impulse);
+                    colliderHits[i].GetComponent<Rigidbody2D>().AddForce(-Gun.transform.right * repulseForce, ForceMode2D.Impulse);
                 }
             } 
 

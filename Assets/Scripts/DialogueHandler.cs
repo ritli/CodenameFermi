@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour {
 
+    public DialogueAsset asset;
+
     [Multiline]
     public string content;
     public TextMeshProUGUI textTemplate;
@@ -13,18 +15,82 @@ public class DialogueHandler : MonoBehaviour {
     public Image portrait;
 
     public float delay = 0.02f;
+    int currentDialogueIndex = 0;
+    private bool dialogueFinished = true;
+    bool dialogueOpen = false;
+    private Animator animator;
 
-    void Start () {
+    private void Start()
+    {
+        animator = GetComponent<Animator>();   
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1") && dialogueFinished)
+        {
+            if (asset.containers.Length-1 < currentDialogueIndex)
+            {
+                CloseDialogue();
+            }
+            else
+            {
+                if (!dialogueOpen)
+                {
+                    OpenDialogue();
+                }
+
+                if (asset.containers[currentDialogueIndex].continueDialogue)
+                {
+                    StartDialogue(currentDialogueIndex);
+                }
+                else
+                {
+                    CloseDialogue();
+                }
+            }
+        }
+    }
+
+    void OpenDialogue()
+    {
+        if (!dialogueOpen)
+        {
+            dialogueOpen = true;
+            animator.Play("Open");
+        }
+    }
+
+    void CloseDialogue()
+    {
+        if (dialogueOpen)
+        {
+            dialogueOpen = false;
+            animator.Play("Close");
+        }
+    }
+
+    void StartDialogue(int startIndex)
+    {
+        currentDialogueIndex = startIndex;
+        content = asset.containers[startIndex].content;
+
         StartCoroutine(Print());
-	}
-	
+
+        currentDialogueIndex++;
+    }
+
     IEnumerator Print()
     {
+        yield return new WaitForSeconds(0.5f);
+
+        dialogueFinished = false;
+
         int childCount = textPanel.childCount;
 
-        for (int i = 0; i < childCount; i++)
+        for (int i = childCount; i > 0; i--)
         {
-            Destroy(textPanel.GetChild(0));
+            Destroy(textPanel.GetChild(i-1).gameObject);
         }
 
         bool popupActive = false;
@@ -33,7 +99,6 @@ public class DialogueHandler : MonoBehaviour {
 
         for (int i = 0; i < content.Length; i++)
         {
-
             TextMeshProUGUI spawnedLetter = Instantiate(textTemplate, textPanel.transform);
 
             switch (content[i])
@@ -50,8 +115,6 @@ public class DialogueHandler : MonoBehaviour {
                     popupActive = !popupActive;
                     i++;
                     break;
-
-
                 default:
                     break;
             }
@@ -69,5 +132,7 @@ public class DialogueHandler : MonoBehaviour {
 
             yield return new WaitForSeconds(delay * waitMultiplier);
         }
+
+        dialogueFinished = true;
     }
 }

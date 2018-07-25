@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198334004293872052}
   - component: {fileID: 199871043479071670}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: CubeDestroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ ParticleSystem:
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0

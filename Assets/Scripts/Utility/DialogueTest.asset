@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: DialogueTest
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 0
+    content: Looks like /you've/ picked up a doodad!
+    continueDialogue: 1
+  - character: 0
+    content: '#Quick!#
+
+      Place it in the*3 /thingy/ *1and I''ll take care of it.'
+    continueDialogue: 1
