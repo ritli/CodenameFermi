@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class DialogueHandler : MonoBehaviour {
     public string content;
     public TextMeshProUGUI textTemplate;
     public Transform textPanel;
+    public Image portrait;
 
     public float delay = 0.02f;
 
@@ -18,6 +20,13 @@ public class DialogueHandler : MonoBehaviour {
 	
     IEnumerator Print()
     {
+        int childCount = textPanel.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            Destroy(textPanel.GetChild(0));
+        }
+
         bool popupActive = false;
         bool printBold = false;
         int waitMultiplier = 1;
