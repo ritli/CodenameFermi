@@ -109,6 +109,8 @@ public class Player : MonoBehaviour {
         //Movement is applied
         transform.Translate(Vector3.right * xVel * Time.deltaTime * collisionMultiplier);
 
+        animator.SetBool("Falling", jumpVelocity < 0);
+
         if (inAir || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandRight"))
         {
             gunSprite.color = Color.clear;

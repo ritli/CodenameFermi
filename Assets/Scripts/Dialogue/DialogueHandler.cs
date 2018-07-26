@@ -22,8 +22,11 @@ public class DialogueHandler : MonoBehaviour {
     bool dialogueOpen = false;
     private Animator animator;
 
+    Sprite[] noiseSprites;
+
     private void Start()
     {
+        noiseSprites = Resources.LoadAll<Sprite>("Portraits/Noise/");
         animator = GetComponent<Animator>();   
     }
 
@@ -44,7 +47,7 @@ public class DialogueHandler : MonoBehaviour {
                         OpenDialogue();
                     }
 
-                    if (asset.containers[currentDialogueIndex].continueDialogue)
+                    if (asset.containers[currentDialogueIndex-1].continueDialogue)
                     {
                         StartDialogue(currentDialogueIndex, asset);
                     }
@@ -82,6 +85,8 @@ public class DialogueHandler : MonoBehaviour {
     /// <param name="startIndex"></param>
     public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
+        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString());
+
         dialogueActive = true;
 
         asset = inAsset;
@@ -98,16 +103,25 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator Print()
     {
-        dialogueFinished = false;
-
-        yield return new WaitForSeconds(0.5f);
-
         int childCount = textPanel.childCount;
 
         for (int i = childCount; i > 0; i--)
         {
-            Destroy(textPanel.GetChild(i-1).gameObject);
+            Destroy(textPanel.GetChild(i - 1).gameObject);
         }
+
+        dialogueFinished = false;
+
+        int frameCount = 16;
+        Sprite actualPortrait = portrait.sprite;
+
+        for (int i = 0; i < frameCount; i++)
+        {
+            portrait.sprite = noiseSprites[i % noiseSprites.Length];
+            yield return new WaitForSeconds(0.5f/frameCount);
+        }
+
+        portrait.sprite = actualPortrait;
 
         bool popupActive = false;
         bool printBold = false;

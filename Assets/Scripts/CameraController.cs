@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
 
     void GetPlayerPosition(ref Vector3 position)
     {
-        position = target.position;
+        position = target.position + Vector3.up * 2f;
         position.z = m_zZoomLevel;
     }
 

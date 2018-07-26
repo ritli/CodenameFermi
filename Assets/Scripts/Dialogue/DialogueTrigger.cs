@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour {
 
-    public DialogueAsset dialogueAsset; 
+    public DialogueAsset dialogueAsset;
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+    new private BoxCollider2D collider;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -22,4 +16,6 @@ public class DialogueTrigger : MonoBehaviour {
             GetComponent<Collider2D>().enabled = false;
         }
     }
+
+
 }
