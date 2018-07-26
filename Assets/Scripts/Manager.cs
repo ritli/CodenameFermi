@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour {
 
     Player player;
     new CameraController camera;
+    private DialogueHandler dialogue;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Manager : MonoBehaviour {
     {
         camera = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
+        dialogue = GetComponentInChildren<DialogueHandler>(true);
     }
 
     void Start() {
@@ -48,6 +50,14 @@ public class Manager : MonoBehaviour {
         get
         {
             return instance.camera;
+        }
+    }
+
+    public static DialogueHandler GetDialogue
+    {
+        get
+        {
+            return instance.dialogue;
         }
     }
 }

@@ -16,6 +16,8 @@ public class DialogueHandler : MonoBehaviour {
 
     public float delay = 0.02f;
     int currentDialogueIndex = 0;
+
+    bool dialogueActive = false; 
     private bool dialogueFinished = true;
     bool dialogueOpen = false;
     private Animator animator;
@@ -27,26 +29,30 @@ public class DialogueHandler : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && dialogueFinished)
+        if (dialogueActive)
         {
-            if (asset.containers.Length-1 < currentDialogueIndex)
+            if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
-                CloseDialogue();
-            }
-            else
-            {
-                if (!dialogueOpen)
+                if (asset.containers.Length - 1 < currentDialogueIndex)
                 {
-                    OpenDialogue();
-                }
-
-                if (asset.containers[currentDialogueIndex].continueDialogue)
-                {
-                    StartDialogue(currentDialogueIndex);
+                    CloseDialogue();
                 }
                 else
                 {
-                    CloseDialogue();
+                    if (!dialogueOpen)
+                    {
+                        OpenDialogue();
+                    }
+
+                    if (asset.containers[currentDialogueIndex].continueDialogue)
+                    {
+                        StartDialogue(currentDialogueIndex, asset);
+                    }
+                    else
+                    {
+                        dialogueActive = false;
+                        CloseDialogue();
+                    }
                 }
             }
         }
@@ -70,8 +76,18 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
-    void StartDialogue(int startIndex)
+    /// <summary>
+    /// Starts dialogue and increments dialogueindex by 1.
+    /// </summary>
+    /// <param name="startIndex"></param>
+    public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
+        dialogueActive = true;
+
+        asset = inAsset;
+
+        OpenDialogue();
+
         currentDialogueIndex = startIndex;
         content = asset.containers[startIndex].content;
 
@@ -82,9 +98,9 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator Print()
     {
-        yield return new WaitForSeconds(0.5f);
-
         dialogueFinished = false;
+
+        yield return new WaitForSeconds(0.5f);
 
         int childCount = textPanel.childCount;
 
