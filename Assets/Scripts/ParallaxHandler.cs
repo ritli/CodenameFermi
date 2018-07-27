@@ -22,10 +22,11 @@ public class ParallaxHandler : MonoBehaviour
 
     public ParallaxLayerData[] layers;
 
+
     [ContextMenu("Auto Set Layers")]
     public void SetLayers()
     {
-        layers = new ParallaxLayerData[transform.childCount];
+        ParallaxLayerData[] layers = new ParallaxLayerData[transform.childCount];
 
         for (int i = 0; i < layers.Length; i++)
         {
@@ -44,7 +45,18 @@ public class ParallaxHandler : MonoBehaviour
 
             layers[i].width = xMax - xMin;
             layers[i].height = yMax - yMin;
+            
+            
+            //Previously set multiplier is retained, to avoid having to set new each time you change width/height
+            if (this.layers.Length > i - 1)
+            {
+                layers[i].xMultiplier = this.layers[i].xMultiplier;
+                layers[i].yMultiplier = this.layers[i].yMultiplier;
+            }
+
         }
+
+        this.layers = layers;
     }
 
     void Start()
@@ -69,14 +81,17 @@ public class ParallaxHandler : MonoBehaviour
 
             layer.transform.position += (Vector3)(camVelocity * new Vector2(layers[i].xMultiplier, layers[i].yMultiplier));
 
-            if (Mathf.Abs(layer.transform.position.x - camera.transform.position.x) > layers[i].width/2f)
+            if (Mathf.Abs(layer.transform.position.x - camera.transform.position.x) > layers[i].width/4f)
             {
                 layer.transform.position += Vector3.right * Mathf.Sign(camera.transform.position.x - layer.transform.position.x) * layers[i].width / 2f;
             }
-            if (Mathf.Abs(transform.position.y - camera.transform.position.y) > 20f)
+
+            /* Vertical Tiling, not used at the moment
+            if (Mathf.Abs(transform.position.y - camera.transform.position.y) > 1000f)
             {
                 transform.position += Vector3.up * Mathf.Sign(camera.transform.position.y - transform.position.y) * 30;
             }
+            */
         }
     }
 }

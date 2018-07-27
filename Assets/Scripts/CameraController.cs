@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     bool m_TimedLookActive = false;
     Vector3 m_timedLookPos;
 
+    public Vector3 targetOffset;
+
     Transform target;
     new Camera camera;
     public bool m_interpolateCamera = true;
@@ -71,7 +73,7 @@ public class CameraController : MonoBehaviour
 
     void GetPlayerPosition(ref Vector3 position)
     {
-        position = target.position + Vector3.up * 2f;
+        position = target.position + targetOffset;
         position.z = m_zZoomLevel;
     }
 

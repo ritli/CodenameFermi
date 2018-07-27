@@ -156,19 +156,6 @@ public class MagGun : MonoBehaviour {
     void MagPullUpdate()
     {
         magAttachTimeElapsed += Time.deltaTime;
-        /*
-        if (attachedBody && magAttachTimeElapsed > magAttachTime)
-        {
-            attachedBody.gravityScale = 1f;
-            attachedBody = null;
-        }
-
-        if (attachedBody)
-        {
-            attachedBody.gravityScale = 0.4f;
-            attachedBody.AddForce((mousePos - attachedBody.transform.position).normalized * magPullForce, ForceMode2D.Impulse);
-        }
-        */
     }
 
     void MagRepulse()
