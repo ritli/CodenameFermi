@@ -33,7 +33,6 @@ public class CameraController : MonoBehaviour
         m_initialZoom = camera.orthographicSize;
         m_targetZoom = m_initialZoom;
 
-
         //Cursor.visible = false;
     }
 

@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour {
     Player player;
     new CameraController camera;
     private DialogueHandler dialogue;
+    private FadeHandler fadeHandler;
 
     void Awake()
     {
@@ -28,14 +29,18 @@ public class Manager : MonoBehaviour {
         camera = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         dialogue = GetComponentInChildren<DialogueHandler>(true);
+        fadeHandler = GetComponentInChildren<FadeHandler>(true);
+        fadeHandler.gameObject.SetActive(true);
     }
 
     void Start() {
-
+        StartCoroutine(StartScene());
     }
 
-    void Update() {
-
+    IEnumerator StartScene()
+    {
+        yield return new WaitForSeconds(0.5f);
+        fadeHandler.FadeIn(1f, Color.white);
     }
 
     public static Player GetPlayer{
@@ -58,6 +63,14 @@ public class Manager : MonoBehaviour {
         get
         {
             return instance.dialogue;
+        }
+    }
+
+    public static FadeHandler GetFade
+    {
+        get
+        {
+            return instance.fadeHandler;
         }
     }
 }
