@@ -41,6 +41,8 @@ public class Player : MonoBehaviour {
 
     [HideInInspector]
     public bool facingRight, moving;
+    private float autoRunTime;
+    private Vector2 autoRunVector;
 
     void Start () {
         animator = transform.Find("Sprite").GetComponent<Animator>();
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour {
 
         InputUpdate();
         MovementUpdate();
+        AnimationUpdate();
         JumpUpdate();
 
         if (inAir != inAirOld && !inAir)
@@ -109,6 +112,56 @@ public class Player : MonoBehaviour {
         //Movement is applied
         transform.Translate(Vector3.right * xVel * Time.deltaTime * collisionMultiplier);
 
+       
+    }
+
+    void InputUpdate()
+    {
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (autoRunTime > 0)
+        {
+            input.x = autoRunVector.normalized.x;
+            autoRunTime -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetButtonDown("Jump") && OnGround)
+            {
+                Jump();
+            }
+
+        }
+    }
+
+
+    void JumpUpdate()
+    {
+        if (isJumping && jumptime < jumptimeMax)
+        {
+            transform.Translate(Vector2.up * (jumpVelocity * Time.deltaTime + 0.5f * gravity * Time.deltaTime * Time.deltaTime));
+            jumpVelocity += gravity * Time.deltaTime;
+
+            jumptime += Time.deltaTime;
+        }
+        else
+        {
+            if (inAir)
+            {
+                transform.Translate(Vector2.up * (jumpVelocity * Time.deltaTime + 0.5f * gravity * Time.deltaTime * Time.deltaTime));
+                jumpVelocity += gravity * Time.deltaTime;
+            }
+            else
+            {
+                jumpVelocity = 0;
+            }
+
+            isJumping = false;
+        }
+    }
+
+    void AnimationUpdate()
+    {
         animator.SetBool("Falling", jumpVelocity < 0);
 
         if (inAir || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandRight"))
@@ -130,7 +183,7 @@ public class Player : MonoBehaviour {
             {
                 animator.SetInteger("Dir", 1);
             }
-            animator.SetBool("FacingRight" , false);
+            animator.SetBool("FacingRight", false);
 
             gunSprite.flipY = false;
             moving = true;
@@ -182,39 +235,10 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void InputUpdate()
+    public void AutoRun(float time, Vector2 dir)
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        if (Input.GetButtonDown("Jump") && OnGround){
-            Jump();
-        }
-    }
-
-
-    void JumpUpdate()
-    {
-        if (isJumping && jumptime < jumptimeMax)
-        {
-            transform.Translate(Vector2.up * (jumpVelocity * Time.deltaTime + 0.5f * gravity * Time.deltaTime * Time.deltaTime));
-            jumpVelocity += gravity * Time.deltaTime;
-
-            jumptime += Time.deltaTime;
-        }
-        else
-        {
-            if (inAir)
-            {
-                transform.Translate(Vector2.up * (jumpVelocity * Time.deltaTime + 0.5f * gravity * Time.deltaTime * Time.deltaTime));
-                jumpVelocity += gravity * Time.deltaTime;
-            }
-            else
-            {
-                jumpVelocity = 0;
-            }
-
-            isJumping = false;
-        }
+        autoRunTime = time;
+        autoRunVector = dir;
     }
 
     private void Jump()
@@ -239,7 +263,7 @@ public class Player : MonoBehaviour {
         if (overwrite)
         {
             inAir = true;
-            xVel = force.x;
+            xVel += force.x;
             jumpVelocity = force.y;
         }
         else
@@ -278,7 +302,6 @@ public class Player : MonoBehaviour {
     {
         get
         {
-            print(new Vector2(xVel, jumpVelocity));
             return new Vector2(xVel, jumpVelocity);
         }
     }

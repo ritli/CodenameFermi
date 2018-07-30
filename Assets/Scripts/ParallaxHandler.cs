@@ -12,7 +12,7 @@ public struct ParallaxLayerData
 
 public class ParallaxHandler : MonoBehaviour
 {
-    Camera camera;
+    new Camera camera;
 
     Vector3 cameraLastPos;
     Vector2 camVelocity;

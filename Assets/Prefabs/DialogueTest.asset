@@ -19,5 +19,5 @@ MonoBehaviour:
     content: Ok mom.
     continueDialogue: 1
   - character: 2
-    content: Waddup *3 /FUQBOIIZ/ *1
+    content: 'Waddup *3 /FUQBOIIZ/ *1 '
     continueDialogue: 0

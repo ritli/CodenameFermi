@@ -24,6 +24,9 @@ public class DialogueHandler : MonoBehaviour {
 
     Sprite[] noiseSprites;
 
+    [HideInInspector]
+    public GameObject trigger;
+
     private void Start()
     {
         noiseSprites = Resources.LoadAll<Sprite>("Portraits/Noise/");
@@ -76,6 +79,11 @@ public class DialogueHandler : MonoBehaviour {
         {
             dialogueOpen = false;
             animator.Play("Close");
+
+            if (trigger)
+            {
+                trigger.GetComponent<ITrigger>().OnEventFinished();
+            }
         }
     }
 
