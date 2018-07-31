@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GroundTop2
+  m_Name: Tiles_Wall 1_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300002, guid: c3803410de06e584a9225d7c5b8e9e9a, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 49218d37225bbff4fb6f3c3765d73476, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
