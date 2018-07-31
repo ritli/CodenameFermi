@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4798198130912746}
   - component: {fileID: 198234355316108022}
   - component: {fileID: 199760171944401726}
+  - component: {fileID: 114235807127635932}
   m_Layer: 0
   m_Name: Attractor
   m_TagString: Untagged
@@ -65,13 +66,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1588433629127764}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.3028357, y: -1.2295066, z: -1.6728516}
+  m_LocalPosition: {x: -4.74, y: 2.81, z: -1.6728516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4572133693364924}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114235807127635932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1588433629127764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecdab964e9cb414db193db5219d9138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198234355316108022
 ParticleSystem:
   m_ObjectHideFlags: 1

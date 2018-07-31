@@ -6,7 +6,7 @@ public class MagGun : MonoBehaviour {
     private Player player;
     private Rigidbody2D playerBody;
     private Camera cam;
-    private ParticleSystem attractorParticles;
+    private MultiParticleHandler attractorParticles;
     public GameObject attractParticlesPrefab;
     public GameObject repulsorParticlesPrefab;
     public GameObject attachParticlesPrefab;
@@ -21,7 +21,7 @@ public class MagGun : MonoBehaviour {
     float magJumpCooldownElapsed = 0;
 
     bool canMagPull = true, magPulling = false;
-
+    private bool propFlying;
     public float magRange = 5f;
     public float magAttachTime = 0.2f;
     public float magPullForce = 1f;
@@ -34,14 +34,15 @@ public class MagGun : MonoBehaviour {
     public float repulseRange = 5;
     public float repulseForce = 10;
 
+
     void Start() {
         gunAnimator = gunSprite.GetComponent<Animator>();
         player = GetComponentInParent<Player>();
         playerBody = GetComponentInParent<Rigidbody2D>();
         cam = Camera.main;
 
-        attractorParticles = Instantiate(attractParticlesPrefab, transform.position, attractParticlesPrefab.transform.rotation).GetComponent<ParticleSystem>();
-        attractorParticles.gameObject.SetActive(false);
+        attractorParticles = Instantiate(attractParticlesPrefab, transform.position, attractParticlesPrefab.transform.rotation).GetComponent<MultiParticleHandler>();
+
     }
 
     void Update() {
@@ -73,7 +74,6 @@ public class MagGun : MonoBehaviour {
             {
                 gunAnimator.Play("Charge");
                 attractorParticles.transform.position = mousePos;
-                attractorParticles.gameObject.SetActive(true);
                 MagHitUpdate();
             }
         }
@@ -98,25 +98,37 @@ public class MagGun : MonoBehaviour {
     void CancelMagPull(bool resetCanPull)
     {
         magPulling = !resetCanPull;
-
-        attractorParticles.gameObject.SetActive(false);
         canMagPull = resetCanPull;
     }
 
     void MagHitUpdate()
     {
         magPulling = true;
+        propFlying = false;
 
         Collider2D[] MagHits;
 
         MagHits = Physics2D.OverlapCircleAll(mousePos, magRange, obstacleAndMagLayermask);
 
-        for (int i = 0; i < MagHits.Length; i++)
-        {
-            if (MagHits[i].CompareTag("Magnetic"))
-            {
-                MagHits[i].GetComponent<Rigidbody2D>().AddForce((mousePos - MagHits[i].transform.position).normalized * magPullForce, ForceMode2D.Impulse);
+        Vector3 distance = mousePos - transform.position;
 
+        //Check for propflying
+        if (Mathf.Abs(distance.x) < 0.5f && distance.y > -1.5f && distance.y < -0.1f)
+        {
+            propFlying = true;
+
+        }
+        else
+        {
+            propFlying = false;
+
+            for (int i = 0; i < MagHits.Length; i++)
+            {
+                if (MagHits[i].CompareTag("Magnetic"))
+                {
+                    MagHits[i].GetComponent<Rigidbody2D>().AddForce((mousePos - MagHits[i].transform.position).normalized * magPullForce, ForceMode2D.Impulse);
+
+                }
             }
         }
 
@@ -155,6 +167,19 @@ public class MagGun : MonoBehaviour {
 
     void MagPullUpdate()
     {
+        if (magPulling && !propFlying)
+        {
+            attractorParticles.transform.localScale = Vector3.Lerp(attractorParticles.transform.localScale, Vector3.one, Time.deltaTime * 5f);
+
+            attractorParticles.SetEmission(true);
+        }
+
+        else
+        {
+            attractorParticles.transform.localScale = Vector3.Lerp(attractorParticles.transform.localScale, Vector3.zero, Time.deltaTime * 15f);
+            attractorParticles.SetEmission(false);
+        }
+
         magAttachTimeElapsed += Time.deltaTime;
     }
 

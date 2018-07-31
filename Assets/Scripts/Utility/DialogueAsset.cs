@@ -17,7 +17,13 @@ public struct DialogueContainer
     public bool continueDialogue;
 }
 
+
+
 public class DialogueAsset : ScriptableObject {
+
+    [Header("# = Bold")]
+    [Header("*NUMBER = Set Text Speed")]
+    [Header("/ = Popup")]
 
     public DialogueContainer[] containers;
 

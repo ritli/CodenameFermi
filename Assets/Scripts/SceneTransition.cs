@@ -45,6 +45,14 @@ public class SceneTransition : MonoBehaviour {
         }
     }
 
+    public static string GetSceneName
+    {
+        get
+        {
+            return SceneManager.GetActiveScene().ToString();
+        }
+    }
+
     IEnumerator ChangeScene(string sceneName, float transitionTime)
     {
         yield return new WaitForEndOfFrame();

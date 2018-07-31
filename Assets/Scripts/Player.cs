@@ -18,6 +18,9 @@ public class Player : MonoBehaviour {
     public float airControl = 0.2f;
     public float jumptimeMax = 0.6f, gravity = -1;
 
+    [Header("Control Parameters")]
+    public bool disableInput = false;
+
     private Animator animator;
     new Rigidbody2D rigidbody;
     private SpriteRenderer sprite;
@@ -44,7 +47,8 @@ public class Player : MonoBehaviour {
     private float autoRunTime;
     private Vector2 autoRunVector;
 
-    void Start () {
+    void Start ()
+    {
         animator = transform.Find("Sprite").GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>();
@@ -111,29 +115,22 @@ public class Player : MonoBehaviour {
 
         //Movement is applied
         transform.Translate(Vector3.right * xVel * Time.deltaTime * collisionMultiplier);
-
-       
     }
 
     void InputUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        input = disableInput ? Vector2.zero : new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (autoRunTime > 0)
         {
             input.x = autoRunVector.normalized.x;
             autoRunTime -= Time.deltaTime;
         }
-        else
+        else if(Input.GetButtonDown("Jump") && OnGround && !disableInput)
         {
-            if (Input.GetButtonDown("Jump") && OnGround)
-            {
-                Jump();
-            }
-
+            Jump();
         }
     }
-
 
     void JumpUpdate()
     {
@@ -164,62 +161,23 @@ public class Player : MonoBehaviour {
     {
         animator.SetBool("Falling", jumpVelocity < 0);
 
-        if (inAir || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("a_PlayerLandRight"))
+        if (Mathf.Abs(xVel) > 0.15f)
         {
-            gunSprite.color = Color.clear;
+            int direction = inAir ? 2 : 1;
+            animator.SetInteger("Dir", direction);
+
+            facingRight = xVel > 0;
+            animator.SetBool("FacingRight", facingRight);
+            gunSprite.sortingOrder = facingRight ? sprite.sortingOrder + 1 : sprite.sortingOrder - 1;
+            gunSprite.flipY = !facingRight;
+            moving = facingRight;
         }
         else
         {
-            gunSprite.color = Color.white;
-        }
-
-        if (xVel < -0.15f)
-        {
-            if (inAir)
-            {
-                animator.SetInteger("Dir", 2);
-            }
-            else
-            {
-                animator.SetInteger("Dir", 1);
-            }
-            animator.SetBool("FacingRight", false);
-
-            gunSprite.flipY = false;
-            moving = true;
-            facingRight = false;
-            gunSprite.sortingOrder = sprite.sortingOrder - 1;
-        }
-        else if (xVel > 0.15f)
-        {
-            if (inAir)
-            {
-                animator.SetInteger("Dir", 2);
-            }
-            else
-            {
-                animator.SetInteger("Dir", 1);
-            }
-            gunSprite.flipY = true;
-            animator.SetBool("FacingRight", true);
-
-            moving = true;
-            facingRight = true;
-
-            gunSprite.sortingOrder = sprite.sortingOrder + 1;
-        }
-        else
-        {
+            int direction = inAir ? 2 : 0;
             moving = false;
-            if (inAir)
-            {
-                animator.SetInteger("Dir", 2);
-            }
-            else
-            {
-                animator.SetInteger("Dir", 0);
-            }
 
+            animator.SetInteger("Dir", direction);
             animator.SetBool("FacingRight", lookPos.x > 0);
 
             if (lookPos.x > 0)
