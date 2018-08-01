@@ -29,6 +29,8 @@ public class AudioClipPlayer : MonoBehaviour
 
     public void PlayRandomClip(string name)
     {
+        print(name);
+
         for (int i = 0; i < audioContainers.Length; i++)
         {
             if (audioContainers[i].name == name)

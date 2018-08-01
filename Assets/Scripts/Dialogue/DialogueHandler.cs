@@ -21,7 +21,7 @@ public class DialogueHandler : MonoBehaviour {
     private bool dialogueFinished = true;
     bool dialogueOpen = false;
     private Animator animator;
-
+    private AudioClipPlayer audioPlayer;
     Sprite[] noiseSprites;
 
     [HideInInspector]
@@ -30,7 +30,8 @@ public class DialogueHandler : MonoBehaviour {
     private void Start()
     {
         noiseSprites = Resources.LoadAll<Sprite>("Portraits/Noise/");
-        animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();
+        audioPlayer = GetComponent<AudioClipPlayer>();
     }
 
     private void Update()
@@ -184,6 +185,12 @@ public class DialogueHandler : MonoBehaviour {
             else
             {
                 Destroy(spawnedLetter);
+            }
+
+
+            if (i % 1 == 0 && content[i] != ' ')
+            {
+                audioPlayer.PlayRandomClip(asset.containers[currentDialogueIndex - 1].character.ToString());
             }
 
             //Wait between letters happens here
