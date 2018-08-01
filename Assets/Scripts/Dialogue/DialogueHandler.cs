@@ -83,6 +83,7 @@ public class DialogueHandler : MonoBehaviour {
             if (trigger)
             {
                 trigger.GetComponent<ITrigger>().OnEventFinished();
+                trigger = null;
             }
         }
     }
@@ -113,6 +114,7 @@ public class DialogueHandler : MonoBehaviour {
     {
         int childCount = textPanel.childCount;
 
+        //Clear text panel to prepare for new text
         for (int i = childCount; i > 0; i--)
         {
             Destroy(textPanel.GetChild(i - 1).gameObject);
@@ -123,10 +125,14 @@ public class DialogueHandler : MonoBehaviour {
         int frameCount = 16;
         Sprite actualPortrait = portrait.sprite;
 
-        for (int i = 0; i < frameCount; i++)
+        //Checks if current dialogue is first one or if the character that last spoke is the same one that's speaking now
+        if (currentDialogueIndex == 0 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex].character)
         {
-            portrait.sprite = noiseSprites[i % noiseSprites.Length];
-            yield return new WaitForSeconds(0.5f/frameCount);
+            for (int i = 0; i < frameCount; i++)
+            {
+                portrait.sprite = noiseSprites[i % noiseSprites.Length];
+                yield return new WaitForSeconds(0.5f/frameCount);
+            }
         }
 
         portrait.sprite = actualPortrait;
@@ -137,8 +143,10 @@ public class DialogueHandler : MonoBehaviour {
 
         for (int i = 0; i < content.Length; i++)
         {
+            //Spawn the letter
             TextMeshProUGUI spawnedLetter = Instantiate(textTemplate, textPanel.transform);
 
+            //Check for special symbols, used for text effects
             switch (content[i])
             {
                 case '#':
@@ -157,17 +165,28 @@ public class DialogueHandler : MonoBehaviour {
                     break;
             }
 
-            spawnedLetter.text = content[i].ToString();
-            if (popupActive)
+            //Check if a special letter is last, if so last letter should not be printed
+            if (i < content.Length)
             {
-                spawnedLetter.GetComponent<Animator>().enabled = true;
-                spawnedLetter.GetComponent<Animator>().Play("PopUp");
+                spawnedLetter.text = content[i].ToString();
+
+                if (popupActive)
+                {
+                    spawnedLetter.GetComponent<Animator>().enabled = true;
+                    spawnedLetter.GetComponent<Animator>().Play("PopUp");
+                }
+                if (printBold)
+                {
+                    spawnedLetter.fontSize = spawnedLetter.fontSize + 8;
+                }
+
             }
-            if (printBold)
+            else
             {
-                spawnedLetter.fontSize = spawnedLetter.fontSize + 8;
+                Destroy(spawnedLetter);
             }
 
+            //Wait between letters happens here
             yield return new WaitForSeconds(delay * waitMultiplier);
         }
 

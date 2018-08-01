@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public struct CameraLookSettings
+{
+    public float time, zoomLevel;
+    public Vector3 lookPosition;
+    public bool addZoomLevelToCurrentZoom;
+}
+
 public class CameraController : MonoBehaviour
 {
     float m_initialZoom;
@@ -123,6 +130,18 @@ public class CameraController : MonoBehaviour
         m_timedLookPos = position;
         StartCoroutine(TimedLookRoutine(time, zoomLevel));
     }
+
+    public void TimedLook(CameraLookSettings settings)
+    {
+        m_timedLookPos = settings.lookPosition;
+
+        if (settings.addZoomLevelToCurrentZoom)
+        {
+            settings.zoomLevel += m_initialZoom;
+        }
+
+        StartCoroutine(TimedLookRoutine(settings.time, settings.zoomLevel));
+}
 
     IEnumerator TimedLookRoutine(float time, float zoomLevel, bool unscaled)
     {

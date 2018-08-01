@@ -10,6 +10,9 @@ public class Manager : MonoBehaviour {
     private DialogueHandler dialogue;
     private FadeHandler fadeHandler;
 
+    //Special object only for dialogue at scene start
+    private DialogueTriggerSceneStart startDialogue;
+
     void Awake()
     {
         if (FindObjectsOfType<Manager>().Length > 1)
@@ -24,6 +27,10 @@ public class Manager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Finds and sets all Manager variables, 
+    /// DOES NOT INIT THE VARIABLES THEMSELVES SO DONT RUN START() DEPENDENT CODE HERE
+    /// </summary>
     void Init()
     {
         camera = FindObjectOfType<CameraController>();
@@ -31,16 +38,35 @@ public class Manager : MonoBehaviour {
         dialogue = GetComponentInChildren<DialogueHandler>(true);
         fadeHandler = GetComponentInChildren<FadeHandler>(true);
         fadeHandler.gameObject.SetActive(true);
+
+        startDialogue = FindObjectOfType<DialogueTriggerSceneStart>();
     }
 
     void Start() {
-        StartCoroutine(StartScene());
+        StartCoroutine(InitRoutine());
     }
 
-    IEnumerator StartScene()
+    public void StartScene()
     {
-        yield return new WaitForSeconds(0.5f);
         fadeHandler.FadeIn(1f, Color.white);
+    }
+
+    /// <summary>
+    /// A routine run at scene start after all objects have been initialized
+    /// </summary>
+    IEnumerator InitRoutine()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        if (startDialogue)
+        {
+            startDialogue.StartTrigger();
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+            StartScene();
+        }
     }
 
     public static Player GetPlayer{
