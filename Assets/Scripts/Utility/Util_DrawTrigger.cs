@@ -12,8 +12,8 @@ public class Util_DrawTrigger : MonoBehaviour {
     {
         if (collider)
         {
-            Gizmos.color = color;
-            Gizmos.DrawWireCube(transform.position + (Vector3)collider.offset, collider.size * transform.localScale);
+            Gizmos.color = new Color(color.r, color.g, color.b, 0.5f);
+            Gizmos.DrawCube(transform.position + (Vector3)collider.offset, collider.size * transform.localScale);
         }
         else
         {

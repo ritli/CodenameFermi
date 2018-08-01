@@ -20,6 +20,17 @@ public class AudioClipPlayer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void PlayRandomClipPrivate(string name)
+    {
+        for (int i = 0; i < audioContainers.Length; i++)
+        {
+            if (audioContainers[i].name == name)
+            {
+                audioSource.PlayOneShot(audioContainers[i].clips[Random.Range(0, audioContainers[i].clips.Length)]);
+            }
+        }
+    }
+
     public void PlayRandomClip()
     {
         int rand = Random.Range(0, audioContainers.Length);
@@ -29,8 +40,6 @@ public class AudioClipPlayer : MonoBehaviour
 
     public void PlayRandomClip(string name)
     {
-        print(name);
-
         for (int i = 0; i < audioContainers.Length; i++)
         {
             if (audioContainers[i].name == name)

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public bool disableInput = false;
 
     private Animator animator;
+    AudioClipPlayer animatorAudio;
     new Rigidbody2D rigidbody;
     private SpriteRenderer sprite;
     private SpriteRenderer gunSprite;
@@ -54,7 +55,9 @@ public class Player : MonoBehaviour {
         sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         gunSprite = sprite.transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
         cam = Camera.main;
-	}
+        animatorAudio = animator.GetComponent<AudioClipPlayer>();
+
+    }
 	
 	void Update () {
         lookPos = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -206,6 +209,16 @@ public class Player : MonoBehaviour {
             isJumping = true;
             jumpVelocity = jumpForce;
             jumptime = 0;
+
+            animatorAudio.PlayRandomClip("Jump");
+
+            if (facingRight) {
+                animator.Play("a_PlayerJumpRight");
+            }
+            else
+            {
+                animator.Play("a_PlayerJumpLeft");
+            }
         }
     }
 

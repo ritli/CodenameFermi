@@ -12,12 +12,6 @@ MonoBehaviour:
   m_Name: DialogueTest
   m_EditorClassIdentifier: 
   containers:
-  - character: 0
-    content: Looks like /you've/ picked up a doodad!
-    continueDialogue: 1
   - character: 1
-    content: Ok mom.
-    continueDialogue: 1
-  - character: 2
-    content: 'Waddup *3 /FUQBOIIZ/ *1 '
+    content: doot
     continueDialogue: 1

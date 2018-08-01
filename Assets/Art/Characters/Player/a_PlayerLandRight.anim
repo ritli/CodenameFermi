@@ -28,7 +28,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.041666668
-        value: {x: 0, y: -0.065, z: 0}
+        value: {x: 0, y: -0.0034, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -79,7 +79,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.041666668
-        value: {x: 1, y: 0.8808, z: 1}
+        value: {x: 1, y: 1.0039358, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -155,7 +155,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -217,7 +217,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.041666668
-        value: -0.065
+        value: -0.0034
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -328,7 +328,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.041666668
-        value: 0.8808
+        value: 1.0039358
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -449,4 +449,11 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayRandomClipPrivate
+    data: Land
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

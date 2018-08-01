@@ -7,13 +7,25 @@ public class MagGun : MonoBehaviour {
     private Rigidbody2D playerBody;
     private Camera cam;
     private MultiParticleHandler attractorParticles;
+
+    [Header("References")]
     public GameObject attractParticlesPrefab;
     public GameObject repulsorParticlesPrefab;
     public GameObject attachParticlesPrefab;
     public GameObject magGlow;
-
     public SpriteRenderer gunSprite;
+
     Animator gunAnimator;
+
+    [Header("Audio")]
+    public AudioClip magLoop;
+    public AudioClip magStart;
+    public AudioClip magStop;
+    public float volume;
+
+    new AudioSource audio;
+
+    [Header("Vars")]
 
     public float magJumpForce = 1f;
     public float magJumpRange = 2f;
@@ -40,6 +52,8 @@ public class MagGun : MonoBehaviour {
         player = GetComponentInParent<Player>();
         playerBody = GetComponentInParent<Rigidbody2D>();
         cam = Camera.main;
+
+        audio = GetComponent<AudioSource>();
 
         attractorParticles = Instantiate(attractParticlesPrefab, transform.position, attractParticlesPrefab.transform.rotation).GetComponent<MultiParticleHandler>();
 
@@ -165,6 +179,8 @@ public class MagGun : MonoBehaviour {
         magAttachTimeElapsed = 0;
     }
 
+    bool magStateSwapped;
+
     void MagPullUpdate()
     {
         if (magPulling && !propFlying)
@@ -172,12 +188,28 @@ public class MagGun : MonoBehaviour {
             attractorParticles.transform.localScale = Vector3.Lerp(attractorParticles.transform.localScale, Vector3.one, Time.deltaTime * 5f);
 
             attractorParticles.SetEmission(true);
+
+            if (!magStateSwapped)
+            {
+                audio.PlayOneShot(magStart, volume);
+                audio.clip = magLoop;
+                audio.Play((ulong)0.5);
+                magStateSwapped = true;
+            }
         }
 
         else
         {
             attractorParticles.transform.localScale = Vector3.Lerp(attractorParticles.transform.localScale, Vector3.zero, Time.deltaTime * 15f);
             attractorParticles.SetEmission(false);
+
+            if (magStateSwapped)
+            {
+                audio.Stop();
+                audio.PlayOneShot(magStop, volume);
+
+                magStateSwapped = false;
+            }
         }
 
         magAttachTimeElapsed += Time.deltaTime;

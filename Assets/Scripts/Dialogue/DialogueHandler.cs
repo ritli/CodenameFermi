@@ -188,7 +188,7 @@ public class DialogueHandler : MonoBehaviour {
             }
 
 
-            if (i % 1 == 0 && content[i] != ' ')
+            if (i % 1 == 0 && content[i] != ' ' && content[i] != '\'')
             {
                 audioPlayer.PlayRandomClip(asset.containers[currentDialogueIndex - 1].character.ToString());
             }
