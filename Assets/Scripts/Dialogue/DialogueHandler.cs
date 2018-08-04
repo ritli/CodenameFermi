@@ -95,7 +95,7 @@ public class DialogueHandler : MonoBehaviour {
     /// <param name="startIndex"></param>
     public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
-        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString());
+        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
 
         dialogueActive = true;
 

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.U2D;
 
+[System.Serializable]
 public struct CameraLookSettings
 {
     public float time, zoomLevel;
@@ -25,9 +27,13 @@ public class CameraController : MonoBehaviour
 
     public Vector3 targetOffset;
 
+    PixelPerfectCamera pixelCamera;
+    private Vector2 m_initialRes, m_targetRes;
+
     Transform target;
     new Camera camera;
     public bool m_interpolateCamera = true;
+
 
     public float m_zZoomLevel;
 
@@ -40,7 +46,11 @@ public class CameraController : MonoBehaviour
         m_initialZoom = camera.orthographicSize;
         m_targetZoom = m_initialZoom;
 
+        pixelCamera = GetComponent<PixelPerfectCamera>();
+        m_initialRes = new Vector2(pixelCamera.refResolutionX, pixelCamera.refResolutionY);
+        m_targetRes = m_initialRes;
         //Cursor.visible = false;
+
     }
 
 
@@ -64,7 +74,12 @@ public class CameraController : MonoBehaviour
 
     void UpdateZoom()
     {
-        camera.orthographicSize = Mathf.SmoothStep(camera.orthographicSize, m_targetZoom, Time.unscaledDeltaTime * m_zoomSpeed);
+        //pixelCamera.refResolutionX = (int)Mathf.Lerp(pixelCamera.refResolutionX, m_targetRes.x, Time.unscaledDeltaTime * m_zoomSpeed);
+        //pixelCamera.refResolutionY = (int)Mathf.Lerp(pixelCamera.refResolutionX, m_targetRes.y, Time.unscaledDeltaTime * m_zoomSpeed);
+
+        camera.orthographicSize = Mathf.SmoothStep(camera.orthographicSize, m_targetZoom, Time.unscaledDeltaTime * (m_zoomSpeed + Mathf.Abs(camera.orthographicSize - m_targetZoom)));
+        camera.orthographicSize = Mathf.MoveTowards(camera.orthographicSize, m_targetZoom, Time.unscaledDeltaTime * 0.1f);
+
     }
 
     void GetAddedMousePos(ref Vector3 position)
@@ -175,6 +190,27 @@ public class CameraController : MonoBehaviour
     public void TimedLookToggle(bool enabled, Vector2 position)
     {
         m_timedLookPos = position;
+        m_TimedLookActive = enabled;
+        m_targetZoom = enabled ? m_targetZoom : m_initialZoom;
+    }
+
+    public void TimedLookToggle(bool enabled, CameraLookSettings settings)
+    {
+        if (enabled)
+        {
+        }
+        else
+        {
+            m_targetRes = m_initialRes;
+        }
+        
+        if (settings.addZoomLevelToCurrentZoom)
+        {
+            settings.zoomLevel += m_initialZoom;
+        }
+
+        m_targetZoom = enabled ? settings.zoomLevel : m_initialZoom;
+        m_timedLookPos = settings.lookPosition;
         m_TimedLookActive = enabled;
     }
     /*

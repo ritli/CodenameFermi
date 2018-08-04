@@ -9,9 +9,13 @@ public class Manager : MonoBehaviour {
     new CameraController camera;
     private DialogueHandler dialogue;
     private FadeHandler fadeHandler;
+    private MenuHandler menuHandler;
 
     //Special object only for dialogue at scene start
     private DialogueTriggerSceneStart startDialogue;
+    public bool inMenu, startFromMenu;
+    private bool gamePaused;
+
 
     void Awake()
     {
@@ -38,16 +42,52 @@ public class Manager : MonoBehaviour {
         dialogue = GetComponentInChildren<DialogueHandler>(true);
         fadeHandler = GetComponentInChildren<FadeHandler>(true);
         fadeHandler.gameObject.SetActive(true);
-
+        menuHandler = GetComponentInChildren<MenuHandler>(true);
         startDialogue = FindObjectOfType<DialogueTriggerSceneStart>();
+
+        player.disableInput = true;
     }
 
     void Start() {
         StartCoroutine(InitRoutine());
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Escape"))
+        {
+            gamePaused = !gamePaused;
+
+            if (!inMenu)
+            {
+                Pause();
+            }
+            else
+            {
+                UnPause();
+            }
+        }
+    }
+
+    public void Pause()
+    {
+        inMenu = true;
+        menuHandler.OpenMenu();
+        Time.timeScale = 0;
+    }
+
+    public void UnPause()
+    {
+        inMenu = false;
+        menuHandler.CloseMenu();
+        Time.timeScale = 1;
+    }
+
     public void StartScene()
     {
+        player.disableInput = false;
+        camera.TimedLookToggle(false, Vector2.zero);
+
         fadeHandler.FadeIn(1f, Color.white);
     }
 
@@ -58,15 +98,32 @@ public class Manager : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.25f);
 
-        if (startDialogue)
+        if (!startFromMenu)
         {
-            startDialogue.StartTrigger();
+
+            if (startDialogue)
+            {
+                startDialogue.StartTrigger();
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
+                StartScene();
+            }
         }
+
         else
         {
-            yield return new WaitForSeconds(0.5f);
-            StartScene();
+            fadeHandler.FadeIn(1f, Color.white);
+
+            CameraLookSettings settings = new CameraLookSettings();
+            settings.lookPosition = camera.transform.position;
+            settings.zoomLevel = 2;
+            settings.addZoomLevelToCurrentZoom = true;
+
+            camera.TimedLookToggle(true, settings);
         }
+
     }
 
     public static Player GetPlayer{

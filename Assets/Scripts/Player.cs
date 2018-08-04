@@ -129,7 +129,8 @@ public class Player : MonoBehaviour {
             input.x = autoRunVector.normalized.x;
             autoRunTime -= Time.deltaTime;
         }
-        else if(Input.GetButtonDown("Jump") && OnGround && !disableInput)
+
+        else if(Input.GetButtonDown("Jump") && OnGround && !disableInput && autoRunTime <= 0)
         {
             Jump();
         }
@@ -181,18 +182,23 @@ public class Player : MonoBehaviour {
             moving = false;
 
             animator.SetInteger("Dir", direction);
-            animator.SetBool("FacingRight", lookPos.x > 0);
 
-            if (lookPos.x > 0)
+            if (!disableInput)
             {
-                gunSprite.flipY = true;
-                gunSprite.sortingOrder = sprite.sortingOrder + 1;
+                animator.SetBool("FacingRight", lookPos.x > 0);
+       
+                if (lookPos.x > 0)
+                {
+                    gunSprite.flipY = true;
+                    gunSprite.sortingOrder = sprite.sortingOrder + 1;
+                }
+                else
+                {
+                    gunSprite.flipY = false;
+                    gunSprite.sortingOrder = sprite.sortingOrder - 1;
+                }
             }
-            else
-            {
-                gunSprite.flipY = false;
-                gunSprite.sortingOrder = sprite.sortingOrder - 1;
-            }
+
         }
     }
 

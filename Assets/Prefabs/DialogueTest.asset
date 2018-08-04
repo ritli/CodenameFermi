@@ -13,5 +13,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containers:
   - character: 1
+    expression: 0
     content: doot
     continueDialogue: 1
+  - character: 1
+    expression: 1
+    content: doot
+    continueDialogue: 1
+  - character: 1
+    expression: 2
+    content: doot
+    continueDialogue: 1
+  - character: 1
+    expression: 3
+    content: doot
+    continueDialogue: 1
+  - character: 0
+    expression: 1
+    content: 'Pls stop destroying art
+
+'
+    continueDialogue: 0

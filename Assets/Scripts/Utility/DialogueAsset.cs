@@ -8,10 +8,16 @@ public enum Character
     Velvet, Player, AI
 }
 
+public enum Expression
+{
+    Neutral, Angry, Happy, Surprised
+}
+
 [System.Serializable]
 public struct DialogueContainer
 {
     public Character character;
+    public Expression expression;
     [TextArea(5, 10)]
     public string content;
     public bool continueDialogue;

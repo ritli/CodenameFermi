@@ -21,6 +21,8 @@ public class MagGun : MonoBehaviour {
     public AudioClip magLoop;
     public AudioClip magStart;
     public AudioClip magStop;
+    public AudioClip magFire;
+    public AudioClip magFireJump;
     public float volume;
 
     new AudioSource audio;
@@ -64,44 +66,47 @@ public class MagGun : MonoBehaviour {
         mousePos.z = 0;
         lookPos = mousePos - transform.parent.position;
 
-        //Gun.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180);
-
-        if (!magPulling && player.moving)
+        if (!player.disableInput)
         {
-            float facingX = -1;
-
-            if (player.facingRight)
+            if (!magPulling && player.moving)
             {
-                facingX = -facingX;
+                float facingX = -1;
+
+                if (player.facingRight)
+                {
+                    facingX = -facingX;
+                }
+
+                gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(-0.65f, facingX) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
+            }
+            else
+            {
+                gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
             }
 
-            gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(-0.65f, facingX) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
-        }
-        else
-        {
-            gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
-        }
 
-        if (Input.GetButton("Fire1"))
-        {
-            if (canMagPull)
+            if (Input.GetButton("Fire1"))
             {
-                gunAnimator.Play("Charge");
-                attractorParticles.transform.position = mousePos;
-                MagHitUpdate();
+                if (canMagPull)
+                {
+                    gunAnimator.Play("Charge");
+                    attractorParticles.transform.position = mousePos;
+                    MagHitUpdate();
+                }
             }
-        }
-        if (Input.GetButtonUp("Fire1"))
-        {
-            gunAnimator.Play("Idle");
-
-            CancelMagPull(true);
-        }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            if (!magPulling)
+            if (Input.GetButtonUp("Fire1"))
             {
-                MagRepulse();
+                gunAnimator.Play("Idle");
+
+                CancelMagPull(true);
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                if (!magPulling)
+                {
+
+                    MagRepulse();
+                }
             }
         }
 
@@ -219,6 +224,17 @@ public class MagGun : MonoBehaviour {
     {
         if (magJumpCooldownElapsed >= magJumpCooldown)
         {
+            Manager.GetCamera.SetScreenShake(0.1f, 0.2f);
+
+            if (player.inAir)
+            {
+                audio.PlayOneShot(magFireJump);
+            }
+            else
+            {
+                audio.PlayOneShot(magFire);
+            }
+
             gunSprite.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180);
 
             Collider2D[] colliderHits = Physics2D.OverlapAreaAll(transform.position + gunSprite.transform.up, transform.position - gunSprite.transform.right * repulseRange - gunSprite.transform.up);
