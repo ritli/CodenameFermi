@@ -115,7 +115,7 @@ public class Manager : MonoBehaviour {
         else
         {
             fadeHandler.FadeIn(1f, Color.white);
-
+            menuHandler.OpenMenu();
             CameraLookSettings settings = new CameraLookSettings();
             settings.lookPosition = camera.transform.position;
             settings.zoomLevel = 2;

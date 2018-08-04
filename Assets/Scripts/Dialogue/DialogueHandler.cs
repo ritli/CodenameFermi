@@ -181,17 +181,19 @@ public class DialogueHandler : MonoBehaviour {
                     spawnedLetter.fontSize = spawnedLetter.fontSize + 8;
                 }
 
+                if (i % 1 == 0 && content[i] != ' ' && content[i] != '\'')
+                {
+                    audioPlayer.PlayRandomClip(asset.containers[currentDialogueIndex - 1].character.ToString());
+                }
             }
+
             else
             {
                 Destroy(spawnedLetter);
             }
 
 
-            if (i % 1 == 0 && content[i] != ' ' && content[i] != '\'')
-            {
-                audioPlayer.PlayRandomClip(asset.containers[currentDialogueIndex - 1].character.ToString());
-            }
+
 
             //Wait between letters happens here
             yield return new WaitForSeconds(delay * waitMultiplier);

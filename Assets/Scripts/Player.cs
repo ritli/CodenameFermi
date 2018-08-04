@@ -48,8 +48,12 @@ public class Player : MonoBehaviour {
     private float autoRunTime;
     private Vector2 autoRunVector;
 
+    MultiParticleHandler trailParticles;
+    private bool trailActive = true;
+
     void Start ()
     {
+        trailParticles = transform.Find("Trail").GetComponent<MultiParticleHandler>();
         animator = transform.Find("Sprite").GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>();
@@ -57,6 +61,10 @@ public class Player : MonoBehaviour {
         cam = Camera.main;
         animatorAudio = animator.GetComponent<AudioClipPlayer>();
 
+        if (trailActive)
+        {
+            SetTrailActive(false);
+        }
     }
 	
 	void Update () {
@@ -67,14 +75,21 @@ public class Player : MonoBehaviour {
         AnimationUpdate();
         JumpUpdate();
 
+        inAir = !OnGround;
+
         if (inAir != inAirOld && !inAir)
         {
+            print("Disabling");
+
+            if (trailActive)
+            {
+                SetTrailActive(false);
+            }
+
             OnLanding();
         }
 
-        inAir = !OnGround;
         inAirOld = inAir;
-
     }
 
     private void MovementUpdate()
@@ -281,5 +296,11 @@ public class Player : MonoBehaviour {
         {
             return new Vector2(xVel, jumpVelocity);
         }
+    }
+
+    public void SetTrailActive(bool active)
+    {
+        trailParticles.SetEmission(active);
+        trailActive = active;
     }
 }
