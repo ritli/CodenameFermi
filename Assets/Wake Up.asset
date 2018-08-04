@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: Wake Up
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 0
+    expression: 0
+    content: Hey wake up sleepyhead!
+    continueDialogue: 1
+  - character: 1
+    expression: 0
+    content: '...'
+    continueDialogue: 1
+  - character: 0
+    expression: 0
+    content: "Don\u2019t make me come in there. I\u2019m sitting really comfortably
+      here, you know."
+    continueDialogue: 1
+  - character: 1
+    expression: 0
+    content: '...'
+    continueDialogue: 1
+  - character: 0
+    expression: 2
+    content: "I\u2019ll start singing if you don\u2019t get up!"
+    continueDialogue: 1
+  - character: 1
+    expression: 0
+    content: '# Slight grunt #'
+    continueDialogue: 1
+  - character: 0
+    expression: 1
+    content: Aww gee, and here I wanted to show you my new song. Well, another time
+      perhaps.
+    continueDialogue: 1
+  - character: 0
+    expression: 0
+    content: "While you were sleeping we reached the Crusoe Cluster. I ran some scans
+      and found the planet we are looking for. It seems there are structures of some
+      kind, maybe that\u2019s where the signal came from? Caliber imagine! Maybe there
+      is another civilisation there?"
+    continueDialogue: 0

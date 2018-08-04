@@ -9,28 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
-  m_Name: DialogueTest
+  m_Name: New DialogueAsset
   m_EditorClassIdentifier: 
   containers:
-  - character: 1
+  - character: 0
     expression: 0
-    content: '#doot#'
-    continueDialogue: 1
-  - character: 1
-    expression: 1
-    content: doot
-    continueDialogue: 1
-  - character: 1
-    expression: 2
-    content: doot
-    continueDialogue: 1
-  - character: 1
-    expression: 3
-    content: doot
+    content: 
     continueDialogue: 1
   - character: 0
     expression: 1
-    content: 'Pls stop destroying art
-
-'
-    continueDialogue: 0
+    content: 
+    continueDialogue: 1
+  - character: 0
+    expression: 2
+    content: 
+    continueDialogue: 1
+  - character: 0
+    expression: 3
+    content: 
+    continueDialogue: 1

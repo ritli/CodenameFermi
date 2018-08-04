@@ -228,6 +228,7 @@ public class MagGun : MonoBehaviour {
 
             if (player.inAir)
             {
+                player.SetTrailActive(true);
                 audio.PlayOneShot(magFireJump);
             }
             else
