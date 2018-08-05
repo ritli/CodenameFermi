@@ -40,9 +40,12 @@ public class DialogueHandler : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
-                if (asset.containers[currentDialogueIndex].trigger && asset.containers[currentDialogueIndex].playTriggerAtEndInstead)
+                if (asset.containers[currentDialogueIndex-1].trigger && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
                 {
-;
+                    print(currentDialogueIndex);
+                    print("End Trigger");
+                    GameObject g = Instantiate(asset.containers[currentDialogueIndex-1].trigger);
+                    g.GetComponent<ITrigger>().StartTrigger();
                 }
 
                 if (asset.containers.Length - 1 < currentDialogueIndex)
@@ -101,9 +104,11 @@ public class DialogueHandler : MonoBehaviour {
     /// <param name="startIndex"></param>
     public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
-        if (asset.containers[currentDialogueIndex].trigger && !asset.containers[currentDialogueIndex].playTriggerAtEndInstead)
+        if (asset.containers[startIndex].trigger && !asset.containers[startIndex].playTriggerAtEndInstead)
         {
-            asset.containers[currentDialogueIndex].trigger.GetComponent<ITrigger>().StartTrigger();
+            print("Start Trigger");
+            GameObject g = Instantiate(asset.containers[startIndex].trigger);
+            g.GetComponent<ITrigger>().StartTrigger();
         }
 
         Manager.GetPlayer.InDialogue = true;
@@ -126,6 +131,8 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator Print()
     {
+        dialogueFinished = false;
+
         int childCount = textPanel.childCount;
 
         //Clear text panel to prepare for new text
@@ -133,8 +140,6 @@ public class DialogueHandler : MonoBehaviour {
         {
             Destroy(textPanel.GetChild(i - 1).gameObject);
         }
-
-        dialogueFinished = false;
 
         int frameCount = 16;
         Sprite actualPortrait = portrait.sprite;
@@ -152,6 +157,7 @@ public class DialogueHandler : MonoBehaviour {
         portrait.sprite = actualPortrait;
 
         bool popupActive = false;
+        bool printItalics = false;
         bool printBold = false;
         int waitMultiplier = 1;
 
@@ -161,7 +167,6 @@ public class DialogueHandler : MonoBehaviour {
 
         int xSize = (int)(rect.rect.size.x - gridLayout.padding.left * 2);
         int xSizeCurrent = 0;
-        print(xSize);
 
         for (int i = 0; i < content.Length; i++)
         {
@@ -205,6 +210,10 @@ public class DialogueHandler : MonoBehaviour {
                     printBold = !printBold;
                     i++;
                     break;
+                case '+':
+                    printItalics = !printItalics;
+                    i++;
+                    break;
                 case '*':
                     waitMultiplier = int.Parse(content[i + 1].ToString());
                     i = i + 2;
@@ -231,7 +240,10 @@ public class DialogueHandler : MonoBehaviour {
                 {
                     spawnedLetter.fontSize = spawnedLetter.fontSize + 8;
                 }
-
+                if (printItalics)
+                {
+                    spawnedLetter.fontStyle = FontStyles.Italic;
+                }
                 if (i % 3 == 0 && content[i] != ' ' && content[i] != '\'')
                 {
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Talk" + asset.containers[currentDialogueIndex - 1].character.ToString());

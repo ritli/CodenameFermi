@@ -12,7 +12,7 @@ public class MenuHandler : MonoBehaviour {
 
     Button[] buttons;
 
-    private void Start()
+    public void Init()
     {
         buttons = GetComponentsInChildren<Button>();
     }
@@ -22,7 +22,6 @@ public class MenuHandler : MonoBehaviour {
         if (menuOpen)
         {
             menuAnimator.Play("Close");
-            Manager.instance.StartScene();
             menuOpen = false;
 
             foreach(Button b in buttons)
@@ -31,6 +30,18 @@ public class MenuHandler : MonoBehaviour {
             }
         }
     }
+
+    public void InstaClose()
+    {
+        menuAnimator.Play("InstaClose");
+        menuOpen = false;
+
+        foreach (Button b in buttons)
+        {
+            b.interactable = false;
+        }
+    }
+
 
     public void OpenMenu()
     {

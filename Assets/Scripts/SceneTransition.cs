@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransition : MonoBehaviour {
+public class SceneTransition : MonoBehaviour, ITrigger {
 
     public Transform lookAtTransform;
+    public bool useLookAt = true;
+
     Camera mainCamera;
     public string sceneName;
     public Vector2 direction;
@@ -57,13 +59,20 @@ public class SceneTransition : MonoBehaviour {
     {
         yield return new WaitForEndOfFrame();
 
-        Manager.GetCamera.TimedLook(5f, lookAtTransform.position, Camera.main.orthographicSize + 3);
-        Manager.GetPlayer.AutoRun(5f, direction);
+        if (useLookAt)
+        {
+            Manager.GetCamera.TimedLook(transitionTime, lookAtTransform.position, Camera.main.orthographicSize + 3);
+        }
 
-        yield return new WaitForSeconds(transitionTime-1);
+        if (direction.x != 0)
+        {
+            Manager.GetPlayer.AutoRun(transitionTime, direction);
+        }
 
-        Manager.GetFade.FadeOut(1, Color.white);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(transitionTime * 0.5f);
+
+        Manager.GetFade.FadeOut(transitionTime * 0.5f, Color.white);
+        yield return new WaitForSeconds(transitionTime * 0.51f);
 
         if (!waitForDialogue)
         {
@@ -74,5 +83,15 @@ public class SceneTransition : MonoBehaviour {
     public void ChangeScene()
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
+
+    public void StartTrigger()
+    {
+        StartCoroutine(ChangeScene(sceneName, transitionTime));
+    }
+
+    public void OnEventFinished()
+    {
+        throw new System.NotImplementedException();
     }
 }

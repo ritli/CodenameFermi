@@ -30,6 +30,7 @@ public struct DialogueContainer
 public class DialogueAsset : ScriptableObject {
 
     [Header("# = Bold")]
+    [Header("+ = Italics")]
     [Header("*NUMBER = Set Text Speed")]
     [Header("/ = Popup")]
 

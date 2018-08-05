@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: ShipLeave
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 0
+    expression: 0
+    content: Good to see you /up/ and about!
+    endDialogue: 0
+    trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
+  - character: 2
+    expression: 0
+    content: We have arrived at planet Gubbe in the Snubbus system.
+    endDialogue: 0
+    trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
+  - character: 1
+    expression: 0
+    content: 'Great! Let''s get *9 # /booping!/'
+    endDialogue: 0
+    trigger: {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
+    playTriggerAtEndInstead: 1

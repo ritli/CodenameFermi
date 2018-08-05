@@ -13,7 +13,7 @@ public class Manager : MonoBehaviour {
 
     //Special object only for dialogue at scene start
     private DialogueTriggerSceneStart startDialogue;
-    public bool inMenu, startFromMenu;
+    public bool inMenu, startFromMenu, fadeIn;
     private bool gamePaused;
 
 
@@ -43,6 +43,9 @@ public class Manager : MonoBehaviour {
         fadeHandler = GetComponentInChildren<FadeHandler>(true);
         fadeHandler.gameObject.SetActive(true);
         menuHandler = GetComponentInChildren<MenuHandler>(true);
+        menuHandler.Init();
+        menuHandler.InstaClose();
+        inMenu = false;
         startDialogue = FindObjectOfType<DialogueTriggerSceneStart>();
 
         player.disableInput = true;
@@ -54,7 +57,7 @@ public class Manager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButtonDown("Escape"))
+        if (Input.GetButtonDown("Escape") && !startFromMenu)
         {
             gamePaused = !gamePaused;
 
@@ -81,6 +84,12 @@ public class Manager : MonoBehaviour {
         inMenu = false;
         menuHandler.CloseMenu();
         Time.timeScale = 1;
+
+        if (startFromMenu)
+        {
+            startFromMenu = false;
+            StartCoroutine(InitRoutine());
+        }
     }
 
     public void StartScene()
@@ -88,6 +97,7 @@ public class Manager : MonoBehaviour {
         player.disableInput = false;
         camera.TimedLookToggle(false, Vector2.zero);
 
+        print("Starting scene");
         fadeHandler.FadeIn(1f, Color.white);
     }
 
@@ -96,27 +106,29 @@ public class Manager : MonoBehaviour {
     /// </summary>
     IEnumerator InitRoutine()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.01f);
 
         if (!startFromMenu)
         {
-            Pause();
-            UnPause();
-
             if (startDialogue)
             {
+                camera.TimedLookToggle(false, Vector2.zero);
                 startDialogue.StartTrigger();
             }
             else
             {
-                yield return new WaitForSeconds(0.5f);
+                print("Starting Scene from Init");
+                yield return new WaitForSeconds(0.1f);
                 StartScene();
             }
         }
 
         else
         {
-            fadeHandler.FadeIn(1f, Color.white);
+            if (fadeIn)
+            {
+                fadeHandler.FadeIn(1f, Color.white);
+            }
             menuHandler.OpenMenu();
             CameraLookSettings settings = new CameraLookSettings();
             settings.lookPosition = camera.transform.position;
