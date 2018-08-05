@@ -40,9 +40,9 @@ public class DialogueHandler : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
-                if (asset.containers[currentDialogueIndex-1].trigger && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
+                if (asset.containers[currentDialogueIndex].trigger && asset.containers[currentDialogueIndex].playTriggerAtEndInstead)
                 {
-                    asset.containers[currentDialogueIndex-1].trigger.GetComponent<ITrigger>().StartTrigger();
+;
                 }
 
                 if (asset.containers.Length - 1 < currentDialogueIndex)
@@ -58,8 +58,6 @@ public class DialogueHandler : MonoBehaviour {
 
                     if (!asset.containers[currentDialogueIndex-1].endDialogue)
                     {
-
-
                         StartDialogue(currentDialogueIndex, asset);
                     }
                     else

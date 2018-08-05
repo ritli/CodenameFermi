@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inMenu: 1
-  startFromMenu: 1
+  startFromMenu: 0
 --- !u!114 &114552865487545496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2760,7 +2760,7 @@ MonoBehaviour:
     type: 2}
   textPanel: {fileID: 224793704076620716}
   portrait: {fileID: 114365221992010486}
-  delay: 0.05
+  delay: 0.01
   trigger: {fileID: 0}
 --- !u!114 &114930895876547742
 MonoBehaviour:

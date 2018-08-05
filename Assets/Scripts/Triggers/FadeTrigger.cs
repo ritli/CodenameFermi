@@ -10,7 +10,6 @@ public class FadeTrigger : MonoBehaviour, ITrigger {
 
     public void OnEventFinished()
     {
-        throw new System.NotImplementedException();
     }
 
     public void StartTrigger()

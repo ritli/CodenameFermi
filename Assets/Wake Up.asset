@@ -17,38 +17,45 @@ MonoBehaviour:
     content: Hey wake up sleepyhead!
     endDialogue: 0
     trigger: {fileID: 1029985130435432, guid: dd8f90b0181b2cf479333942f3e6f270, type: 2}
+    playTriggerAtEndInstead: 1
   - character: 1
     expression: 0
     content: '...'
     endDialogue: 0
     trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
   - character: 0
     expression: 0
     content: "Don\u2019t make me come in there. I\u2019m sitting really comfortably
       here, you know."
     endDialogue: 0
     trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
   - character: 1
     expression: 0
     content: '...'
     endDialogue: 0
     trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
   - character: 0
     expression: 2
     content: "I\u2019ll start singing if you don\u2019t get up!"
     endDialogue: 0
     trigger: {fileID: 1029985130435432, guid: e5d652e463d92724d8acb34f1fe340d8, type: 2}
+    playTriggerAtEndInstead: 0
   - character: 1
     expression: 0
     content: '# Slight grunt #'
     endDialogue: 0
-    trigger: {fileID: 0}
+    trigger: {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
+    playTriggerAtEndInstead: 1
   - character: 0
     expression: 1
     content: Aww gee, and here I wanted to show you my new song. Well, another time
       perhaps.
     endDialogue: 0
     trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
   - character: 0
     expression: 0
     content: "While you were sleeping we reached the Crusoe Cluster. I ran some scans
@@ -57,3 +64,4 @@ MonoBehaviour:
       is another civilisation there?"
     endDialogue: 0
     trigger: {fileID: 0}
+    playTriggerAtEndInstead: 0
