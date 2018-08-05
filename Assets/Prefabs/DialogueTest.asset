@@ -15,22 +15,27 @@ MonoBehaviour:
   - character: 1
     expression: 0
     content: '#doot#'
-    continueDialogue: 1
+    endDialogue: 0
+    trigger: {fileID: 0}
   - character: 1
     expression: 1
     content: doot
-    continueDialogue: 1
+    endDialogue: 0
+    trigger: {fileID: 0}
   - character: 1
     expression: 2
     content: doot
-    continueDialogue: 1
+    endDialogue: 0
+    trigger: {fileID: 0}
   - character: 1
     expression: 3
     content: doot
-    continueDialogue: 1
+    endDialogue: 0
+    trigger: {fileID: 0}
   - character: 0
     expression: 1
     content: 'Pls stop destroying art
 
 '
-    continueDialogue: 0
+    endDialogue: 0
+    trigger: {fileID: 0}

@@ -36,6 +36,7 @@ public class CameraController : MonoBehaviour
 
 
     public float m_zZoomLevel;
+    private float m_timedLookLerpMultiplier;
 
     private void Start()
     {
@@ -113,9 +114,10 @@ public class CameraController : MonoBehaviour
     {
         if (m_interpolateCamera)
         {
-            Vector3 pos = Vector3.Lerp(m_lastPosition, position, m_interpolateVal);
+            Vector3 pos = Vector3.Lerp(m_lastPosition, position, m_interpolateVal * m_timedLookLerpMultiplier);
             GetShakePosition(ref pos);
             transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime * 50f);
+            m_timedLookLerpMultiplier = Mathf.Clamp01(m_timedLookLerpMultiplier + Time.unscaledDeltaTime);
         }
         else
         {
@@ -189,6 +191,7 @@ public class CameraController : MonoBehaviour
 
     public void TimedLookToggle(bool enabled, Vector2 position)
     {
+        m_timedLookLerpMultiplier = 0;
         m_timedLookPos = position;
         m_TimedLookActive = enabled;
         m_targetZoom = enabled ? m_targetZoom : m_initialZoom;
@@ -196,14 +199,8 @@ public class CameraController : MonoBehaviour
 
     public void TimedLookToggle(bool enabled, CameraLookSettings settings)
     {
-        if (enabled)
-        {
-        }
-        else
-        {
-            m_targetRes = m_initialRes;
-        }
-        
+        m_timedLookLerpMultiplier = 0;
+
         if (settings.addZoomLevelToCurrentZoom)
         {
             settings.zoomLevel += m_initialZoom;

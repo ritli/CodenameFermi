@@ -100,6 +100,8 @@ public class Manager : MonoBehaviour {
 
         if (!startFromMenu)
         {
+            Pause();
+            UnPause();
 
             if (startDialogue)
             {

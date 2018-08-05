@@ -40,6 +40,11 @@ public class DialogueHandler : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
+                if (asset.containers[currentDialogueIndex-1].trigger && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
+                {
+                    asset.containers[currentDialogueIndex-1].trigger.GetComponent<ITrigger>().StartTrigger();
+                }
+
                 if (asset.containers.Length - 1 < currentDialogueIndex)
                 {
                     CloseDialogue();
@@ -51,8 +56,10 @@ public class DialogueHandler : MonoBehaviour {
                         OpenDialogue();
                     }
 
-                    if (asset.containers[currentDialogueIndex-1].continueDialogue)
+                    if (!asset.containers[currentDialogueIndex-1].endDialogue)
                     {
+
+
                         StartDialogue(currentDialogueIndex, asset);
                     }
                     else
@@ -80,6 +87,7 @@ public class DialogueHandler : MonoBehaviour {
         {
             dialogueOpen = false;
             animator.Play("Close");
+            Manager.GetPlayer.InDialogue = false;
 
             if (trigger)
             {
@@ -95,6 +103,13 @@ public class DialogueHandler : MonoBehaviour {
     /// <param name="startIndex"></param>
     public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
+        if (asset.containers[currentDialogueIndex].trigger && !asset.containers[currentDialogueIndex].playTriggerAtEndInstead)
+        {
+            asset.containers[currentDialogueIndex].trigger.GetComponent<ITrigger>().StartTrigger();
+        }
+
+        Manager.GetPlayer.InDialogue = true;
+
         portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
 
         dialogueActive = true;
@@ -142,10 +157,48 @@ public class DialogueHandler : MonoBehaviour {
         bool printBold = false;
         int waitMultiplier = 1;
 
+        string nextWord = "";
+        RectTransform rect = textPanel.GetComponent<RectTransform>();
+        GridLayoutGroup gridLayout = rect.GetComponent<GridLayoutGroup>();
+
+        int xSize = (int)(rect.rect.size.x - gridLayout.padding.left * 2);
+        int xSizeCurrent = 0;
+        print(xSize);
+
         for (int i = 0; i < content.Length; i++)
         {
             //Spawn the letter
             TextMeshProUGUI spawnedLetter = Instantiate(textTemplate, textPanel.transform);
+            xSizeCurrent += 25;
+
+            if (content[i] == ' ')
+            {
+                if (content.IndexOf(" ", i + 1) != -1)
+                {
+                    nextWord = content.Substring(i + 1, content.IndexOf(" ", i + 1) - i);
+                }
+                else
+                {
+                    nextWord = content.Substring(i + 1, content.Length - 1 - i);
+                }
+
+
+                if (xSizeCurrent + nextWord.Length * 25 > xSize)
+                {
+                    for (int w = 0; w < nextWord.Length; w++)
+                    {
+                        if (xSizeCurrent + 25 > xSize)
+                        {
+                            break;
+                        }
+
+                        Instantiate(textTemplate, textPanel.transform).text = " ";
+                        xSizeCurrent += 25;
+                    }
+
+                    xSizeCurrent = 0;
+                }
+            }
 
             //Check for special symbols, used for text effects
             switch (content[i])
@@ -181,9 +234,9 @@ public class DialogueHandler : MonoBehaviour {
                     spawnedLetter.fontSize = spawnedLetter.fontSize + 8;
                 }
 
-                if (i % 1 == 0 && content[i] != ' ' && content[i] != '\'')
+                if (i % 3 == 0 && content[i] != ' ' && content[i] != '\'')
                 {
-                    audioPlayer.PlayRandomClip(asset.containers[currentDialogueIndex - 1].character.ToString());
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Talk" + asset.containers[currentDialogueIndex - 1].character.ToString());
                 }
             }
 
@@ -192,12 +245,11 @@ public class DialogueHandler : MonoBehaviour {
                 Destroy(spawnedLetter);
             }
 
-
-
-
             //Wait between letters happens here
             yield return new WaitForSeconds(delay * waitMultiplier);
         }
+        
+
 
         dialogueFinished = true;
     }

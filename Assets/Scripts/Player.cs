@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
 
     MultiParticleHandler trailParticles;
     private bool trailActive = true;
+    bool inDialogue = false;
 
     void Start ()
     {
@@ -79,8 +80,6 @@ public class Player : MonoBehaviour {
 
         if (inAir != inAirOld && !inAir)
         {
-            print("Disabling");
-
             if (trailActive)
             {
                 SetTrailActive(false);
@@ -231,7 +230,7 @@ public class Player : MonoBehaviour {
             jumpVelocity = jumpForce;
             jumptime = 0;
 
-            animatorAudio.PlayRandomClip("Jump");
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Jump", gameObject);
 
             if (facingRight) {
                 animator.Play("a_PlayerJumpRight");
@@ -303,4 +302,18 @@ public class Player : MonoBehaviour {
         trailParticles.SetEmission(active);
         trailActive = active;
     }
+
+    public bool InDialogue
+    {
+        get
+        {
+            return inDialogue;
+        }
+        set
+        {
+            inDialogue = value;
+        }
+    }
+
+
 }

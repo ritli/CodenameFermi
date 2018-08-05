@@ -20,7 +20,9 @@ public struct DialogueContainer
     public Expression expression;
     [TextArea(5, 10)]
     public string content;
-    public bool continueDialogue;
+    public bool endDialogue;
+    public GameObject trigger;
+    public bool playTriggerAtEndInstead;
 }
 
 

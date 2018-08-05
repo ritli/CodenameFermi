@@ -48,8 +48,11 @@ public class MagGun : MonoBehaviour {
     public float repulseRange = 5;
     public float repulseForce = 10;
 
+    FMODUnity.StudioEventEmitter emitter;
+
 
     void Start() {
+        emitter = GetComponent<FMODUnity.StudioEventEmitter>();
         gunAnimator = gunSprite.GetComponent<Animator>();
         player = GetComponentInParent<Player>();
         playerBody = GetComponentInParent<Rigidbody2D>();
@@ -58,7 +61,6 @@ public class MagGun : MonoBehaviour {
         audio = GetComponent<AudioSource>();
 
         attractorParticles = Instantiate(attractParticlesPrefab, transform.position, attractParticlesPrefab.transform.rotation).GetComponent<MultiParticleHandler>();
-
     }
 
     void Update() {
@@ -66,7 +68,7 @@ public class MagGun : MonoBehaviour {
         mousePos.z = 0;
         lookPos = mousePos - transform.parent.position;
 
-        if (!player.disableInput)
+        if (!player.disableInput && !player.InDialogue)
         {
             if (!magPulling && player.moving)
             {
@@ -196,9 +198,8 @@ public class MagGun : MonoBehaviour {
 
             if (!magStateSwapped)
             {
-                audio.PlayOneShot(magStart, volume);
-                audio.clip = magLoop;
-                audio.Play((ulong)0.5);
+                emitter.Play();
+
                 magStateSwapped = true;
             }
         }
@@ -210,8 +211,8 @@ public class MagGun : MonoBehaviour {
 
             if (magStateSwapped)
             {
-                audio.Stop();
-                audio.PlayOneShot(magStop, volume);
+                emitter.Stop();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/MagLoopEnd");
 
                 magStateSwapped = false;
             }
@@ -229,11 +230,11 @@ public class MagGun : MonoBehaviour {
             if (player.inAir)
             {
                 player.SetTrailActive(true);
-                audio.PlayOneShot(magFireJump);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/MagFireJump");
             }
             else
             {
-                audio.PlayOneShot(magFire);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/MagFire");
             }
 
             gunSprite.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180);
