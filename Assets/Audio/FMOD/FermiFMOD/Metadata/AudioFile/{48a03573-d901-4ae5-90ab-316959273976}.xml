@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{48a03573-d901-4ae5-90ab-316959273976}">
         <property name="assetPath">
-            <value>magEnd.wav</value>
+            <value>SFX/magEnd.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>

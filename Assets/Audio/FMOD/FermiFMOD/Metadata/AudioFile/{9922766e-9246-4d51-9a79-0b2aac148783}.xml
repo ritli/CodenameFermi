@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{9922766e-9246-4d51-9a79-0b2aac148783}">
         <property name="assetPath">
-            <value>velvTalk5.wav</value>
+            <value>UI &amp; Dialogue/velvTalk5.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>

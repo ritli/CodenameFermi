@@ -160,6 +160,7 @@ public class DialogueHandler : MonoBehaviour {
         bool printItalics = false;
         bool printBold = false;
         int waitMultiplier = 1;
+        int audioFrequency = 3;
 
         string nextWord = "";
         RectTransform rect = textPanel.GetComponent<RectTransform>();
@@ -216,6 +217,9 @@ public class DialogueHandler : MonoBehaviour {
                     break;
                 case '*':
                     waitMultiplier = int.Parse(content[i + 1].ToString());
+
+                    audioFrequency = Mathf.Clamp(10 - waitMultiplier, 1, 3);
+
                     i = i + 2;
                     break;
                 case '/':
@@ -244,7 +248,7 @@ public class DialogueHandler : MonoBehaviour {
                 {
                     spawnedLetter.fontStyle = FontStyles.Italic;
                 }
-                if (i % 3 == 0 && content[i] != ' ' && content[i] != '\'')
+                if (i % audioFrequency == 0 && content[i] != ' ' && content[i] != '\'')
                 {
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Talk" + asset.containers[currentDialogueIndex - 1].character.ToString());
                 }

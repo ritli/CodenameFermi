@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{51bcdb82-a0f2-46ca-8448-f47cfe1bb8dd}">
+        <property name="assetPath">
+            <value>Ambiance/PlanetAmbiance.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>88.615374149659857</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{76c41ac1-01ef-4a54-85c3-de34d8e91608}</destination>
+        </relationship>
+    </object>
+</objects>

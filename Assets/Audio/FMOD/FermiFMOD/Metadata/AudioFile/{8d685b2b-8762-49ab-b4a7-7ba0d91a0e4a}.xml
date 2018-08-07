@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{8d685b2b-8762-49ab-b4a7-7ba0d91a0e4a}">
         <property name="assetPath">
-            <value>caliTalk4.wav</value>
+            <value>UI &amp; Dialogue/caliTalk4.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
