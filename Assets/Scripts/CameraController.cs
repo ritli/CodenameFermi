@@ -50,6 +50,7 @@ public class CameraController : MonoBehaviour
         pixelCamera = GetComponent<PixelPerfectCamera>();
         m_initialRes = new Vector2(pixelCamera.refResolutionX, pixelCamera.refResolutionY);
         m_targetRes = m_initialRes;
+        transform.position = Manager.GetPlayer.transform.position;
         //Cursor.visible = false;
 
     }

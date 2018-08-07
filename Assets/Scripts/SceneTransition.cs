@@ -43,7 +43,7 @@ public class SceneTransition : MonoBehaviour, ITrigger {
     {
         if (collision.CompareTag("Player"))
         {
-            StartCoroutine(ChangeScene(sceneName, 5f));
+            StartCoroutine(ChangeScene(sceneName, transitionTime));
         }
     }
 
@@ -72,10 +72,17 @@ public class SceneTransition : MonoBehaviour, ITrigger {
         yield return new WaitForSeconds(transitionTime * 0.5f);
 
         Manager.GetFade.FadeOut(transitionTime * 0.5f, Color.white);
+        FMOD.Studio.EventInstance muteInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/MuteMusic");
+        muteInstance.start();
+
         yield return new WaitForSeconds(transitionTime * 0.51f);
+
+        float elapsedTime = 0, originalVolume;
 
         if (!waitForDialogue)
         {
+            muteInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
             ChangeScene();
         }
     }

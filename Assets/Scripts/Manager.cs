@@ -10,12 +10,16 @@ public class Manager : MonoBehaviour {
     private DialogueHandler dialogue;
     private FadeHandler fadeHandler;
     private MenuHandler menuHandler;
-
     //Special object only for dialogue at scene start
     private DialogueTriggerSceneStart startDialogue;
     public bool inMenu, startFromMenu, fadeIn;
     private bool gamePaused;
 
+    FMOD.Studio.EventInstance inMenuPauseInstance;
+
+    [Header("AUDIO")]
+    public FMOD.Studio.Bus musicBus;
+    public FMOD.Studio.Bus soundBus;
 
     void Awake()
     {
@@ -49,6 +53,11 @@ public class Manager : MonoBehaviour {
         startDialogue = FindObjectOfType<DialogueTriggerSceneStart>();
 
         player.disableInput = true;
+
+        musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Music");
+        soundBus = FMODUnity.RuntimeManager.GetBus("bus:/Sound");
+
+        inMenuPauseInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/InMenu");
     }
 
     void Start() {
@@ -74,6 +83,9 @@ public class Manager : MonoBehaviour {
 
     public void Pause()
     {
+;
+        inMenuPauseInstance.start();
+
         inMenu = true;
         menuHandler.OpenMenu();
         Time.timeScale = 0;
@@ -81,6 +93,8 @@ public class Manager : MonoBehaviour {
 
     public void UnPause()
     {
+        inMenuPauseInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
         inMenu = false;
         menuHandler.CloseMenu();
         Time.timeScale = 1;
@@ -168,6 +182,65 @@ public class Manager : MonoBehaviour {
         get
         {
             return instance.fadeHandler;
+        }
+    }
+
+    public static float AudioVolume
+    {
+        set
+        {
+            float volume = value;
+
+            PlayerPrefs.SetFloat("AudioVolume", volume);
+            PlayerPrefs.Save();
+
+            instance.soundBus.setVolume(volume);
+        }
+
+        get
+        {
+            if (PlayerPrefs.HasKey("AudioVolume"))
+            {
+                return PlayerPrefs.GetFloat("AudioVolume");
+            }
+            else
+            {
+                float vol, finalVol;
+                instance.soundBus.getVolume(out vol, out finalVol);
+
+                AudioVolume = vol;
+
+                return vol;
+            }
+        }
+    }
+
+    public static float MusicVolume
+    {
+        set
+        {
+            float volume = value;
+
+            PlayerPrefs.SetFloat("MusicVolume", volume);
+            PlayerPrefs.Save();
+
+            instance.musicBus.setVolume(volume);
+        }
+
+        get
+        {
+            if (PlayerPrefs.HasKey("MusicVolume"))
+            {
+                return PlayerPrefs.GetFloat("MusicVolume");
+            }
+            else
+            {
+                float vol, finalVol;
+                instance.musicBus.getVolume(out vol, out finalVol);
+
+                AudioVolume = vol;
+                return vol;
+            }
         }
     }
 }

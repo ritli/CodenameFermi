@@ -90,4 +90,14 @@ public class MenuHandler : MonoBehaviour {
 
         Application.Quit();
     }
+
+    public void OnSoundSliderChanged(float val)
+    {
+        Manager.AudioVolume = val;
+    }
+
+    public void OnMusicSliderChanged(float val)
+    {
+        Manager.MusicVolume = val;
+    }
 }
