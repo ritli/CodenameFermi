@@ -177,42 +177,44 @@ public class Player : MonoBehaviour {
 
     void AnimationUpdate()
     {
-        animator.SetBool("Falling", jumpVelocity < 0);
-
-        if (Mathf.Abs(xVel) > 0.15f)
+        if (!Manager.instance.inMenu)
         {
-            int direction = inAir ? 2 : 1;
-            animator.SetInteger("Dir", direction);
+            animator.SetBool("Falling", jumpVelocity < 0);
 
-            facingRight = xVel > 0;
-            animator.SetBool("FacingRight", facingRight);
-            gunSprite.sortingOrder = facingRight ? sprite.sortingOrder + 1 : sprite.sortingOrder - 1;
-            gunSprite.flipY = !facingRight;
-            moving = facingRight;
-        }
-        else
-        {
-            int direction = inAir ? 2 : 0;
-            moving = false;
-
-            animator.SetInteger("Dir", direction);
-
-            if (!disableInput)
+            if (Mathf.Abs(xVel) > 0.15f)
             {
-                animator.SetBool("FacingRight", lookPos.x > 0);
-       
-                if (lookPos.x > 0)
+                int direction = inAir ? 2 : 1;
+                animator.SetInteger("Dir", direction);
+
+                facingRight = xVel > 0;
+                animator.SetBool("FacingRight", facingRight);
+                gunSprite.sortingOrder = facingRight ? sprite.sortingOrder + 1 : sprite.sortingOrder - 1;
+                gunSprite.flipY = !facingRight;
+                moving = facingRight;
+            }
+            else
+            {
+                int direction = inAir ? 2 : 0;
+                moving = false;
+
+                animator.SetInteger("Dir", direction);
+
+                if (!disableInput)
                 {
-                    gunSprite.flipY = true;
-                    gunSprite.sortingOrder = sprite.sortingOrder + 1;
-                }
-                else
-                {
-                    gunSprite.flipY = false;
-                    gunSprite.sortingOrder = sprite.sortingOrder - 1;
+                    animator.SetBool("FacingRight", lookPos.x > 0);
+           
+                    if (lookPos.x > 0)
+                    {
+                        gunSprite.flipY = true;
+                        gunSprite.sortingOrder = sprite.sortingOrder + 1;
+                    }
+                    else
+                    {
+                        gunSprite.flipY = false;
+                        gunSprite.sortingOrder = sprite.sortingOrder - 1;
+                    }
                 }
             }
-
         }
     }
 

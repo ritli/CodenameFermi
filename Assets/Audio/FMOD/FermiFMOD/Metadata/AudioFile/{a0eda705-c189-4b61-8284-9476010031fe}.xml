@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a0eda705-c189-4b61-8284-9476010031fe}">
+        <property name="assetPath">
+            <value>SFX/MagFireMag2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.7451927437641723</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{76c41ac1-01ef-4a54-85c3-de34d8e91608}</destination>
+        </relationship>
+    </object>
+</objects>

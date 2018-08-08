@@ -18,14 +18,8 @@ public class MagGun : MonoBehaviour {
     Animator gunAnimator;
 
     [Header("Audio")]
-    public AudioClip magLoop;
-    public AudioClip magStart;
-    public AudioClip magStop;
-    public AudioClip magFire;
-    public AudioClip magFireJump;
     public float volume;
-
-    new AudioSource audio;
+    FMODUnity.StudioEventEmitter emitter;
 
     [Header("Vars")]
 
@@ -48,7 +42,6 @@ public class MagGun : MonoBehaviour {
     public float repulseRange = 5;
     public float repulseForce = 10;
 
-    FMODUnity.StudioEventEmitter emitter;
 
 
     void Start() {
@@ -58,8 +51,6 @@ public class MagGun : MonoBehaviour {
         playerBody = GetComponentInParent<Rigidbody2D>();
         cam = Camera.main;
 
-        audio = GetComponent<AudioSource>();
-
         attractorParticles = Instantiate(attractParticlesPrefab, transform.position, attractParticlesPrefab.transform.rotation).GetComponent<MultiParticleHandler>();
     }
 
@@ -68,7 +59,7 @@ public class MagGun : MonoBehaviour {
         mousePos.z = 0;
         lookPos = mousePos - transform.parent.position;
 
-        if (!player.disableInput && !player.InDialogue)
+        if (!player.disableInput && !player.InDialogue && !Manager.instance.inMenu)
         {
             if (!magPulling && player.moving)
             {
@@ -179,6 +170,7 @@ public class MagGun : MonoBehaviour {
                 gunSprite.transform.position - gunSprite.transform.right * 0.35f,
                 Quaternion.Euler(0, 0, gunSprite.transform.rotation.eulerAngles.z - 180), player.transform);
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/MagFireMagnetize");
 
             CancelMagPull(false);
         }
