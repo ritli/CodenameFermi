@@ -12,24 +12,31 @@ MonoBehaviour:
   m_Name: ShipLeave
   m_EditorClassIdentifier: 
   containers:
-  - character: 1
-    expression: 0
-    content: '...'
-    endDialogue: 0
-    triggers: []
-    playTriggerAtEndInstead: 0
-    delay: 0
   - character: 2
     expression: 0
-    content: We have arrived at planet Gubbe in the Snubbus system.
+    content: We have arrived at planet Gubbo in the Crusoe Cluster.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: You ready to go down to the surface?
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 1
     expression: 0
-    content: 'Great! Let''s get *9 # /booping!/'
+    content: Yepp.
     endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: Okidoki! Let's get *9 /EXPLO/*20......*7/KY/
+    endDialogue: 1
     triggers:
     - {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
     - {fileID: 1029985130435432, guid: 9391654ac1ed7e3498ba6210b4fa72bb, type: 2}
