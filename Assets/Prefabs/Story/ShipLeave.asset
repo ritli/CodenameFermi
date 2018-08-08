@@ -12,21 +12,26 @@ MonoBehaviour:
   m_Name: ShipLeave
   m_EditorClassIdentifier: 
   containers:
-  - character: 0
+  - character: 1
     expression: 0
-    content: Good to see you /up/ and about!
+    content: '...'
     endDialogue: 0
-    trigger: {fileID: 0}
+    triggers: []
     playTriggerAtEndInstead: 0
+    delay: 0
   - character: 2
     expression: 0
     content: We have arrived at planet Gubbe in the Snubbus system.
     endDialogue: 0
-    trigger: {fileID: 0}
+    triggers: []
     playTriggerAtEndInstead: 0
+    delay: 0
   - character: 1
     expression: 0
     content: 'Great! Let''s get *9 # /booping!/'
     endDialogue: 0
-    trigger: {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
+    triggers:
+    - {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
+    - {fileID: 1029985130435432, guid: 9391654ac1ed7e3498ba6210b4fa72bb, type: 2}
     playTriggerAtEndInstead: 1
+    delay: 0

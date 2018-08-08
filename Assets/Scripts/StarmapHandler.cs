@@ -20,19 +20,23 @@ public class StarmapHandler : MonoBehaviour {
             parent.GetChild(i).gameObject.SetActive(false);
         }
 
-        StartCoroutine(ShowPointsRoutine());
     }
 	
-
+    public void OpenStarmap()
+    {
+        StartCoroutine(ShowPointsRoutine());
+    }
 
     IEnumerator ShowPointsRoutine()
     {
+        GetComponent<Animator>().Play("Open");
+
         yield return new WaitForSecondsRealtime(2f);
 
         Transform parent = transform.Find("Points");
 
         float randBase = 0.3f;
-
+        int multiplier = 1;
         for (int i = 0; i < parent.childCount; i++)
         {
             parent.GetChild(i).gameObject.SetActive(true);
@@ -41,8 +45,19 @@ public class StarmapHandler : MonoBehaviour {
             FMODUnity.RuntimeManager.PlayOneShot(bleepEvent);
 
             yield return new WaitForSecondsRealtime(Mathf.Clamp(Random.Range(randBase, randBase* 1.5f), 0.06f,randBase * 2));
-            randBase -= Time.unscaledDeltaTime * 0.5f;
+            randBase -= Time.unscaledDeltaTime * 0.5f * multiplier;
+
+            if (i == parent.childCount - 20)
+            {
+                multiplier = -multiplier;
+                randBase += 0.25f;
+                Manager.GetFade.FadeOut(5f, Color.black);
+            }
         }
+
+        yield return new WaitForSeconds(2f);
+
+        FMODUnity.RuntimeManager.PlayOneShot(bleepEvent);
     }
 }
 

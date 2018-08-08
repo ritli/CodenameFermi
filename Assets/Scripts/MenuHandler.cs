@@ -21,6 +21,7 @@ public class MenuHandler : MonoBehaviour {
     {
         if (menuOpen)
         {
+            CloseOptions();
             menuAnimator.Play("Close");
             menuOpen = false;
 
@@ -33,6 +34,8 @@ public class MenuHandler : MonoBehaviour {
 
     public void InstaClose()
     {
+        CloseOptions();
+
         menuAnimator.Play("InstaClose");
         menuOpen = false;
 
@@ -69,6 +72,15 @@ public class MenuHandler : MonoBehaviour {
         }
 
         optionsOpen = !optionsOpen;
+    }
+
+    void CloseOptions()
+    {
+        if (optionsOpen)
+        {
+            optionsOpen = false;
+            optionsAnimator.Play("Close");
+        }
     }
 
     public void ExitGame()

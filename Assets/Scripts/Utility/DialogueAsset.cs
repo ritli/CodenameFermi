@@ -21,8 +21,9 @@ public struct DialogueContainer
     [TextArea(5, 10)]
     public string content;
     public bool endDialogue;
-    public GameObject trigger;
+    public GameObject[] triggers;
     public bool playTriggerAtEndInstead;
+    public float delay;
 }
 
 

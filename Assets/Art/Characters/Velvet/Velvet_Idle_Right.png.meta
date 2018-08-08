@@ -1,22 +1,15 @@
 fileFormatVersion: 2
-guid: e79252e36cb5fa146bcd128263b30592
+guid: 8e5fbc317662f0f4caf33e462c1227fe
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Tiles_Floor_Temple_0
-    21300002: Tiles_Floor_Temple_1
-    21300004: Tiles_Floor_Temple_2
-    21300006: Tiles_Floor_Temple_3
-    21300008: Tiles_Floor_Temple_4
-    21300010: Tiles_Floor_Temple_5
-    21300012: Tiles_Floor_Temple_6
-    21300014: Tiles_Floor_Temple_7
-    21300016: Tiles_Floor_Temple_8
-    21300018: Tiles_Floor_Temple_9
-    21300020: Tiles_Floor_Temple_10
-    21300022: Tiles_Floor_Temple_11
-    21300024: Tiles_Floor_Temple_12
-    21300026: Tiles_Floor_Temple_13
-    21300028: Tiles_Floor_Temple_14
+    21300000: Velvet_Idle_Right_0
+    21300002: Velvet_Idle_Right_1
+    21300004: Velvet_Idle_Right_2
+    21300006: Velvet_Idle_Right_3
+    21300008: Velvet_Idle_Right_4
+    21300010: Velvet_Idle_Right_5
+    21300012: Velvet_Idle_Right_6
+    21300014: Velvet_Idle_Right_7
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -95,111 +88,22 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 569572609c23e6840bfd56b0049fc647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c195b0a658ec90d4ebd7ff8a0ced234f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c279362fae3b12042834ffdb9044ed66
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0bd7469b286ac2b4398fa5ae4568c9a8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fd1c5fc38a476145bf826a23c429dbf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_5
+      name: Velvet_Idle_Right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -213,13 +117,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e9a736f89d328f449a970db7984e80b
+      spriteID: 09daceb7bb49d714abd38b3acfd40203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_6
+      name: Velvet_Idle_Right_1
       rect:
         serializedVersion: 2
         x: 64
@@ -233,13 +137,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ba7538f507fb774fb6538b0f96e56a7
+      spriteID: a6097e48033fccc4098c1c7f5667ffda
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_7
+      name: Velvet_Idle_Right_2
       rect:
         serializedVersion: 2
         x: 128
@@ -253,13 +157,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52baa7fdc0c8e1e4ba5179e0350e770d
+      spriteID: 9bb40ba0b572fee4fb940bc99822c972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_8
+      name: Velvet_Idle_Right_3
       rect:
         serializedVersion: 2
         x: 192
@@ -273,33 +177,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39666884d69176e4eb0a36f6791059ed
+      spriteID: 5d23ee0438d73c74eb92fe350dda1110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_9
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2543b076146c73441a4c7f44c670a4e3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_10
+      name: Velvet_Idle_Right_4
       rect:
         serializedVersion: 2
         x: 0
@@ -313,13 +197,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 886adc3e1767b7d48889c2e8db857f7b
+      spriteID: 3860b73f23e34834b9e114c4bed4e96f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_11
+      name: Velvet_Idle_Right_5
       rect:
         serializedVersion: 2
         x: 64
@@ -333,13 +217,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e241de30a4938d44af152a3fc6d571f
+      spriteID: 76cdbbaa754eef345aef0e10c0321eef
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_12
+      name: Velvet_Idle_Right_6
       rect:
         serializedVersion: 2
         x: 128
@@ -353,13 +237,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17580dcb33c9e054ca947047f79c3ba8
+      spriteID: 88806f7598d89e34c8119c6f5cfe53ce
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Floor_Temple_13
+      name: Velvet_Idle_Right_7
       rect:
         serializedVersion: 2
         x: 192
@@ -373,27 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 857b63ef192749143a831ac7a9745913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Floor_Temple_14
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a1116885dc3ee241ba6c32b7b9ccd1d
+      spriteID: ca499dd14cd9ed948980bb6624492ea6
       vertices: []
       indices: 
       edges: []
@@ -401,7 +265,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: db06e19c491bc2444bd6f2e279518459
+    spriteID: ad7afb623dbc89043a6135a511c856ad
     vertices: []
     indices: 
     edges: []

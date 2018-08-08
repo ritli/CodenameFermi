@@ -243,4 +243,9 @@ public class Manager : MonoBehaviour {
             }
         }
     }
+
+    public static void OpenStarmap()
+    {
+        instance.GetComponentInChildren<StarmapHandler>().OpenStarmap();
+    }
 }

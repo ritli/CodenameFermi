@@ -234,6 +234,18 @@ public class Player : MonoBehaviour {
 
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Jump", gameObject);
 
+            Vector2 origin = feetOrigin;
+            origin.x = 0;
+            RaycastHit2D hit;
+
+            if (hit = Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength * 5, obstacleLayermask))
+            {
+                if (hit.collider.CompareTag("Magnetic"))
+                {
+                    hit.collider.GetComponent<Rigidbody2D>().AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
+                }
+            }
+
             if (facingRight) {
                 animator.Play("a_PlayerJumpRight");
             }
@@ -317,5 +329,8 @@ public class Player : MonoBehaviour {
         }
     }
 
-
+    public void PlayAnimation(string name)
+    {
+        animator.Play(name);
+    }
 }

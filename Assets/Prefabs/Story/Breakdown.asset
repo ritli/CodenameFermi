@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: Breakdown
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 1
+    expression: 0
+    content: '...'
+    endDialogue: 0
+    triggers:
+    - {fileID: 1029985130435432, guid: fa1aa80f732795b4d8da6930cd8c0047, type: 2}
+    - {fileID: 1029985130435432, guid: 4c19041761ad9204fa40acb952846d0c, type: 2}
+    playTriggerAtEndInstead: 0
+    delay: 6
+  - character: 0
+    expression: 0
+    content: YOU SET ME UP
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: "I...Uh\u2026Ace, what is all this black goo?"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: 'Unknown organism. '
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: "Multispectral analysis detects no harmful compounds in the organism\u2019s
+      biomass."
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: It has to be connected to what happened to Velvet. Ace, can you track
+      where it came from?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: Affirmative. Tracing subspace particle trail*9. . . . . . .
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: Tracking procedure complete. Galaxy map updated with coordinates.
+    endDialogue: 0
+    triggers:
+    - {fileID: 1988622771530156, guid: b0b3d93c44b45ca4e9e14aa87b7eb7b2, type: 2}
+    playTriggerAtEndInstead: 1
+    delay: 0

@@ -40,12 +40,13 @@ public class DialogueHandler : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
-                if (asset.containers[currentDialogueIndex-1].trigger && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
+                if (asset.containers[currentDialogueIndex-1].triggers.Length > 0 && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
                 {
-                    print(currentDialogueIndex);
-                    print("End Trigger");
-                    GameObject g = Instantiate(asset.containers[currentDialogueIndex-1].trigger);
-                    g.GetComponent<ITrigger>().StartTrigger();
+                    for (int i = 0; i < asset.containers[currentDialogueIndex-1].triggers.Length; i++)
+                    {
+                        GameObject g = Instantiate(asset.containers[currentDialogueIndex - 1].triggers[i]);
+                        g.GetComponent<ITrigger>().StartTrigger();
+                    };
                 }
 
                 if (asset.containers.Length - 1 < currentDialogueIndex)
@@ -89,6 +90,7 @@ public class DialogueHandler : MonoBehaviour {
             dialogueOpen = false;
             animator.Play("Close");
             Manager.GetPlayer.InDialogue = false;
+            Manager.GetPlayer.disableInput = false;
 
             if (trigger)
             {
@@ -104,19 +106,29 @@ public class DialogueHandler : MonoBehaviour {
     /// <param name="startIndex"></param>
     public void StartDialogue(int startIndex, DialogueAsset inAsset)
     {
-        if (asset.containers[startIndex].trigger && !asset.containers[startIndex].playTriggerAtEndInstead)
-        {
-            print("Start Trigger");
-            GameObject g = Instantiate(asset.containers[startIndex].trigger);
-            g.GetComponent<ITrigger>().StartTrigger();
-        }
-
-        Manager.GetPlayer.InDialogue = true;
-
-        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
-
         dialogueActive = true;
 
+        if (inAsset.containers[startIndex].triggers.Length > 0 && !inAsset.containers[startIndex].playTriggerAtEndInstead)
+        {
+            for (int i = 0; i < inAsset.containers[startIndex].triggers.Length; i++)
+            {
+                GameObject g = Instantiate(inAsset.containers[startIndex].triggers[i]);
+                g.GetComponent<ITrigger>().StartTrigger();
+            }
+
+        }
+
+        Manager.GetPlayer.disableInput = true;
+        Manager.GetPlayer.InDialogue = true;
+
+        StartCoroutine(DelayedStartDialogue(inAsset.containers[startIndex].delay, startIndex, inAsset));
+    }
+
+    IEnumerator DelayedStartDialogue(float time, int startIndex, DialogueAsset inAsset)
+    {
+        yield return new WaitForSecondsRealtime(time);
+
+        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
         asset = inAsset;
 
         OpenDialogue();
