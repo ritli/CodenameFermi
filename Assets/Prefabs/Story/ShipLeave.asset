@@ -35,10 +35,11 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 0
-    content: Okidoki! Let's get *9 /EXPLO/*20......*7/KY/
+    content: Okidoki! Let's get *5 /EXPLO *9......*7/KY/
     endDialogue: 1
     triggers:
     - {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}
     - {fileID: 1029985130435432, guid: 9391654ac1ed7e3498ba6210b4fa72bb, type: 2}
+    - {fileID: 1084261521612870, guid: 71ecddd7146c7014198a08039e472736, type: 2}
     playTriggerAtEndInstead: 1
     delay: 0

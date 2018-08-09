@@ -52,8 +52,10 @@ MonoBehaviour:
     expression: 0
     content: '+Slight grunt '
     endDialogue: 0
-    triggers: []
-    playTriggerAtEndInstead: 0
+    triggers:
+    - {fileID: 1084261521612870, guid: 8f2d29c1e6b07064bbea14de16fc5236, type: 2}
+    - {fileID: 1029985130435432, guid: e5d652e463d92724d8acb34f1fe340d8, type: 2}
+    playTriggerAtEndInstead: 1
     delay: 0
   - character: 0
     expression: 1

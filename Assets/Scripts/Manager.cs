@@ -41,6 +41,8 @@ public class Manager : MonoBehaviour {
     /// </summary>
     void Init()
     {
+        GetComponentInChildren<Canvas>(true).gameObject.SetActive(true);
+
         camera = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         dialogue = GetComponentInChildren<DialogueHandler>(true);
