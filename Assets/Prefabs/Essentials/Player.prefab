@@ -383,11 +383,6 @@ MonoBehaviour:
     type: 2}
   magGlow: {fileID: 1037113582894944, guid: aa186515ba740dc4c8516f4bfcc00b51, type: 2}
   gunSprite: {fileID: 212797243807646538}
-  magLoop: {fileID: 8300000, guid: f6f9478228a32a845bd3bafb7d7bc756, type: 3}
-  magStart: {fileID: 8300000, guid: c5ab8bbfc531a1b4e8c39475a7f39846, type: 3}
-  magStop: {fileID: 8300000, guid: c7986c0e98b2d564a8c3280ed9edad77, type: 3}
-  magFire: {fileID: 8300000, guid: dfa06dd0d8769a045b6ba98dcca98732, type: 3}
-  magFireJump: {fileID: 8300000, guid: cf4f95fd9e3814c4b92619deb24ff9c0, type: 3}
   volume: 0.4
   magJumpForce: 7
   magJumpRange: 2
@@ -414,10 +409,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleLayermask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   speed: 7
   snappiness: 0.05
-  jumpForce: 7
+  jumpForce: 10
   airControl: 0.065
   jumptimeMax: 0.3
   gravity: -20
