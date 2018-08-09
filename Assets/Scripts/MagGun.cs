@@ -254,6 +254,10 @@ public class MagGun : MonoBehaviour {
                         Destroy(colliderHits[i].transform.GetChild(0).gameObject);
                     }
                 }
+                if (colliderHits[i].CompareTag("Door"))
+                {
+                    colliderHits[i].GetComponent<DoorHandler>().DestroyDoor();
+                }
             } 
 
             magJumpCooldownElapsed = 0;
