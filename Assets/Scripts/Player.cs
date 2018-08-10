@@ -340,4 +340,9 @@ public class Player : MonoBehaviour {
     {
         animator.Play(name);
     }
+
+    public void SetAnimatorBoolParameter(string parameter, bool value)
+    {
+        animator.SetBool(parameter, value);
+    }
 }
