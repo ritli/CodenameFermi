@@ -52,6 +52,8 @@ public class Player : MonoBehaviour {
     private bool trailActive = true;
     bool inDialogue = false;
 
+    float landingCooldown = 0.1f, landingCooldownMax = 0.3f;
+
     void Start ()
     {
         trailParticles = transform.Find("Trail").GetComponent<MultiParticleHandler>();
@@ -89,6 +91,8 @@ public class Player : MonoBehaviour {
         }
 
         inAirOld = inAir;
+
+        landingCooldown = Mathf.Clamp01(landingCooldown - Time.deltaTime);
     }
 
     private void MovementUpdate()
@@ -183,7 +187,7 @@ public class Player : MonoBehaviour {
 
             if (Mathf.Abs(xVel) > 0.15f)
             {
-                int direction = inAir ? 2 : 1;
+                int direction = inAir && landingCooldown == 0 ? 2 : 1;
                 animator.SetInteger("Dir", direction);
 
                 facingRight = xVel > 0;
@@ -194,7 +198,7 @@ public class Player : MonoBehaviour {
             }
             else
             {
-                int direction = inAir ? 2 : 0;
+                int direction = inAir && landingCooldown == 0 ? 2 : 0;
                 moving = false;
 
                 animator.SetInteger("Dir", direction);
@@ -259,6 +263,7 @@ public class Player : MonoBehaviour {
     void OnLanding()
     {
         addForceSnappiness = 0;
+        landingCooldown = landingCooldownMax;
     }
 
     public void AddForce(Vector2 force, bool overwrite)
@@ -284,7 +289,9 @@ public class Player : MonoBehaviour {
         {
             Vector2 origin = feetOrigin;
 
-            if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength, obstacleLayermask))
+            int multiplier = inAir ? 1 : 1;
+
+            if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength * multiplier, obstacleLayermask))
             {
                 return true;
             }
@@ -292,7 +299,7 @@ public class Player : MonoBehaviour {
             else
             {
                 origin.x = -origin.x;
-                if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength, obstacleLayermask))
+                if (Physics2D.Linecast((Vector2)transform.position + origin, (Vector2)transform.position + origin + Vector2.down * feetLength * multiplier, obstacleLayermask))
                 {
                     return true;
                 }

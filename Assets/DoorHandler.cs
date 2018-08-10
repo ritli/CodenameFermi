@@ -9,7 +9,7 @@ public class DoorHandler : MonoBehaviour {
     float lastTime = 0;
     private Animator animator;
 
-    float cooldown = 0.25f, cooldownElapsed = 0;
+    float cooldown = 0.5f, cooldownElapsed = 0;
 
     int hits = 0;
 
@@ -24,9 +24,11 @@ public class DoorHandler : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Gun") && cooldownElapsed > cooldown)
+        if (other.CompareTag("Gun") && cooldownElapsed > cooldown && Mathf.Abs(Manager.GetPlayer.Velocity.x) < 0.1f)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/HitMetal");
+
+
 
             if (Time.time - lastTime < requiredTime)
             {
@@ -34,8 +36,12 @@ public class DoorHandler : MonoBehaviour {
 
                 if (hits > requiredHits)
                 {
+                    Manager.GetCamera.SetScreenShake(2.6f, 0.2f);
+
                     GetComponent<Collider2D>().enabled = false;
                     animator.Play("Open");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/LargeDoorOpen");
+
                 }
             }
             else
@@ -44,6 +50,17 @@ public class DoorHandler : MonoBehaviour {
             }
 
             lastTime = Time.time;
+        }
+
+        if (other.CompareTag("Magnetic"))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/HitMetal");
+                
+            Manager.GetCamera.SetScreenShake(2.6f, 0.2f);
+
+            GetComponent<Collider2D>().enabled = false;
+            animator.Play("Open");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/LargeDoorOpen");
         }
     }
 

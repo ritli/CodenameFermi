@@ -10,19 +10,21 @@ public class GlowHandler : MonoBehaviour {
     private float timeElapsed;
 
     void Start () {
-        GetComponent<SpriteRenderer>().sprite = GetComponentInParent<SpriteRenderer>().sprite;
-        GetComponent<SpriteRenderer>().sortingOrder = GetComponentInParent<SpriteRenderer>().sortingOrder - 1;
+        print(GetComponentInParent<SpriteRenderer>().sprite.name);
 
+        GetComponent<SpriteRenderer>().sprite = transform.parent.GetComponent<SpriteRenderer>().sprite;
+        GetComponent<SpriteRenderer>().sortingOrder = transform.parent.GetComponent<SpriteRenderer>().sortingOrder - 1;
+
+        Animator animator = GetComponent<Animator>();
+        animator.enabled = true;
 
         if (glowOnce)
         {
-
-            GetComponent<Animator>().Play("GlowOnce");
+            animator.Play("GlowOnce");
         }
         else
         {
-            GetComponent<Animator>().Play("Glow");
-
+            animator.Play("Glow");
         }
     }
 	

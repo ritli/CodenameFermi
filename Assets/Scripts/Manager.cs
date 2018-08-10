@@ -60,6 +60,7 @@ public class Manager : MonoBehaviour {
         soundBus = FMODUnity.RuntimeManager.GetBus("bus:/Sound");
 
         inMenuPauseInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/InMenu");
+;
     }
 
     void Start() {
@@ -123,6 +124,9 @@ public class Manager : MonoBehaviour {
     IEnumerator InitRoutine()
     {
         yield return new WaitForSeconds(0.01f);
+
+        MusicVolume = MusicVolume;
+        AudioVolume = AudioVolume;
 
         if (!startFromMenu)
         {
