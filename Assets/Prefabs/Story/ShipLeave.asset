@@ -14,28 +14,64 @@ MonoBehaviour:
   containers:
   - character: 2
     expression: 0
-    content: We have arrived at planet Gubbo in the Crusoe Cluster.
+    content: We have arrived at planet Crusoe-52(A)b.
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 0
     expression: 0
-    content: You ready to go down to the surface?
+    content: Ehhh....That's too complicated. Call it...
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 2
+    content: Velvet 1!
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 1
     expression: 0
-    content: Yepp.
+    content: So Ace, is there any coffee left?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 2
+  - character: 0
+    expression: 3
+    content: There was a horrible accident and the coffee machine almost blew up half
+      the ship!
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: "\u2026 Are you serious?"
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 0
+    expression: 2
+    content: Nah, I just drank it all.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
     expression: 0
-    content: Okidoki! Let's get *5 /EXPLO *9......*7/KY/
+    content: Ace, take us down.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: Affirmative. Initialising landing sequence.
     endDialogue: 1
     triggers:
     - {fileID: 1181808243254222, guid: 16883e3cff211ab4982232507746f5be, type: 2}

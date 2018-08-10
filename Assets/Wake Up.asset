@@ -14,7 +14,7 @@ MonoBehaviour:
   containers:
   - character: 0
     expression: 0
-    content: Hey wake up sleepyhead!
+    content: Hey wake up!
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
@@ -28,13 +28,20 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 0
-    content: "Don\u2019t make me come in there. I\u2019m sitting really comfortably
-      here, you know."
+    content: "Don\u2019t make me come down there. It\u2019s really comfy up here,
+      you know."
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 1
+    expression: 0
+    content: '...'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
     expression: 0
     content: '...'
     endDialogue: 0
@@ -43,14 +50,14 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 2
-    content: "I\u2019ll start singing if you don\u2019t get up!"
+    content: "I\u2019ll put on my /BRAND NEW/ mixtape you don\u2019t get up!"
     endDialogue: 0
     triggers: []
-    playTriggerAtEndInstead: 1
+    playTriggerAtEndInstead: 0
     delay: 0
   - character: 1
     expression: 0
-    content: '+Slight grunt '
+    content: '...Uggh...'
     endDialogue: 0
     triggers:
     - {fileID: 1084261521612870, guid: 8f2d29c1e6b07064bbea14de16fc5236, type: 2}
@@ -59,7 +66,7 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 1
-    content: Aww gee, and here I wanted to show you my new song. Well, another time
+    content: Aww... and here I wanted to play you my new song. Well, another time
       perhaps.
     endDialogue: 0
     triggers: []
@@ -68,14 +75,14 @@ MonoBehaviour:
   - character: 0
     expression: 0
     content: While you were sleeping we reached the Crusoe Cluster. I ran some scans
-      and found the planet we are looking for.
+      and found the planet we've been looking for.
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 0
     expression: 0
-    content: "It seems there are structures of some kind, maybe that\u2019s where
+    content: "It seems there are structures on the surface, maybe that\u2019s where
       the signal came from?"
     endDialogue: 0
     triggers: []
@@ -83,14 +90,14 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 2
-    content: Caliber imagine! Maybe there is another civilisation there?
+    content: Caliber imagine! Maybe there is another civilisation down there?
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
   - character: 1
     expression: 0
-    content: "Hmm, I wonder why we haven\u2019t met them yet then\u2026"
+    content: Hmm, I wonder why they haven't made contact yet...
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
