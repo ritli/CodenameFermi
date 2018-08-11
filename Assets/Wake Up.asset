@@ -50,7 +50,8 @@ MonoBehaviour:
     delay: 0
   - character: 0
     expression: 2
-    content: "I\u2019ll put on my /BRAND NEW/ mixtape you don\u2019t get up!"
+    content: "I\u2019ll put on my *9 /BRAND NEW/ *1 mixtape if you don\u2019t get
+      up!"
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: p_temple
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 1
+    expression: 0
+    content: Wow...Velvet do you see this?
+    endDialogue: 0
+    triggers:
+    - {fileID: 1454849054355784, guid: 8fe7b5fefa2701d4796e661fac613538, type: 2}
+    playTriggerAtEndInstead: 1
+    delay: 0
+  - character: 0
+    expression: 3
+    content: "Hey hey hey! What\u2019s this!? That looks super ominous. Maybe it\u2019s
+      like a temple or something?"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: "Isn\u2019t it weird that we didn\u2019t notice this giant building from
+      the ship\u2026"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: Looks pretty solid. How do you suggest we get it open?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 2
+    content: Try knocking!
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: '...'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: "I\u2019m not gonna try knocking."
+    endDialogue: 1
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0

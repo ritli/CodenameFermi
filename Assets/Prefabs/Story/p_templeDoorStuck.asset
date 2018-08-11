@@ -9,12 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
-  m_Name: DialogueTest
+  m_Name: p_templeDoorStuck
   m_EditorClassIdentifier: 
   containers:
-  - character: 1
+  - character: 2
     expression: 0
-    content: '#doot#'
+    content: The doorway has several weak points. I advice a shockwave at close range
+      to remove it.
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0

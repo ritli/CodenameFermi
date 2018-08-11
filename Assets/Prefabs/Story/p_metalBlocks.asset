@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: p_metalBlocks
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 0
+    expression: 0
+    content: 'Oh look, a metal box! Use your Magnet Gun to drag it around. '
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: "I\u2019ve also modified the mag-gun so you can polarise metal objects
+      to other stuff, basically like welding them together. Neat huh?"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: "Can\u2019t I just lift up the boxes while I\u2019m standing on them?"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 2
+    content: No silly, that would tear your ligaments to bits.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 2
+    expression: 0
+    content: Not recommended Caliber, as that action would break the laws of physics.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: That too.
+    endDialogue: 1
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0

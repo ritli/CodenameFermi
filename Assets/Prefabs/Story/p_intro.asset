@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: p_intro
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 0
+    expression: 0
+    content: So what's it like?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 2
+    content: '*7...*1On Velvet 1.'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: Come on, tell me!
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: Wow. It's.......uh.......sandy...I guess?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 0
+    content: "Sandy? Like coarse, rough, \u201Cgets everywhere\u201D, kind of sand?"
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 1
+    expression: 0
+    content: Exactly, I hate it.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+  - character: 0
+    expression: 2
+    content: Sounds lovely.
+    endDialogue: 1
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
