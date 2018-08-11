@@ -16,26 +16,6 @@ MonoBehaviour:
     expression: 0
     content: '#doot#'
     endDialogue: 0
-    trigger: {fileID: 0}
-  - character: 1
-    expression: 1
-    content: doot
-    endDialogue: 0
-    trigger: {fileID: 0}
-  - character: 1
-    expression: 2
-    content: doot
-    endDialogue: 0
-    trigger: {fileID: 0}
-  - character: 1
-    expression: 3
-    content: doot
-    endDialogue: 0
-    trigger: {fileID: 0}
-  - character: 0
-    expression: 1
-    content: 'Pls stop destroying art
-
-'
-    endDialogue: 0
-    trigger: {fileID: 0}
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
