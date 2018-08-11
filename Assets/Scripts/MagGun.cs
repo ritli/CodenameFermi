@@ -74,7 +74,7 @@ public class MagGun : MonoBehaviour {
             }
             else
             {
-                gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 8f);
+                gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 16f);
             }
 
 

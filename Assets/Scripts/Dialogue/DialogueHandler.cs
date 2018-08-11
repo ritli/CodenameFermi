@@ -13,6 +13,7 @@ public class DialogueHandler : MonoBehaviour {
     public TextMeshProUGUI textTemplate;
     public Transform textPanel;
     public Image portrait;
+    public TextMeshProUGUI namePanel;
 
     public float delay = 0.02f;
     int currentDialogueIndex = 0;
@@ -50,11 +51,14 @@ public class DialogueHandler : MonoBehaviour {
                         g.GetComponent<ITrigger>().StartTrigger();
                     };
 
-                    if (previewTriggers.Length-1 <= currentDialogueIndex-1)
+                    if (previewTriggers != null)
                     {
-                        for (int i = 0; i < previewTriggers[currentDialogueIndex-1].triggers.Length; i++)
+                        if (previewTriggers.Length - 1 <= currentDialogueIndex - 1)
                         {
-                            previewTriggers[currentDialogueIndex - 1].triggers[i].GetComponent<ITrigger>().StartTrigger();
+                            for (int i = 0; i < previewTriggers[currentDialogueIndex - 1].triggers.Length; i++)
+                            {
+                                previewTriggers[currentDialogueIndex - 1].triggers[i].GetComponent<ITrigger>().StartTrigger();
+                            }
                         }
                     }
                 }
@@ -98,6 +102,15 @@ public class DialogueHandler : MonoBehaviour {
         if (dialogueOpen)
         {
             dialogueOpen = false;
+
+            int childCount = textPanel.childCount;
+
+            for (int i = childCount; i > 0; i--)
+            {
+                Destroy(textPanel.GetChild(i - 1).gameObject);
+            }
+
+            namePanel.text = "";
             animator.Play("Close");
             Manager.GetPlayer.InDialogue = false;
             Manager.GetPlayer.disableInput = false;
@@ -145,7 +158,6 @@ public class DialogueHandler : MonoBehaviour {
                     }
                 }
             }
-
         }
 
         Manager.GetPlayer.disableInput = true;
@@ -175,7 +187,6 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator Print()
     {
-
         int childCount = textPanel.childCount;
 
         //Clear text panel to prepare for new text
@@ -187,6 +198,8 @@ public class DialogueHandler : MonoBehaviour {
         int frameCount = 16;
         Sprite actualPortrait = portrait.sprite;
 
+        namePanel.text = "";
+
         //Checks if current dialogue is first one or if the character that last spoke is the same one that's speaking now
         if (currentDialogueIndex == 0 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex].character)
         {
@@ -195,6 +208,23 @@ public class DialogueHandler : MonoBehaviour {
                 portrait.sprite = noiseSprites[i % noiseSprites.Length];
                 yield return new WaitForSeconds(0.5f/frameCount);
             }
+        }
+        string compareString = asset.containers[currentDialogueIndex-1].character.ToString();
+
+        switch (compareString)
+        {
+            case "Player":
+                namePanel.text = "CALIBER";
+            break;
+            case "AI":
+                namePanel.text = "ACE";
+            break;
+            case "Velvet":
+                namePanel.text = "VELVET";
+            break;
+
+            default:
+                break;
         }
 
         portrait.sprite = actualPortrait;
