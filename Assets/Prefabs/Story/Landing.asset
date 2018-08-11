@@ -9,13 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
-  m_Name: DialogueTest
+  m_Name: Landing
   m_EditorClassIdentifier: 
   containers:
-  - character: 1
+  - character: 2
     expression: 0
-    content: '#doot#'
+    content: The ship has broken through the atmosphere. Deploying landing gear.
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+  - character: 0
+    expression: 0
+    content: 'Alright, everything looks ok. Good luck out there! '
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 2

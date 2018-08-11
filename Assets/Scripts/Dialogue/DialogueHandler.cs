@@ -17,7 +17,7 @@ public class DialogueHandler : MonoBehaviour {
     public float delay = 0.02f;
     int currentDialogueIndex = 0;
 
-    bool dialogueActive = false; 
+    bool dialogueActive = false;
     private bool dialogueFinished = true;
     bool dialogueOpen = false;
     private Animator animator;
@@ -26,6 +26,8 @@ public class DialogueHandler : MonoBehaviour {
 
     [HideInInspector]
     public GameObject trigger;
+
+    DialoguePreview[] previewTriggers;
 
     private void Start()
     {
@@ -40,13 +42,21 @@ public class DialogueHandler : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && dialogueFinished)
             {
-                if (asset.containers[currentDialogueIndex-1].triggers.Length > 0 && asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
+                if (asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
                 {
                     for (int i = 0; i < asset.containers[currentDialogueIndex-1].triggers.Length; i++)
                     {
                         GameObject g = Instantiate(asset.containers[currentDialogueIndex - 1].triggers[i]);
                         g.GetComponent<ITrigger>().StartTrigger();
                     };
+
+                    if (previewTriggers.Length-1 <= currentDialogueIndex-1)
+                    {
+                        for (int i = 0; i < previewTriggers[currentDialogueIndex-1].triggers.Length; i++)
+                        {
+                            previewTriggers[currentDialogueIndex - 1].triggers[i].GetComponent<ITrigger>().StartTrigger();
+                        }
+                    }
                 }
 
                 if (asset.containers.Length - 1 < currentDialogueIndex)
@@ -92,12 +102,21 @@ public class DialogueHandler : MonoBehaviour {
             Manager.GetPlayer.InDialogue = false;
             Manager.GetPlayer.disableInput = false;
 
+            previewTriggers = null;
+
             if (trigger)
             {
                 trigger.GetComponent<ITrigger>().OnEventFinished();
                 trigger = null;
             }
         }
+    }
+
+    public void StartDialogue(int startIndex, DialogueAsset inAsset, DialoguePreview[] preview)
+    {
+        previewTriggers = preview;
+
+        StartDialogue(startIndex, inAsset);
     }
 
     /// <summary>
@@ -108,12 +127,23 @@ public class DialogueHandler : MonoBehaviour {
     {
         dialogueActive = true;
 
-        if (inAsset.containers[startIndex].triggers.Length > 0 && !inAsset.containers[startIndex].playTriggerAtEndInstead)
+        if (!inAsset.containers[startIndex].playTriggerAtEndInstead)
         {
             for (int i = 0; i < inAsset.containers[startIndex].triggers.Length; i++)
             {
                 GameObject g = Instantiate(inAsset.containers[startIndex].triggers[i]);
                 g.GetComponent<ITrigger>().StartTrigger();
+            }
+
+            if (previewTriggers != null)
+            {
+                if (previewTriggers.Length - 1 <= startIndex)
+                {
+                    for (int i = 0; i < previewTriggers[startIndex].triggers.Length; i++)
+                    {
+                        previewTriggers[startIndex].triggers[i].GetComponent<ITrigger>().StartTrigger();
+                    }
+                }
             }
 
         }
@@ -126,6 +156,8 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator DelayedStartDialogue(float time, int startIndex, DialogueAsset inAsset)
     {
+        dialogueFinished = false;
+
         yield return new WaitForSecondsRealtime(time);
 
         portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
@@ -143,7 +175,6 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator Print()
     {
-        dialogueFinished = false;
 
         int childCount = textPanel.childCount;
 

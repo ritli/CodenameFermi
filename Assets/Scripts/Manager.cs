@@ -60,7 +60,6 @@ public class Manager : MonoBehaviour {
         soundBus = FMODUnity.RuntimeManager.GetBus("bus:/Sound");
 
         inMenuPauseInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/InMenu");
-;
     }
 
     void Start() {
