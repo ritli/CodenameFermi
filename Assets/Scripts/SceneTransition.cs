@@ -99,6 +99,5 @@ public class SceneTransition : MonoBehaviour, ITrigger {
 
     public void OnEventFinished()
     {
-        throw new System.NotImplementedException();
     }
 }

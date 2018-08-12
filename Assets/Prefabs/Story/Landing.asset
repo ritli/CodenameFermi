@@ -19,6 +19,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: 'Alright, everything looks ok. Good luck out there! '
@@ -26,3 +27,4 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 2
+    showStatic: 0

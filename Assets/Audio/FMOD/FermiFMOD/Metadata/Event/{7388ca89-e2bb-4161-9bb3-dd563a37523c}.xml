@@ -141,6 +141,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{0c527735-3f5e-461a-9778-478e032ecf29}">
+        <relationship name="modulators">
+            <destination>{134afa9d-1ddd-441e-b473-ac1a9cf588b5}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{e33f8ee1-4d68-4bc2-bfc7-d9a6ac8cb0d7}</destination>
         </relationship>
@@ -433,6 +436,20 @@
             <destination>{5ebc2b42-d4a1-4d62-9d59-f0610064e63a}</destination>
         </relationship>
     </object>
+    <object class="ADSRModulator" id="{134afa9d-1ddd-441e-b473-ac1a9cf588b5}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>volume</value>
+        </property>
+        <property name="initialValue">
+            <value>-80</value>
+        </property>
+        <property name="attackTime">
+            <value>380</value>
+        </property>
+        <property name="releaseTime">
+            <value>1800</value>
+        </property>
+    </object>
     <object class="MixerBusEffectChain" id="{e33f8ee1-4d68-4bc2-bfc7-d9a6ac8cb0d7}">
         <relationship name="effects">
             <destination>{a329feb1-7e06-4eb9-8617-edc1ed4081e7}</destination>
@@ -651,7 +668,7 @@
     </object>
     <object class="AutomationPoint" id="{fc556e0f-e783-490a-9eef-9f3772a8727c}">
         <property name="position">
-            <value>2.2989097757027332</value>
+            <value>22.138445780709038</value>
         </property>
         <property name="value">
             <value>0</value>
@@ -665,7 +682,7 @@
             <value>-48</value>
         </property>
         <property name="curveShape">
-            <value>-0.1217729</value>
+            <value>-0.222892985</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{bb3a3227-6b4e-4bd0-83fa-5542f192061b}">
