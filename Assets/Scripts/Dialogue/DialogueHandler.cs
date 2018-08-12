@@ -35,8 +35,14 @@ public class DialogueHandler : MonoBehaviour {
 
     private void Start()
     {
-
-        emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+        if (GetComponent<FMODUnity.StudioEventEmitter>())
+        {
+            emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+        }
+        else
+        {
+            emitter = gameObject.AddComponent<FMODUnity.StudioEventEmitter>();
+        }
 
         emitter.Event = "event:/Static";
         noiseSprites = Resources.LoadAll<Sprite>("Portraits/Noise/");
