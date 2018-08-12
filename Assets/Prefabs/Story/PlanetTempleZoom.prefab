@@ -84,6 +84,6 @@ MonoBehaviour:
   triggerTagFilter: Player
   settings:
     time: 8
-    zoomLevel: 1.75
-    lookPosition: {x: 87, y: 0, z: 0}
+    zoomLevel: 2
+    lookPosition: {x: 105, y: 0, z: 0}
     addZoomLevelToCurrentZoom: 1
