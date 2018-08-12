@@ -53,7 +53,7 @@ public class DialogueHandler : MonoBehaviour {
     {
         if (dialogueActive)
         {
-            if ((Input.GetButtonDown("Fire1") && dialogueFinished) || (asset.containers[currentDialogueIndex - 1].skipConfirmation && dialogueFinished))
+            if ((Input.GetButtonDown("Fire1") && dialogueFinished) || (asset.containers[Mathf.Clamp(currentDialogueIndex - 1, 0, int.MaxValue)].skipConfirmation && dialogueFinished))
             {
                 if (asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
                 {
