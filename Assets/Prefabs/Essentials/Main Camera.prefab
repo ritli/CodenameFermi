@@ -261,7 +261,7 @@ MonoBehaviour:
   m_zoomSpeed: 6
   m_interpolateVal: 0.2
   m_mouseExtendMultiplier: 0.1
-  targetOffset: {x: 0, y: 0, z: 0}
+  targetOffset: {x: 0, y: 1, z: 0}
   m_interpolateCamera: 1
   m_zZoomLevel: -10
 --- !u!114 &114765359758929836
