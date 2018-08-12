@@ -124,7 +124,7 @@ public class Player : MonoBehaviour {
             for (int i = 0; i < 3; i++)
             {
                 float xVelSigned = Mathf.Clamp(xVel, -1, 1);
-                Vector2 origin = (Vector2)transform.position + new Vector2(feetOrigin.x * xVelSigned, Mathf.Lerp(feetOrigin.y + 0.1f, -feetOrigin.y - 0.1f, i / 2f));
+                Vector2 origin = (Vector2)transform.position + new Vector2(feetOrigin.x * xVelSigned, Mathf.Lerp(feetOrigin.y + 0.4f, -feetOrigin.y + 0.1f, i / 2f));
 
                 if (Physics2D.Linecast(origin, origin + Vector2.right * xVelSigned * feetLength * 2, obstacleLayermask))
                 {

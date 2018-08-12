@@ -1356,7 +1356,7 @@ Transform:
   m_Children:
   - {fileID: 1705429467}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431322738
 GameObject:
@@ -27549,7 +27549,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.46875, y: 6.25}
+    oldSize: {x: 4.453125, y: 5.140625}
     newSize: {x: 5.46875, y: 6.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -29192,7 +29192,7 @@ Transform:
   m_Children:
   - {fileID: 472658305}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2030288648
 Prefab:

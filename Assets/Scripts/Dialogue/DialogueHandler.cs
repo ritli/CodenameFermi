@@ -65,7 +65,7 @@ public class DialogueHandler : MonoBehaviour {
 
                     if (previewTriggers != null)
                     {
-                        if (previewTriggers.Length - 1 <= currentDialogueIndex - 1)
+                        if (previewTriggers.Length - 1 >= currentDialogueIndex - 1)
                         {
                             for (int i = 0; i < previewTriggers[currentDialogueIndex - 1].triggers.Length; i++)
                             {
@@ -180,8 +180,15 @@ public class DialogueHandler : MonoBehaviour {
 
             if (previewTriggers != null)
             {
-                if (previewTriggers.Length - 1 <= startIndex)
+                print("Previews");
+
+                print(previewTriggers.Length);
+                print(startIndex);
+
+                if (previewTriggers.Length >= startIndex)
                 {
+                    print("Previews2");
+
                     for (int i = 0; i < previewTriggers[startIndex].triggers.Length; i++)
                     {
                         previewTriggers[startIndex].triggers[i].GetComponent<ITrigger>().StartTrigger();

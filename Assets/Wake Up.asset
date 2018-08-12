@@ -19,13 +19,15 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
-    content: '...'
+    content: '*9...'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: "Don\u2019t make me come down there. It\u2019s really comfy up here,
@@ -34,13 +36,15 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
-    content: '...'
+    content: '*9...'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: '...'
@@ -48,6 +52,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 2
     content: "I\u2019ll put on my *9 /BRAND NEW/ *1 mixtape if you don\u2019t get
@@ -56,15 +61,17 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
-    content: '...Uggh...'
+    content: '*9...*1Uggh...'
     endDialogue: 0
     triggers:
     - {fileID: 1084261521612870, guid: 8f2d29c1e6b07064bbea14de16fc5236, type: 2}
     - {fileID: 1029985130435432, guid: e5d652e463d92724d8acb34f1fe340d8, type: 2}
     playTriggerAtEndInstead: 1
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 1
     content: Aww... and here I wanted to play you my new song. Well, another time
@@ -73,6 +80,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: While you were sleeping we reached the Crusoe Cluster. I ran some scans
@@ -81,6 +89,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: "It seems there are structures on the surface, maybe that\u2019s where
@@ -89,6 +98,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 2
     content: Caliber imagine! Maybe there is another civilisation down there?
@@ -96,6 +106,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
     content: Hmm, I wonder why they haven't made contact yet...
@@ -103,6 +114,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 2
     content: "Eh, maybe they\u2019re just sleeping in?"
@@ -110,3 +122,4 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0

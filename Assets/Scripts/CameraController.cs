@@ -41,7 +41,6 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         target = Manager.GetPlayer.transform;
-
         camera = GetComponent<Camera>();
 
         m_initialZoom = camera.orthographicSize;
@@ -49,6 +48,7 @@ public class CameraController : MonoBehaviour
 
         pixelCamera = GetComponent<PixelPerfectCamera>();
         m_initialRes = new Vector2(pixelCamera.refResolutionX, pixelCamera.refResolutionY);
+
         m_targetRes = m_initialRes;
         transform.position = Manager.GetPlayer.transform.position;
         //Cursor.visible = false;

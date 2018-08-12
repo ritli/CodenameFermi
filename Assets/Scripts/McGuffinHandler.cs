@@ -12,6 +12,8 @@ public class McGuffinHandler : MonoBehaviour, ITrigger {
     public float pickupTime;
     private Vector3 playerPos;
 
+    public DialogueTrigger dialogue;
+
     public void OnEventFinished()
     {
     }
@@ -26,19 +28,22 @@ public class McGuffinHandler : MonoBehaviour, ITrigger {
         animator.Play("Pickup");
         Manager.GetPlayer.disableInput = true;
 
+        Manager.GetCamera.TimedLook(2f, transform.position, 3);
+
         yield return new WaitForSeconds(2f);
 
         transform.DOMove(playerPos, pickupTime);
         transform.DOScale(0.0f, pickupTime);
+        Manager.GetCamera.TimedLook(2f, Manager.GetPlayer.transform.position, 3);
 
         yield return new WaitForSeconds(pickupTime * 1.05f);
 
         Instantiate(Resources.Load<GameObject>("McMuffinGet"), player.transform.position, Quaternion.identity, player.transform);
 
         Manager.GetPlayer.disableInput = false;
-        if (asset)
+        if (dialogue)
         {
-            Manager.GetDialogue.StartDialogue(0, asset);
+            dialogue.StartTrigger();
         }
 
         gameObject.SetActive(false);

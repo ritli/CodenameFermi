@@ -24,8 +24,7 @@ MonoBehaviour:
     expression: 2
     content: That went well!
     endDialogue: 1
-    triggers:
-    - {fileID: 0}
+    triggers: []
     playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0

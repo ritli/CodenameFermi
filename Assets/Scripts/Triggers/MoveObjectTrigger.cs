@@ -17,7 +17,6 @@ public class MoveObjectTrigger : MonoBehaviour, ITrigger
     {
         if (!transform.Find("Destintation") && !destination)
         {
-            print(transform.Find("Destination"));
             destination = new GameObject("Destination").transform;
             destination.transform.parent = transform;
         }

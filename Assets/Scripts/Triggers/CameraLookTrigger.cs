@@ -13,9 +13,9 @@ public class CameraLookTrigger : MonoBehaviour, ITrigger {
 #if UNITY_EDITOR
     void OnValidate()
     {
-        if (!lookPos)
+        if (!transform.Find("Look Position") && !lookPos)
         {
-            lookPos = new GameObject("Look Position").transform;
+            lookPos = new GameObject("Destination").transform;
             lookPos.transform.parent = transform;
             lookPos.localPosition = Vector3.zero;
         }
@@ -42,6 +42,8 @@ public class CameraLookTrigger : MonoBehaviour, ITrigger {
 
     public void StartTrigger()
     {
+        print("Triggered");
+
         if (triggerOnce)
         {
             Manager.GetCamera.TimedLook(settings);

@@ -16,9 +16,11 @@ MonoBehaviour:
     expression: 3
     content: Wow wow! What is happening!?
     endDialogue: 0
-    triggers: []
+    triggers:
+    - {fileID: 1613849731472200, guid: af502a891648f5546b4845cfdaa3972b, type: 2}
+    - {fileID: 1090554868746542, guid: d3c7e817ecb3db944be1dd356a17dbf7, type: 2}
     playTriggerAtEndInstead: 0
-    delay: 0
+    delay: 2
     showStatic: 0
   - character: 2
     expression: 0

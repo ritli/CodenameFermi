@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayAnimationTrigger : MonoBehaviour, ITrigger {
 
+    public Animator target;
+
     [Header("Animation")]
     public string animationName;
 
@@ -15,16 +17,23 @@ public class PlayAnimationTrigger : MonoBehaviour, ITrigger {
 
     public void OnEventFinished()
     {
-        throw new System.NotImplementedException();
     }
 
     public void StartTrigger()
     {
-        Manager.GetPlayer.PlayAnimation(animationName);
-
-        if (setParameter)
+        if (!target)
         {
-            Manager.GetPlayer.SetAnimatorBoolParameter(parameter, parameterValue);
+            Manager.GetPlayer.PlayAnimation(animationName);
+
+            if (setParameter)
+            {
+                Manager.GetPlayer.SetAnimatorBoolParameter(parameter, parameterValue);
+            }
+        }
+
+        else
+        {
+            target.Play(animationName);
         }
     }
 }

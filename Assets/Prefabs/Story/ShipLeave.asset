@@ -19,6 +19,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 0
     content: Ehhh....That's too complicated. Call it...
@@ -26,6 +27,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 2
     content: Velvet 1!
@@ -33,13 +35,15 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
-    content: So Ace, is there any coffee left?
+    content: '*9... *1 So Ace, is there any coffee left?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 2
+    showStatic: 0
   - character: 0
     expression: 3
     content: There was a horrible accident and the coffee machine almost blew up half
@@ -48,13 +52,15 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
-    content: "\u2026 Are you serious?"
+    content: '*9... *1 Are you serious?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 0
     expression: 2
     content: Nah, I just drank it all.
@@ -62,6 +68,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 1
     expression: 0
     content: Ace, take us down.
@@ -69,6 +76,7 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
   - character: 2
     expression: 0
     content: Affirmative. Initialising landing sequence.
@@ -79,3 +87,4 @@ MonoBehaviour:
     - {fileID: 1084261521612870, guid: 71ecddd7146c7014198a08039e472736, type: 2}
     playTriggerAtEndInstead: 1
     delay: 0
+    showStatic: 0
