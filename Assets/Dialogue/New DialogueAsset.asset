@@ -16,19 +16,21 @@ MonoBehaviour:
     expression: 0
     content: AAAA
     endDialogue: 0
-    triggers: []
-    playTriggerAtEndInstead: 0
+    triggers:
+    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 1
     content: AAAAAAAAAAA
     endDialogue: 0
-    triggers:
-    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 1
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: AAAAAAAA
@@ -37,6 +39,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 1
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Vevlet? :O
@@ -45,6 +48,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 3
     content: EAFAEFE
@@ -53,3 +57,4 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
