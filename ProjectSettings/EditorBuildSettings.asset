@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/1_Ship.unity
     guid: 488df34d100d21549a1e8cb94b29822e
   - enabled: 1
-    path: Assets/Scenes/Platformer Testing.unity
-    guid: 4db5e4c37baacdf439523dd0cccaac02
+    path: Assets/Scenes/PlanetScene.unity
+    guid: 16d6ffb0c2cbaec4f994e71bc937a5dc
+  - enabled: 1
+    path: Assets/Scenes/TempleScene.unity
+    guid: 18701cddfebe84b4abddca99902bc722
+  - enabled: 1
+    path: Assets/Scenes/AltarScene.unity
+    guid: 569600ad209176942ba91823f7974689
+  - enabled: 1
+    path: Assets/Scenes/RUNBACK_temple.unity
+    guid: c67a165d595f4594289f484e385e1493
+  - enabled: 1
+    path: Assets/Scenes/RUNBACK_planet.unity
+    guid: 91f5a48cd76e61045a6400c565ca040a
+  - enabled: 1
+    path: Assets/Scenes/2_Ship.unity
+    guid: 22e4177192a52184297e81874b36c02a
   m_configObjects: {}
