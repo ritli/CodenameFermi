@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{cf23782b-fe5c-4401-96d0-cd3f251f4641}">
+        <property name="assetPath">
+            <value>McMuffinPickup.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>12.010408163265305</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{76c41ac1-01ef-4a54-85c3-de34d8e91608}</destination>
+        </relationship>
+    </object>
+</objects>
