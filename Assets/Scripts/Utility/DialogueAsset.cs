@@ -25,6 +25,7 @@ public struct DialogueContainer
     public bool playTriggerAtEndInstead;
     public float delay;
     public bool showStatic;
+    public bool skipConfirmation;
 }
 
 

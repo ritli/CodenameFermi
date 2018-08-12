@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471591c251f7a149b94f1f79d5f3154, type: 3}
+  m_Name: rbT_Twisty
+  m_EditorClassIdentifier: 
+  containers:
+  - character: 1
+    expression: 0
+    content: "Whatever shook the building doesn\u2019t seem to have left any lasting
+      structural instabilities."
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
+    expression: 0
+    content: What about the coffee maker?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 1
+    expression: 0
+    content: Yes, the artifact is safe and sound.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
+    expression: 0
+    content: "So, about my new song! I feel like it\u2019s really com*9..."
+    endDialogue: 0
+    triggers:
+    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    playTriggerAtEndInstead: 1
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 1
+  - character: 0
+    expression: 0
+    content: '...'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 1
+    skipConfirmation: 0

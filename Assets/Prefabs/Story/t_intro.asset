@@ -17,6 +17,8 @@ MonoBehaviour:
     content: "Well, this place seems important. Can you go look around? Maybe we\u2019ll
       find some clue of what happened here."
     endDialogue: 1
-    triggers: []
+    triggers:
+    - {fileID: 1084261521612870, guid: f9f38b8e516270e4389e957d79aa6f8d, type: 2}
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0

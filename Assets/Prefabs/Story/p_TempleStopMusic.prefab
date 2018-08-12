@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77ab0b02f4db604b930ade2d1769703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startEvent: 1
+  startEvent: 0
   stopEvent: 0
   useParameter: 0
   destroyTrack: 1
