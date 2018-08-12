@@ -92,8 +92,9 @@ public class DialogueHandler : MonoBehaviour {
                 }
             }
 
-            GenerateNoisePortrait();
         }
+
+        GenerateNoisePortrait();
     }
 
     void GenerateNoisePortrait()
@@ -195,7 +196,6 @@ public class DialogueHandler : MonoBehaviour {
 
         yield return new WaitForSecondsRealtime(time);
 
-        portrait.sprite = Resources.Load<Sprite>("Portraits/" + inAsset.containers[startIndex].character.ToString() + "_" + inAsset.containers[startIndex].expression.ToString());
         asset = inAsset;
 
         OpenDialogue();
@@ -203,9 +203,10 @@ public class DialogueHandler : MonoBehaviour {
         currentDialogueIndex = startIndex;
         content = asset.containers[startIndex].content;
 
+        currentDialogueIndex++;
+
         StartCoroutine(Print());
 
-        currentDialogueIndex++;
     }
 
     IEnumerator Print()
@@ -218,14 +219,13 @@ public class DialogueHandler : MonoBehaviour {
             Destroy(textPanel.GetChild(i - 1).gameObject);
         }
 
-        Sprite actualPortrait = portrait.sprite;
-
+        Sprite actualPortrait = Resources.Load<Sprite>("Portraits/" + asset.containers[currentDialogueIndex - 1].character.ToString() + "_" + asset.containers[currentDialogueIndex - 1].expression.ToString());
         namePanel.text = "";
 
         // SET PORTRAIT
 
         //Checks if current dialogue is first one or if the character that last spoke is the same one that's speaking now
-        if (currentDialogueIndex == 0 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex].character || asset.containers[currentDialogueIndex].showStatic)
+        if (currentDialogueIndex == 1 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex-2].character || asset.containers[currentDialogueIndex-1].showStatic)
         {
             generateNoise = true;
 
@@ -258,7 +258,7 @@ public class DialogueHandler : MonoBehaviour {
                 break;
         }
 
-        if (!asset.containers[currentDialogueIndex].showStatic)
+        if (!asset.containers[currentDialogueIndex-1].showStatic)
         {
             generateNoise = false;
             emitter.Stop();
