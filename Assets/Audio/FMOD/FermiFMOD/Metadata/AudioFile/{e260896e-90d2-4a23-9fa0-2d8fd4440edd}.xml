@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{e260896e-90d2-4a23-9fa0-2d8fd4440edd}">
+        <property name="assetPath">
+            <value>SFX/largeDoorDestroy.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>5.0913378684807258</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{76c41ac1-01ef-4a54-85c3-de34d8e91608}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -14,17 +14,42 @@ MonoBehaviour:
   containers:
   - character: 0
     expression: 0
-    content: 
-    continueDialogue: 1
+    content: AAAA
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
   - character: 0
     expression: 1
-    content: 
-    continueDialogue: 1
+    content: AAAAAAAAAAA
+    endDialogue: 0
+    triggers:
+    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 1
   - character: 0
     expression: 2
-    content: 
-    continueDialogue: 1
+    content: AAAAAAAA
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 1
+  - character: 1
+    expression: 0
+    content: Vevlet? :O
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
   - character: 0
     expression: 3
-    content: 
-    continueDialogue: 1
+    content: EAFAEFE
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0

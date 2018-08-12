@@ -22,19 +22,25 @@ public class DialogueHandler : MonoBehaviour {
     private bool dialogueFinished = true;
     bool dialogueOpen = false;
     private Animator animator;
-    private AudioClipPlayer audioPlayer;
     Sprite[] noiseSprites;
 
     [HideInInspector]
     public GameObject trigger;
 
     DialoguePreview[] previewTriggers;
+    private bool generateNoise;
+    private float noiseTime;
+
+    FMODUnity.StudioEventEmitter emitter;
 
     private void Start()
     {
+
+        emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+
+        emitter.Event = "event:/Static";
         noiseSprites = Resources.LoadAll<Sprite>("Portraits/Noise/");
         animator = GetComponent<Animator>();
-        audioPlayer = GetComponent<AudioClipPlayer>();
     }
 
     private void Update()
@@ -85,6 +91,23 @@ public class DialogueHandler : MonoBehaviour {
                     }
                 }
             }
+
+            GenerateNoisePortrait();
+        }
+    }
+
+    void GenerateNoisePortrait()
+    {
+        if (generateNoise && noiseTime > 0.5/16)
+        {
+            noiseTime = 0f;
+            int i = Random.Range(0, noiseSprites.Length);
+
+            portrait.sprite = noiseSprites[i % noiseSprites.Length];
+        }
+        else
+        {
+            noiseTime += Time.deltaTime;
         }
     }
 
@@ -195,22 +218,30 @@ public class DialogueHandler : MonoBehaviour {
             Destroy(textPanel.GetChild(i - 1).gameObject);
         }
 
-        int frameCount = 16;
         Sprite actualPortrait = portrait.sprite;
 
         namePanel.text = "";
 
+        // SET PORTRAIT
+
         //Checks if current dialogue is first one or if the character that last spoke is the same one that's speaking now
-        if (currentDialogueIndex == 0 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex].character)
+        if (currentDialogueIndex == 0 || asset.containers[currentDialogueIndex - 1].character != asset.containers[currentDialogueIndex].character || asset.containers[currentDialogueIndex].showStatic)
         {
-            for (int i = 0; i < frameCount; i++)
+            generateNoise = true;
+
+            if (!emitter.IsPlaying())
             {
-                portrait.sprite = noiseSprites[i % noiseSprites.Length];
-                yield return new WaitForSeconds(0.5f/frameCount);
+                emitter.Play();
             }
+
+            yield return new WaitForSeconds(0.5f);
+
         }
+
+
         string compareString = asset.containers[currentDialogueIndex-1].character.ToString();
 
+        // SET NAME
         switch (compareString)
         {
             case "Player":
@@ -227,7 +258,18 @@ public class DialogueHandler : MonoBehaviour {
                 break;
         }
 
-        portrait.sprite = actualPortrait;
+        if (!asset.containers[currentDialogueIndex].showStatic)
+        {
+            generateNoise = false;
+            emitter.Stop();
+
+            portrait.sprite = actualPortrait;
+        }
+        else
+        {
+            namePanel.text = "";
+        }
+
 
         bool popupActive = false;
         bool printItalics = false;

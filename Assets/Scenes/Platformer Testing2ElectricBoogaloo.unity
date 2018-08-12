@@ -384,6 +384,34 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &37636891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37636892}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &37636892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 37636891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 212
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &50658849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,6 +2255,48 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &382062232
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 42.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.11328125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788782181875014, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+      propertyPath: m_RootOrder
+      value: 48
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &384726325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2508,7 @@ MonoBehaviour:
     triggers: []
   - name: Velvet - ...
     triggers: []
-  - name: "Velvet - I\u2019ll put on my /BRAND NEW/ mixtape you don\u2019t get u"
+  - name: "Velvet - I\u2019ll put on my *9 /BRAND NEW/ *1 mixtape if you do"
     triggers: []
   - name: Player - ...Uggh...
     triggers: []
@@ -4137,7 +4207,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueAsset: {fileID: 11400000, guid: f52e85e0df8876d47ad0ff5e10c30206, type: 2}
   previews:
-  - name: 'Player - #doot#'
+  - name: Velvet - So what's it like?
+    triggers: []
+  - name: Velvet - *7...*1On Velvet 1.
+    triggers: []
+  - name: Velvet - Come on, tell me!
+    triggers: []
+  - name: Player - Wow. It's.......uh.......sandy...I guess?
+    triggers: []
+  - name: "Velvet - Sandy? Like coarse, rough, \u201Cgets everywhere\u201D, kind"
+    triggers: []
+  - name: Player - Exactly, I hate it.
+    triggers: []
+  - name: Velvet - Sounds lovely.
     triggers: []
 --- !u!4 &646284685
 Transform:
@@ -4150,7 +4232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656885004
 GameObject:
@@ -5747,7 +5829,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueAsset: {fileID: 11400000, guid: f52e85e0df8876d47ad0ff5e10c30206, type: 2}
   previews:
-  - name: 'Player - #doot#'
+  - name: Velvet - So what's it like?
+    triggers: []
+  - name: Velvet - *7...*1On Velvet 1.
+    triggers: []
+  - name: Velvet - Come on, tell me!
+    triggers: []
+  - name: Player - Wow. It's.......uh.......sandy...I guess?
+    triggers: []
+  - name: "Velvet - Sandy? Like coarse, rough, \u201Cgets everywhere\u201D, kind"
+    triggers: []
+  - name: Player - Exactly, I hate it.
+    triggers: []
+  - name: Velvet - Sounds lovely.
     triggers: []
 --- !u!61 &900721465
 BoxCollider2D:
@@ -6911,6 +7005,34 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 153
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1078003050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078003051}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078003051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078003050}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 214
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079194486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,6 +7172,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1247453278}
   m_RootOrder: 117
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1124447102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124447103}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124447103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1124447102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 213
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1127823992
 Prefab:
@@ -8906,6 +9056,12 @@ Transform:
   - {fileID: 1576493091}
   - {fileID: 896823089}
   - {fileID: 458181328}
+  - {fileID: 37636892}
+  - {fileID: 1124447103}
+  - {fileID: 1078003051}
+  - {fileID: 1539964958}
+  - {fileID: 1909872092}
+  - {fileID: 1743055591}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10258,6 +10414,34 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539964957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539964958}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539964958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539964957}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 215
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544129657
 GameObject:
   m_ObjectHideFlags: 0
@@ -10980,9 +11164,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dd4fb3aa3900a4192d88a1edf729ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueAsset: {fileID: 11400000, guid: f52e85e0df8876d47ad0ff5e10c30206, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: 456471a8f8bc8c64a8ac57dad23ef378, type: 2}
   previews:
-  - name: 'Player - #doot#'
+  - name: Velvet - AAAA
+    triggers: []
+  - name: Velvet - AAAAAAAAAAA
+    triggers: []
+  - name: Velvet - AAAAAAAA
+    triggers: []
+  - name: Player - Vevlet? :O
+    triggers: []
+  - name: Velvet - EAFAEFE
     triggers: []
 --- !u!4 &1681245930
 Transform:
@@ -10995,7 +11187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685726239
 GameObject:
@@ -11277,6 +11469,34 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1743055590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1743055591}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1743055591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743055590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 217
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1745901719
 GameObject:
   m_ObjectHideFlags: 0
@@ -11546,6 +11766,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1798925567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1381797649165428, guid: 484520aaca0f42d4c8187df810b5d184,
+    type: 2}
+  m_PrefabInternal: {fileID: 1911095403}
+--- !u!114 &1798925568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1798925567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &1800510385
 GameObject:
   m_ObjectHideFlags: 0
@@ -12426,6 +12673,34 @@ Transform:
   m_Father: {fileID: 1247453278}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1909872091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909872092}
+  m_Layer: 0
+  m_Name: Look Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909872092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909872091}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27586207, y: 0.3125, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1247453278}
+  m_RootOrder: 216
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1911095403
 Prefab:
   m_ObjectHideFlags: 0
@@ -12465,12 +12740,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114283292335277560, guid: 484520aaca0f42d4c8187df810b5d184,
+    - target: {fileID: 114325670968340736, guid: 484520aaca0f42d4c8187df810b5d184,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114283292335277560, guid: 484520aaca0f42d4c8187df810b5d184,
+    - target: {fileID: 114325670968340736, guid: 484520aaca0f42d4c8187df810b5d184,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -12485,16 +12760,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114325670968340736, guid: 484520aaca0f42d4c8187df810b5d184,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114325670968340736, guid: 484520aaca0f42d4c8187df810b5d184,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114674833979218456, guid: 484520aaca0f42d4c8187df810b5d184,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -12505,7 +12770,24 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114283292335277560, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114283292335277560, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224176760367784350, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114174595281889016, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
+    - {fileID: 82350867129882022, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1915646322
@@ -17690,7 +17972,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueAsset: {fileID: 11400000, guid: f52e85e0df8876d47ad0ff5e10c30206, type: 2}
   previews:
-  - name: 'Player - #doot#'
+  - name: Velvet - So what's it like?
+    triggers: []
+  - name: Velvet - *7...*1On Velvet 1.
+    triggers: []
+  - name: Velvet - Come on, tell me!
+    triggers: []
+  - name: Player - Wow. It's.......uh.......sandy...I guess?
+    triggers: []
+  - name: "Velvet - Sandy? Like coarse, rough, \u201Cgets everywhere\u201D, kind"
+    triggers: []
+  - name: Player - Exactly, I hate it.
+    triggers: []
+  - name: Velvet - Sounds lovely.
     triggers: []
 --- !u!4 &2089781301
 Transform:
@@ -17703,7 +17997,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106387884
 GameObject:

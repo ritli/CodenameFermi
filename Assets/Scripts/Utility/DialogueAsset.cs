@@ -24,6 +24,7 @@ public struct DialogueContainer
     public GameObject[] triggers;
     public bool playTriggerAtEndInstead;
     public float delay;
+    public bool showStatic;
 }
 
 
