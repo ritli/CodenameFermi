@@ -15,6 +15,8 @@ public class Manager : MonoBehaviour {
     public bool inMenu, startFromMenu, fadeIn;
     private bool gamePaused;
 
+    float playerGravity = 1;
+
     FMOD.Studio.EventInstance inMenuPauseInstance;
 
     [Header("AUDIO")]
@@ -113,7 +115,11 @@ public class Manager : MonoBehaviour {
         player.disableInput = false;
         camera.TimedLookToggle(false, Vector2.zero);
 
-        print("Starting scene");
+        if (playerGravity != 1)
+        {
+            player.gravity = playerGravity;
+        }
+
         fadeHandler.FadeIn(1f, Color.white);
     }
 
@@ -131,11 +137,16 @@ public class Manager : MonoBehaviour {
         {
             if (startDialogue)
             {
+                playerGravity = player.gravity;
+                player.gravity = 0;
+
                 camera.TimedLookToggle(false, Vector2.zero);
                 startDialogue.StartTrigger();
             }
             else
             {
+
+
                 print("Starting Scene from Init");
                 yield return new WaitForSeconds(0.1f);
                 StartScene();
