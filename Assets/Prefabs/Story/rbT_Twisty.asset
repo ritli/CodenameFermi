@@ -41,8 +41,17 @@ MonoBehaviour:
     showStatic: 0
     skipConfirmation: 0
   - character: 0
+    expression: 2
+    content: Great!
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
     expression: 0
-    content: "So, about my new song! I feel like it\u2019s really com*9..."
+    content: "*2So, about my new song! I feel like it\u2019s really com"
     endDialogue: 0
     triggers:
     - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}

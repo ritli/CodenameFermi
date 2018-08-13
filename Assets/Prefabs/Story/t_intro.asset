@@ -14,11 +14,20 @@ MonoBehaviour:
   containers:
   - character: 0
     expression: 0
-    content: "Well, this place seems important. Can you go look around? Maybe we\u2019ll
-      find some clue of what happened here."
+    content: Well, this place seems important. Can you go look around?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
+    expression: 0
+    content: "Maybe we\u2019ll find some clue of what happened here."
     endDialogue: 1
     triggers:
     - {fileID: 1084261521612870, guid: f9f38b8e516270e4389e957d79aa6f8d, type: 2}
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
