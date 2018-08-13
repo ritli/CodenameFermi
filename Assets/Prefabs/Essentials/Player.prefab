@@ -418,7 +418,7 @@ MonoBehaviour:
   magPullForce: 0.5
   obstacleAndMagLayermask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 1537
   attachedBodies: []
   repulseRange: 5
   repulseForce: 10
