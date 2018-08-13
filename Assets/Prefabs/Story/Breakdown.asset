@@ -116,7 +116,7 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 1
     expression: 0
-    content: '*2Show me. Show me all of it.'
+    content: '*2Show me. *5Show me all of it.'
     endDialogue: 0
     triggers:
     - {fileID: 1988622771530156, guid: b0b3d93c44b45ca4e9e14aa87b7eb7b2, type: 2}

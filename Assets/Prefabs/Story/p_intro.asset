@@ -19,6 +19,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: '*7...*1On Velvet 1.'
@@ -26,6 +28,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: Come on, tell me!
@@ -33,13 +37,17 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
-    content: Wow. It's.......uh.......sandy...I guess?
+    content: Wow. It's*9 .....*1uh*9 .....+sandy+...I guess?
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: "Sandy? Like coarse, rough, \u201Cgets everywhere\u201D, kind of sand?"
@@ -47,6 +55,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Exactly, I hate it.
@@ -54,6 +64,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: Sounds lovely.
@@ -61,3 +73,5 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
