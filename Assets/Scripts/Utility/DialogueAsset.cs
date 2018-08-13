@@ -39,9 +39,12 @@ public class DialogueAsset : ScriptableObject {
 
     public DialogueContainer[] containers;
 
+#if UNITY_EDITOR
+
     [MenuItem("Assets/Create/DialogueAsset")]
     public static void CreateAsset()
     {
         ScriptableObjectUtility.CreateAsset<DialogueAsset>();
     }
+#endif
 }

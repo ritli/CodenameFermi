@@ -19,7 +19,7 @@ EditorBuildSettings:
     guid: 569600ad209176942ba91823f7974689
   - enabled: 1
     path: Assets/Scenes/RUNBACK_temple.unity
-    guid: c67a165d595f4594289f484e385e1493
+    guid: 79c7c14ac5c1f794f96864a0aa617fcc
   - enabled: 1
     path: Assets/Scenes/RUNBACK_planet.unity
     guid: 757007e4701815f4e9165377688873cb
