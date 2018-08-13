@@ -14,7 +14,7 @@ MonoBehaviour:
   containers:
   - character: 1
     expression: 0
-    content: '...'
+    content: '*9 . . . . . *4Velvet?'
     endDialogue: 0
     triggers:
     - {fileID: 1029985130435432, guid: fa1aa80f732795b4d8da6930cd8c0047, type: 2}
@@ -22,6 +22,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 6
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Ace!?
@@ -30,22 +31,25 @@ MonoBehaviour:
     playTriggerAtEndInstead: 1
     delay: 2
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
-    content: Bippity brapp, I'm back on!
+    content: '>>>>>  SYSTEMS ONLINE  <<<<<'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
-    content: '*9I...*1Ace, what is all this black goo?'
+    content: '*9I-I''m....Uh.....*1Ace, what is all this black goo?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: 'Unknown organism. '
@@ -54,6 +58,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: "Multispectral analysis detects no harmful compounds in the organism\u2019s
@@ -63,15 +68,16 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
-    content: It has to be connected to what happened to Velvet. Ace, can you track
-      where it came from?
+    content: Can you track where it came from?
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: Affirmative. Tracing subspace particle trail*9. . . . . . .
@@ -80,6 +86,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: Tracking procedure complete. Galaxy map updated with coordinates.
@@ -89,3 +96,4 @@ MonoBehaviour:
     playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
