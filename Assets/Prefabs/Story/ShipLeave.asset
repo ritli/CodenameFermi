@@ -20,6 +20,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: Ehhh....That's too complicated. Call it...
@@ -28,6 +29,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: Velvet 1!
@@ -36,14 +38,16 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
-    content: '*9... *1 So Ace, is there any coffee left?'
+    content: '*9... *1 So, is there any coffee left?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 2
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 3
     content: There was a horrible accident and the coffee machine almost blew up half
@@ -53,6 +57,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: '*9... *1 Are you serious?'
@@ -61,6 +66,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: Nah, I just drank it all.
@@ -69,6 +75,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Ace, take us down.
@@ -77,6 +84,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: Affirmative. Initialising landing sequence.
@@ -88,3 +96,4 @@ MonoBehaviour:
     playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0
+    skipConfirmation: 0

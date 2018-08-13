@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAtTransform: {fileID: 4881552436888064}
   useLookAt: 0
-  sceneName: Platformer Testing
+  sceneName: PlanetScene
   direction: {x: 0, y: 0}
   waitForDialogue: 0
   transitionTime: 2

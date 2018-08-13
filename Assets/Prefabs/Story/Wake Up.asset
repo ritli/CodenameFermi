@@ -20,6 +20,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: '*9...'
@@ -28,6 +29,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: "Don\u2019t make me come down there. It\u2019s really comfy up here,
@@ -37,6 +39,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: '*9...'
@@ -45,6 +48,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: '...'
@@ -53,6 +57,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: "I\u2019ll put on my *9 /BRAND NEW/ *1 mixtape if you don\u2019t get
@@ -62,6 +67,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: '*9...*1Uggh...'
@@ -72,6 +78,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 1
     content: Aww... and here I wanted to play you my new song. Well, another time
@@ -81,6 +88,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: While you were sleeping we reached the Crusoe Cluster. I ran some scans
@@ -90,6 +98,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: "It seems there are structures on the surface, maybe that\u2019s where
@@ -99,6 +108,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: Caliber imagine! Maybe there is another civilisation down there?
@@ -107,6 +117,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Hmm, I wonder why they haven't made contact yet...
@@ -115,6 +126,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: "Eh, maybe they\u2019re just sleeping in?"
@@ -123,3 +135,4 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
