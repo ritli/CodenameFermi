@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour {
 
-    public Animator menuAnimator, optionsAnimator;
+    public Animator menuAnimator, optionsAnimator, helpAnimator;
 
     bool menuOpen = false, optionsOpen = false;
     private bool quittingGame;
@@ -25,7 +25,9 @@ public class MenuHandler : MonoBehaviour {
             menuAnimator.Play("Close");
             menuOpen = false;
 
-            foreach(Button b in buttons)
+            helpAnimator.Play("Open");
+
+            foreach (Button b in buttons)
             {
                 b.interactable = false;
             }
@@ -35,6 +37,8 @@ public class MenuHandler : MonoBehaviour {
     public void InstaClose()
     {
         CloseOptions();
+
+        helpAnimator.Play("Open");
 
         menuAnimator.Play("InstaClose");
         menuOpen = false;
@@ -52,6 +56,8 @@ public class MenuHandler : MonoBehaviour {
         {
             menuAnimator.Play("Open");
             menuOpen = true;
+
+            helpAnimator.Play("Close");
 
             foreach (Button b in buttons)
             {
