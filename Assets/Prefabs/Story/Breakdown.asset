@@ -25,7 +25,7 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 1
     expression: 0
-    content: Ace!?
+    content: '*9Uhm... *4Ace? Are you there? What happened?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 1
@@ -41,9 +41,18 @@ MonoBehaviour:
     delay: 0
     showStatic: 0
     skipConfirmation: 0
+  - character: 2
+    expression: 0
+    content: 'Unclear. Primary systems have been offline for: +13 minutes, 29 seconds.'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
-    content: '*9I-I''m....Uh.....*1Ace, what is all this black goo?'
+    content: '*9I-I''m....Uh.....*4Ace, what is all this black goo?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
@@ -71,7 +80,7 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 1
     expression: 0
-    content: Can you track where it came from?
+    content: '*4Can you track where it came from?'
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
@@ -89,16 +98,25 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 2
     expression: 0
-    content: Tracking procedure complete. Multiple locations detected.
+    content: 'Tracking procedure complete. Multiple locations detected. '
     endDialogue: 0
     triggers: []
-    playTriggerAtEndInstead: 1
+    playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
     skipConfirmation: 0
   - character: 2
     expression: 0
-    content: Galaxy map updated with coordinates.
+    content: There are too many locations to visulise on-screen.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 1
+    expression: 0
+    content: '*2Show me. Show me all of it.'
     endDialogue: 0
     triggers:
     - {fileID: 1988622771530156, guid: b0b3d93c44b45ca4e9e14aa87b7eb7b2, type: 2}
