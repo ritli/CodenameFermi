@@ -20,6 +20,7 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: "I didn\u2019t know you cared that much."
@@ -28,14 +29,16 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 3
-    content: Of course I do! Without you...I would be all alone...
+    content: Of course I do! Without you*9 . . . .*1I would be all alone...
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: I would still be here.
@@ -44,3 +47,4 @@ MonoBehaviour:
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0
+    skipConfirmation: 0

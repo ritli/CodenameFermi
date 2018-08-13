@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: 1029985130435432, guid: fa1aa80f732795b4d8da6930cd8c0047, type: 2}
     - {fileID: 1029985130435432, guid: 4c19041761ad9204fa40acb952846d0c, type: 2}
     playTriggerAtEndInstead: 0
-    delay: 3
+    delay: 4
     showStatic: 0
     skipConfirmation: 0
   - character: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
     endDialogue: 0
     triggers: []
     playTriggerAtEndInstead: 1
-    delay: 2
+    delay: 1
     showStatic: 0
     skipConfirmation: 0
   - character: 2
