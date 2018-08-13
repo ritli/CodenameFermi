@@ -68,9 +68,16 @@ public class Player : MonoBehaviour {
         {
             SetTrailActive(false);
         }
+
+        Invoke("DelayedStart", 0.1f);
     }
-	
-	void Update () {
+    
+    void DelayedStart()
+    {
+        SetTrailActive(false);
+    }
+
+    void Update () {
         lookPos = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
         InputUpdate();
@@ -187,7 +194,7 @@ public class Player : MonoBehaviour {
 
             if (Mathf.Abs(xVel) > 0.15f)
             {
-                int direction = inAir && landingCooldown == 0 ? 2 : 1;
+                int direction = inAir ? 2 : 1;
                 animator.SetInteger("Dir", direction);
 
                 facingRight = xVel > 0;
@@ -198,7 +205,7 @@ public class Player : MonoBehaviour {
             }
             else
             {
-                int direction = inAir && landingCooldown == 0 ? 2 : 0;
+                int direction = inAir ? 2 : 0;
                 moving = false;
 
                 animator.SetInteger("Dir", direction);
@@ -249,8 +256,10 @@ public class Player : MonoBehaviour {
                     hit.collider.GetComponent<Rigidbody2D>().AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
                 }
             }
+            animator.SetInteger("Dir", 2);
 
             if (facingRight) {
+
                 animator.Play("a_PlayerJumpRight");
             }
             else

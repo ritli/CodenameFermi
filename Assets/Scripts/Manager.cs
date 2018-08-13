@@ -89,7 +89,6 @@ public class Manager : MonoBehaviour {
 
     public void Pause()
     {
-;
         inMenuPauseInstance.start();
 
         inMenu = true;
