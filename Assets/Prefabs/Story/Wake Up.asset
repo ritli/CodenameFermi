@@ -16,7 +16,8 @@ MonoBehaviour:
     expression: 0
     content: Hey wake up!
     endDialogue: 0
-    triggers: []
+    triggers:
+    - {fileID: 1029985130435432, guid: dd8f90b0181b2cf479333942f3e6f270, type: 2}
     playTriggerAtEndInstead: 0
     delay: 0
     showStatic: 0

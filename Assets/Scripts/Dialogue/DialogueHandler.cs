@@ -131,6 +131,7 @@ public class DialogueHandler : MonoBehaviour {
     {
         if (dialogueOpen)
         {
+            StartCoroutine(DelayedAllowInput(0.25f));
             dialogueOpen = false;
 
             int childCount = textPanel.childCount;
@@ -142,20 +143,29 @@ public class DialogueHandler : MonoBehaviour {
 
             namePanel.text = "";
             animator.Play("Close");
-            Manager.GetPlayer.InDialogue = false;
-            Manager.GetPlayer.disableInput = false;
+
 
             previewTriggers = null;
 
-            print("Closing");
+            if (emitter.IsPlaying())
+            {
+                emitter.Stop();
+            }
 
             if (trigger)
             {
-                print("Triggering trigger");
                 trigger.GetComponent<ITrigger>().OnEventFinished();
                 trigger = null;
             }
         }
+    }
+
+    IEnumerator DelayedAllowInput(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Manager.GetPlayer.InDialogue = false;
+        Manager.GetPlayer.disableInput = false;
     }
 
     public void StartDialogue(int startIndex, DialogueAsset inAsset, DialoguePreview[] preview)

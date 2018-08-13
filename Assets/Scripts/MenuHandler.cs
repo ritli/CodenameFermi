@@ -104,7 +104,7 @@ public class MenuHandler : MonoBehaviour {
         menuAnimator.Play("Close");
         Manager.GetFade.FadeOut(1, Color.black);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
 
         Application.Quit();
     }

@@ -161,9 +161,12 @@ public class Manager : MonoBehaviour {
             }
             menuHandler.OpenMenu();
             CameraLookSettings settings = new CameraLookSettings();
-            settings.lookPosition = camera.transform.position;
-            settings.zoomLevel = 2;
+            settings.lookPosition = transform.position;
+            settings.zoomLevel = 4;
             settings.addZoomLevelToCurrentZoom = true;
+
+            camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+            Time.timeScale = 0;
 
             camera.TimedLookToggle(true, settings);
         }

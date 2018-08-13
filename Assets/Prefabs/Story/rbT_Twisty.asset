@@ -55,7 +55,7 @@ MonoBehaviour:
     endDialogue: 0
     triggers:
     - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
-    - {fileID: 1977414109063706, guid: 0d4626163e3c46342a91795143858c7e, type: 2}
+    - {fileID: 1084261521612870, guid: d053a11a40854e74ead2a12690a93145, type: 2}
     playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 0

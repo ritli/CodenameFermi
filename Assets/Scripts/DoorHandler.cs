@@ -25,8 +25,9 @@ public class DoorHandler : MonoBehaviour {
     {
         if (Vector2.Distance(player.position, transform.position) < musicDampenRange)
         {
-            ActiveMusicTrack.SetParameter("Dark", (Vector2.Distance(player.position, transform.position) / musicDampenRange) * 100);
+            ActiveMusicTrack.SetParameter("Dark", ((1 - (Vector2.Distance(player.position, transform.position) / musicDampenRange)) * 100));
         }
+
 
         cooldownElapsed += Time.deltaTime;
     }
