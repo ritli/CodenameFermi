@@ -27,8 +27,16 @@ public class MenuHandler : MonoBehaviour {
 
             helpAnimator.Play("Open");
 
+            foreach (var item in optionsAnimator.GetComponentsInChildren<Slider>())
+            {
+                item.interactable = false;
+            }
+
             foreach (Button b in buttons)
             {
+                b.GetComponent<UI_HoverSelectPlayer>().playSound = false;
+
+
                 b.interactable = false;
             }
         }
@@ -43,9 +51,14 @@ public class MenuHandler : MonoBehaviour {
         menuAnimator.Play("InstaClose");
         menuOpen = false;
 
+        foreach (var item in optionsAnimator.GetComponentsInChildren<Slider>())
+        {
+            item.interactable = false;
+        }
+
         foreach (Button b in buttons)
         {
-            b.GetComponent<UI_HoverSelectPlayer>().enabled = false;
+            b.GetComponent<UI_HoverSelectPlayer>().playSound = false;
 
             b.interactable = false;
         }
@@ -63,7 +76,7 @@ public class MenuHandler : MonoBehaviour {
 
             foreach (Button b in buttons)
             {
-                b.GetComponent<UI_HoverSelectPlayer>().enabled = true;
+                b.GetComponent<UI_HoverSelectPlayer>().playSound = true;
 
                 b.interactable = true;
             }
@@ -75,10 +88,22 @@ public class MenuHandler : MonoBehaviour {
         if (optionsOpen)
         {
             optionsAnimator.Play("Close");
+
+            foreach (var item in optionsAnimator.GetComponentsInChildren<Slider>())
+            {
+                item.interactable = false;
+            }
+
+
         }
         else
         {
             optionsAnimator.Play("Open");
+
+            foreach (var item in optionsAnimator.GetComponentsInChildren<Slider>())
+            {
+                item.interactable = true;
+            }
         }
 
         optionsOpen = !optionsOpen;

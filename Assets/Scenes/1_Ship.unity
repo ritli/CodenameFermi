@@ -10003,6 +10003,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114668757219890018, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
   m_IsPrefabAsset: 0
@@ -10863,7 +10868,9 @@ MonoBehaviour:
     triggers: []
   - name: Velvet - Velvet 1!
     triggers: []
-  - name: Player - *9... *1 So, is there any coffee left?
+  - name: 'Player - *9... '
+    triggers: []
+  - name: Player - So, is there any coffee left?
     triggers: []
   - name: Velvet - There was a horrible accident and the coffee machi
     triggers: []
