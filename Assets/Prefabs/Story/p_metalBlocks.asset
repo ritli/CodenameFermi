@@ -19,6 +19,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: "I\u2019ve also modified the mag-gun so you can polarise metal objects
@@ -27,6 +29,17 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
+    expression: 0
+    content: Then just give the blocks a blast if you want to de-polarise them.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: "Can\u2019t I just lift up the boxes while I\u2019m standing on them?"
@@ -34,6 +47,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: No silly, that would tear your ligaments to bits.
@@ -41,6 +56,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 2
     expression: 0
     content: Not recommended Caliber, as that action would break the laws of physics.
@@ -48,6 +65,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 0
     content: That too.
@@ -55,3 +74,5 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
