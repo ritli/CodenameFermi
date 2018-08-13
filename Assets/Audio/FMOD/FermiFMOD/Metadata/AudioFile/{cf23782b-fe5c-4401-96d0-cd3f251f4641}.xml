@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{cf23782b-fe5c-4401-96d0-cd3f251f4641}">
         <property name="assetPath">
-            <value>McMuffinPickup.wav</value>
+            <value>SFX/McMuffinPickup.wav</value>
         </property>
         <property name="isStreaming">
             <value>true</value>
