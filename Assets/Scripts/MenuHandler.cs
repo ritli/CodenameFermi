@@ -45,6 +45,8 @@ public class MenuHandler : MonoBehaviour {
 
         foreach (Button b in buttons)
         {
+            b.GetComponent<UI_HoverSelectPlayer>().enabled = false;
+
             b.interactable = false;
         }
     }
@@ -61,6 +63,8 @@ public class MenuHandler : MonoBehaviour {
 
             foreach (Button b in buttons)
             {
+                b.GetComponent<UI_HoverSelectPlayer>().enabled = true;
+
                 b.interactable = true;
             }
         }

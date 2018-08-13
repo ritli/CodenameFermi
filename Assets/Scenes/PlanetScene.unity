@@ -24461,11 +24461,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4978087971527542, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.88
+      value: -32.2
       objectReference: {fileID: 0}
     - target: {fileID: 4978087971527542, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.101174
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 4978087971527542, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24555,6 +24555,32 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547398533306464, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: inMenu
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668757219890018, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547398533306464, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: fadeIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144660459206216, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 911b3dc0cf880e14cacae86a7753e15c,
+        type: 2}
+    - target: {fileID: 114295985584827892, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: coughEvent
+      value: event:/Cough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}

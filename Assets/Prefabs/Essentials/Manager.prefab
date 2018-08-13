@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1006071647585822
 GameObject:
   m_ObjectHideFlags: 1
@@ -735,7 +735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1173872484851364
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,7 +4154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494060625212482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.88, y: 1.101174, z: 0.09765625}
+  m_LocalPosition: {x: 2.38, y: 2.15, z: 0.09765625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224176760367784350}
@@ -6343,7 +6343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 911b3dc0cf880e14cacae86a7753e15c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 36d74309c65c32344859dded5c573ad5, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -7500,7 +7500,7 @@ MonoBehaviour:
   count: 0
   stages: 0
   bleepEvent: event:/MapBleep
-  coughEvent: event:/Cough
+  coughEvent: 
 --- !u!114 &114296200821757316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9658,9 +9658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dd90baf974cd842a64ca1a804473aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inMenu: 0
+  inMenu: 1
   startFromMenu: 0
-  fadeIn: 1
+  fadeIn: 0
 --- !u!114 &114551648545626818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10640,7 +10640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10778,11 +10778,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -15491,11 +15491,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4290296846705838}
+  - {fileID: 224950424617545806}
   - {fileID: 224252173865654548}
   - {fileID: 224301667038092098}
   - {fileID: 224782670283021020}
   - {fileID: 224892388379836362}
-  - {fileID: 224950424617545806}
   m_Father: {fileID: 4978087971527542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15779,7 +15779,7 @@ RectTransform:
   - {fileID: 224958578494533442}
   - {fileID: 224559208878741100}
   m_Father: {fileID: 224176760367784350}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16081,7 +16081,7 @@ RectTransform:
   m_Children:
   - {fileID: 224103410535400850}
   m_Father: {fileID: 224176760367784350}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18218,7 +18218,7 @@ RectTransform:
   - {fileID: 224298370004538442}
   - {fileID: 224701426663857076}
   m_Father: {fileID: 224176760367784350}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -18547,7 +18547,7 @@ RectTransform:
   - {fileID: 224576853164743736}
   - {fileID: 224755996816524206}
   m_Father: {fileID: 224176760367784350}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18812,7 +18812,7 @@ RectTransform:
   - {fileID: 224257823710043448}
   - {fileID: 224987189669156332}
   m_Father: {fileID: 224176760367784350}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

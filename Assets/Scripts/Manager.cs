@@ -23,6 +23,8 @@ public class Manager : MonoBehaviour {
     public FMOD.Studio.Bus musicBus;
     public FMOD.Studio.Bus soundBus;
 
+    FMODUnity.StudioEventEmitter mainthemeEmitter;
+
     void Awake()
     {
         if (FindObjectsOfType<Manager>().Length > 1)
@@ -113,14 +115,20 @@ public class Manager : MonoBehaviour {
     public void StartScene()
     {
         player.disableInput = false;
-        camera.TimedLookToggle(false, Vector2.zero);
+        camera.TimedLookToggle(false, player.transform.position);
+
+        if (mainthemeEmitter)
+        {
+            mainthemeEmitter.Stop();
+            Destroy(mainthemeEmitter);
+        } 
 
         if (playerGravity != 1)
         {
             player.gravity = playerGravity;
         }
 
-        fadeHandler.FadeIn(1f, Color.white);
+        fadeHandler.FadeIn(5f, Color.white);
     }
 
     /// <summary>
@@ -142,19 +150,33 @@ public class Manager : MonoBehaviour {
 
                 camera.TimedLookToggle(false, Vector2.zero);
                 startDialogue.StartTrigger();
+
+                if (mainthemeEmitter)
+                {
+                    mainthemeEmitter.Stop();
+                    Destroy(mainthemeEmitter);
+                }
             }
             else
             {
-
-
                 print("Starting Scene from Init");
                 yield return new WaitForSeconds(0.1f);
                 StartScene();
+
+                yield return new WaitForSeconds(0.1f);
+
+                camera.m_interpolateCamera = false;
+
+                yield return new WaitForSeconds(0.1f);
+                camera.m_interpolateCamera = true;
+
             }
         }
 
         else
         {
+
+
             if (fadeIn)
             {
                 fadeHandler.FadeIn(1f, Color.white);
@@ -169,6 +191,10 @@ public class Manager : MonoBehaviour {
             Time.timeScale = 0;
 
             camera.TimedLookToggle(true, settings);
+
+            mainthemeEmitter = gameObject.AddComponent<FMODUnity.StudioEventEmitter>();
+            mainthemeEmitter.Event = "event:/MusicMain";
+            mainthemeEmitter.Play();
         }
 
     }

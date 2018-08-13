@@ -26,6 +26,8 @@ public class FadeHandler : MonoBehaviour {
 
     public void FadeOut(float time, Color color)
     {
+        print("Fading out");
+
         Init();
 
         color.a = image.color.a;
@@ -36,6 +38,8 @@ public class FadeHandler : MonoBehaviour {
 
     public void FadeIn(float time, Color color)
     {
+        print("Fading in");
+
         Init();
 
         color.a = image.color.a;
