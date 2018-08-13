@@ -25,8 +25,11 @@ public class DoorHandler : MonoBehaviour {
     {
         if (Vector2.Distance(player.position, transform.position) < musicDampenRange)
         {
-            ActiveMusicTrack.SetParameter("Dark", ((1 - (Vector2.Distance(player.position, transform.position) / musicDampenRange)) * 100));
-        }
+			if (ActiveMusicTrack.instance)
+			{
+				ActiveMusicTrack.SetParameter("Dark", ((1 - (Vector2.Distance(player.position, transform.position) / musicDampenRange)) * 100));
+			}
+		}
 
 
         cooldownElapsed += Time.deltaTime;
@@ -43,6 +46,8 @@ public class DoorHandler : MonoBehaviour {
     {
         if (other.CompareTag("Gun") && cooldownElapsed > cooldown && Mathf.Abs(Manager.GetPlayer.Velocity.x) < 0.1f)
         {
+			print("MEME");
+
             FMODUnity.RuntimeManager.PlayOneShot("event:/HitMetal");
 
             if (Time.time - lastTime < requiredTime)

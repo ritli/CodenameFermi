@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: 1029985130435432, guid: fa1aa80f732795b4d8da6930cd8c0047, type: 2}
     - {fileID: 1029985130435432, guid: 4c19041761ad9204fa40acb952846d0c, type: 2}
     playTriggerAtEndInstead: 0
-    delay: 6
+    delay: 3
     showStatic: 0
     skipConfirmation: 0
   - character: 1
@@ -32,6 +32,15 @@ MonoBehaviour:
     delay: 2
     showStatic: 0
     skipConfirmation: 0
+  - character: 2
+    expression: 0
+    content: 
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 0
+    delay: 2
+    showStatic: 1
+    skipConfirmation: 1
   - character: 2
     expression: 0
     content: '>>>>>  SYSTEMS ONLINE  <<<<<'
@@ -116,7 +125,7 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 1
     expression: 0
-    content: '*2Show me. *5Show me all of it.'
+    content: '*2Just show me. Show me all of it.'
     endDialogue: 0
     triggers:
     - {fileID: 1988622771530156, guid: b0b3d93c44b45ca4e9e14aa87b7eb7b2, type: 2}
