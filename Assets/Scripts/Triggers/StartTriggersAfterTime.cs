@@ -17,7 +17,7 @@ public class StartTriggersAfterTime : MonoBehaviour, ITrigger {
         {
             StartTrigger();
         }
-        else
+        else if (playerInArea)
         {
             elapsedTime += Time.deltaTime;
         }
