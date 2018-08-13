@@ -11,7 +11,10 @@ public class StarmapHandler : MonoBehaviour {
     [FMODUnity.EventRef]
     public string bleepEvent;
 
-	void Start () {
+    [FMODUnity.EventRef]
+    public string coughEvent;
+
+    void Start () {
 
         Transform parent = transform.Find("Points");
 
@@ -47,10 +50,10 @@ public class StarmapHandler : MonoBehaviour {
             yield return new WaitForSecondsRealtime(Mathf.Clamp(Random.Range(randBase, randBase* 1.5f), 0.06f,randBase * 2));
             randBase -= Time.unscaledDeltaTime * 0.5f * multiplier;
 
-            if (i == parent.childCount - 20)
+            if (i == parent.childCount - 30)
             {
                 multiplier = -multiplier;
-                randBase += 0.25f;
+                //randBase += 0.25f;
                 Manager.GetFade.FadeOut(5f, Color.black);
             }
         }
@@ -58,6 +61,14 @@ public class StarmapHandler : MonoBehaviour {
         yield return new WaitForSeconds(2f);
 
         FMODUnity.RuntimeManager.PlayOneShot(bleepEvent);
+
+        yield return new WaitForSeconds(1f);
+
+        FMODUnity.RuntimeManager.PlayOneShot(coughEvent);
+
+        yield return new WaitForSeconds(2f);
+
+        Manager.GetFade.ShowCredits();
     }
 }
 

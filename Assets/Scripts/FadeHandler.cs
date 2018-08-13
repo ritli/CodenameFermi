@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeHandler : MonoBehaviour {
 
@@ -56,5 +57,19 @@ public class FadeHandler : MonoBehaviour {
             c.a = Mathf.Lerp(c.a, toAlpha, timeElapsed / time);
             image.color = c;
         }
+    }
+
+    public void ShowCredits()
+    {
+        transform.Find("EndCredits").gameObject.SetActive(true);
+
+        StartCoroutine(EndRoutine());
+    }
+
+    IEnumerator EndRoutine()
+    {
+        yield return new WaitForSeconds(27f);
+
+        SceneManager.LoadScene("1_Ship");
     }
 }

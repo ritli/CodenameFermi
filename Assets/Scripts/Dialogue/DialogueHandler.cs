@@ -147,8 +147,11 @@ public class DialogueHandler : MonoBehaviour {
 
             previewTriggers = null;
 
+            print("Closing");
+
             if (trigger)
             {
+                print("Triggering trigger");
                 trigger.GetComponent<ITrigger>().OnEventFinished();
                 trigger = null;
             }

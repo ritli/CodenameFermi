@@ -89,7 +89,16 @@ MonoBehaviour:
     skipConfirmation: 0
   - character: 2
     expression: 0
-    content: Tracking procedure complete. Galaxy map updated with coordinates.
+    content: Tracking procedure complete. Multiple locations detected.
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 1
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 2
+    expression: 0
+    content: Galaxy map updated with coordinates.
     endDialogue: 0
     triggers:
     - {fileID: 1988622771530156, guid: b0b3d93c44b45ca4e9e14aa87b7eb7b2, type: 2}
