@@ -77,6 +77,7 @@ public class DialogueHandler : MonoBehaviour {
 
                 if (asset.containers.Length - 1 < currentDialogueIndex)
                 {
+                    dialogueActive = false;
                     CloseDialogue();
                 }
                 else

@@ -415,7 +415,7 @@ MonoBehaviour:
   magJumpCooldown: 1
   magRange: 0.5
   magAttachTime: 0.1
-  magPullForce: 0.5
+  magPullForce: 20
   obstacleAndMagLayermask:
     serializedVersion: 2
     m_Bits: 1537

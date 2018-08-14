@@ -140,7 +140,7 @@ public class MagGun : MonoBehaviour {
             {
                 if (MagHits[i].CompareTag("Magnetic"))
                 {
-                    MagHits[i].GetComponent<Rigidbody2D>().AddForce((mousePos - MagHits[i].transform.position).normalized * magPullForce, ForceMode2D.Impulse);
+                    MagHits[i].GetComponent<Rigidbody2D>().AddForce((mousePos - MagHits[i].transform.position).normalized * magPullForce * Time.deltaTime, ForceMode2D.Impulse);
 
                 }
             }

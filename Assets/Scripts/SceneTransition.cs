@@ -79,8 +79,6 @@ public class SceneTransition : MonoBehaviour, ITrigger {
 
         yield return new WaitForSeconds(transitionTime * 0.51f);
 
-        float elapsedTime = 0, originalVolume;
-
         if (!waitForDialogue)
         {
             ChangeScene();
@@ -90,6 +88,13 @@ public class SceneTransition : MonoBehaviour, ITrigger {
     public void ChangeScene()
     {
         muteInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        StartCoroutine(DelayedChangeScene(0.2f));
+    }
+
+    public IEnumerator DelayedChangeScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }

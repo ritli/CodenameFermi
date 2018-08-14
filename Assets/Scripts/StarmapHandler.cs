@@ -6,6 +6,8 @@ public class StarmapHandler : MonoBehaviour {
 
     public GameObject starmapPoint;
 
+    bool sequenceStarted = false;
+
     public int count, stages;
 
     [FMODUnity.EventRef]
@@ -27,14 +29,25 @@ public class StarmapHandler : MonoBehaviour {
 	
     public void OpenStarmap()
     {
-        StartCoroutine(ShowPointsRoutine());
+        if (!sequenceStarted)
+        {
+            sequenceStarted = true;
+
+            StartCoroutine(ShowPointsRoutine());
+        }
     }
 
     IEnumerator ShowPointsRoutine()
     {
+        Manager.GetPlayer.disableInput = true;
+        Manager.GetPlayer.InDialogue = true;
+
         GetComponent<Animator>().Play("Open");
 
         yield return new WaitForSecondsRealtime(2f);
+
+        Manager.GetPlayer.disableInput = true;
+        Manager.GetPlayer.InDialogue = true;
 
         Transform parent = transform.Find("Points");
 

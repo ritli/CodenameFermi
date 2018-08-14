@@ -10016,7 +10016,7 @@ Prefab:
     - target: {fileID: 224576853164743736, guid: 484520aaca0f42d4c8187df810b5d184,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -175
+      value: -175.00006
       objectReference: {fileID: 0}
     - target: {fileID: 1494060625212482, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
       propertyPath: m_IsActive
@@ -10041,6 +10041,41 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114469377184080300, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114469377184080300, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114469377184080300, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114929484850555362, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: delay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 224079924122051004, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -101.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 224031340023682076, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 224031340023682076, guid: 484520aaca0f42d4c8187df810b5d184,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -69.99988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 484520aaca0f42d4c8187df810b5d184, type: 2}
@@ -10503,7 +10538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 784181917
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: -50
   m_Sprite: {fileID: 21300000, guid: d280105fcc27fac4ca93ffc5e7db776e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11614,7 +11649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1469633405
 Transform:
   m_ObjectHideFlags: 0
@@ -11882,7 +11917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1596303599
 Transform:
   m_ObjectHideFlags: 0
