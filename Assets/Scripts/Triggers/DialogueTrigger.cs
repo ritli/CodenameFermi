@@ -20,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour, ITrigger {
     public DialogueAsset dialogueAsset;
     new private BoxCollider2D collider;
 
+    public bool disableMovement = true;
+
     public DialoguePreview[] previews;
 
     [ContextMenu("Refresh Previews")]
@@ -59,6 +61,11 @@ public class DialogueTrigger : MonoBehaviour, ITrigger {
         {
             GetComponent<SceneTransition>().ChangeScene();
         }
+
+        if (disableMovement)
+        {
+            Manager.GetPlayer.disableInput = false;
+        }
     }
 
     public void StartTrigger()
@@ -67,10 +74,15 @@ public class DialogueTrigger : MonoBehaviour, ITrigger {
         Manager.GetDialogue.StartDialogue(0, dialogueAsset, previews);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && !Manager.GetPlayer.InDialogue)
         {
+            if (disableMovement)
+            {
+                Manager.GetPlayer.disableInput = true;
+            }
+
             StartTrigger();
             GetComponent<Collider2D>().enabled = false;
         }

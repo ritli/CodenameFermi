@@ -16,10 +16,11 @@ MonoBehaviour:
     expression: 0
     content: Wow...Velvet do you see this?
     endDialogue: 0
-    triggers:
-    - {fileID: 1454849054355784, guid: 8fe7b5fefa2701d4796e661fac613538, type: 2}
+    triggers: []
     playTriggerAtEndInstead: 1
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 3
     content: "Hey hey hey! What\u2019s this!? That looks super ominous. Maybe it\u2019s
@@ -28,6 +29,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: "Isn\u2019t it weird that we didn\u2019t notice this giant building from
@@ -36,6 +39,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: Looks pretty solid. How do you suggest we get it open?
@@ -43,6 +48,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 0
     expression: 2
     content: Try knocking!
@@ -50,6 +57,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: '...'
@@ -57,6 +66,8 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0
   - character: 1
     expression: 0
     content: "I\u2019m not gonna try knocking."
@@ -64,3 +75,5 @@ MonoBehaviour:
     triggers: []
     playTriggerAtEndInstead: 0
     delay: 0
+    showStatic: 0
+    skipConfirmation: 0

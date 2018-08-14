@@ -59,7 +59,7 @@ public class MagGun : MonoBehaviour {
         mousePos.z = 0;
         lookPos = mousePos - transform.parent.position;
 
-        if (!player.disableInput && !player.InDialogue && !Manager.instance.inMenu)
+        if (!player.disableInput && !Manager.instance.inMenu)
         {
             if (!magPulling && player.moving)
             {
@@ -77,28 +77,30 @@ public class MagGun : MonoBehaviour {
                 gunSprite.transform.localRotation = Quaternion.Lerp(gunSprite.transform.localRotation, Quaternion.Euler(0, 0, Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg + 180), Time.deltaTime * 16f);
             }
 
-
-            if (Input.GetButton("Fire1"))
+            if (!player.InDialogue)
             {
-                if (canMagPull)
+                if (Input.GetButton("Fire1"))
                 {
-                    gunAnimator.Play("Charge");
-                    attractorParticles.transform.position = mousePos;
-                    MagHitUpdate();
+                    if (canMagPull)
+                    {
+                        gunAnimator.Play("Charge");
+                        attractorParticles.transform.position = mousePos;
+                        MagHitUpdate();
+                    }
                 }
-            }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                gunAnimator.Play("Idle");
-
-                CancelMagPull(true);
-            }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                if (!magPulling)
+                if (Input.GetButtonUp("Fire1"))
                 {
+                    gunAnimator.Play("Idle");
 
-                    MagRepulse();
+                    CancelMagPull(true);
+                }
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    if (!magPulling)
+                    {
+
+                        MagRepulse();
+                    }
                 }
             }
         }

@@ -53,7 +53,7 @@ public class DialogueHandler : MonoBehaviour {
     {
         if (dialogueActive)
         {
-            if (((Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump")) && dialogueFinished) || (asset.containers[Mathf.Clamp(currentDialogueIndex - 1, 0, int.MaxValue)].skipConfirmation && dialogueFinished))
+            if (((Input.GetButtonDown("Fire1") || (Manager.GetPlayer.disableInput && Input.GetButtonDown("Jump")) && dialogueFinished) || (asset.containers[Mathf.Clamp(currentDialogueIndex - 1, 0, int.MaxValue)].skipConfirmation && dialogueFinished))
             {
                 if (asset.containers[currentDialogueIndex-1].playTriggerAtEndInstead)
                 {
@@ -152,11 +152,7 @@ public class DialogueHandler : MonoBehaviour {
                 emitter.Stop();
             }
 
-            if (trigger)
-            {
-                trigger.GetComponent<ITrigger>().OnEventFinished();
-                trigger = null;
-            }
+
         }
     }
 
@@ -165,7 +161,12 @@ public class DialogueHandler : MonoBehaviour {
         yield return new WaitForSeconds(delay);
 
         Manager.GetPlayer.InDialogue = false;
-        Manager.GetPlayer.disableInput = false;
+
+        if (trigger)
+        {
+            trigger.GetComponent<ITrigger>().OnEventFinished();
+            trigger = null;
+        }
     }
 
     public void StartDialogue(int startIndex, DialogueAsset inAsset, DialoguePreview[] preview)
@@ -210,7 +211,6 @@ public class DialogueHandler : MonoBehaviour {
             }
         }
 
-        Manager.GetPlayer.disableInput = true;
         Manager.GetPlayer.InDialogue = true;
 
         StartCoroutine(DelayedStartDialogue(inAsset.containers[startIndex].delay, startIndex, inAsset));

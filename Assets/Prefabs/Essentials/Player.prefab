@@ -413,7 +413,7 @@ MonoBehaviour:
   magJumpForce: 7
   magJumpRange: 2
   magJumpCooldown: 1
-  magRange: 1
+  magRange: 0.5
   magAttachTime: 0.1
   magPullForce: 0.5
   obstacleAndMagLayermask:

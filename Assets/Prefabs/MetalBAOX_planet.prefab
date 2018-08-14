@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212392614692485776}
   - component: {fileID: 50268204227270986}
   - component: {fileID: 61458691376097802}
-  - component: {fileID: 114597006894607104}
   - component: {fileID: 114663130881582548}
+  - component: {fileID: 114536728920766716}
   m_Layer: 9
   m_Name: MetalBAOX_planet
   m_TagString: Magnetic
@@ -89,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114597006894607104
+--- !u!114 &114536728920766716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,11 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424481995400032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e2fdc63ad70914d8ad9087e22476d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5f2a71f498e664dbfc2c6573cf8ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyParticles: {fileID: 198334004293872052, guid: 74cce40ed15289a42ab202b46a407fd5,
-    type: 2}
+  fmodEvent: event:/HitMetalBox
 --- !u!114 &114663130881582548
 MonoBehaviour:
   m_ObjectHideFlags: 1

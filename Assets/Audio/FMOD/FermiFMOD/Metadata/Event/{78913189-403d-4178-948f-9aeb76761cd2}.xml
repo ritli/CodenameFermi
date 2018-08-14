@@ -101,10 +101,10 @@
     </object>
     <object class="MultiSound" id="{cced6489-42f1-4157-b03d-ab8cc2a2a278}">
         <property name="length">
-            <value>0.15120474813353027</value>
+            <value>0.10237662313353027</value>
         </property>
         <property name="pitch">
-            <value>0.300000012</value>
+            <value>6</value>
         </property>
         <relationship name="automators">
             <destination>{773374b1-bbec-4f6f-a24a-0c45a6435cfc}</destination>
@@ -120,6 +120,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{946254e5-7ccb-466a-9773-acc67afdaf4f}">
+        <property name="volume">
+            <value>-5</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -152,9 +155,6 @@
         <property name="nameOfPropertyBeingModulated">
             <value>pitch</value>
         </property>
-        <property name="amount">
-            <value>6</value>
-        </property>
     </object>
     <object class="SingleSound" id="{9da52a04-70e1-4aac-9fe6-e10449e51a75}">
         <relationship name="audioFile">
@@ -179,6 +179,7 @@
     <object class="MixerBusEffectChain" id="{20873a3a-1f67-4ee7-bdb8-1bb56dd8c931}">
         <relationship name="effects">
             <destination>{2f0de876-7766-4adf-90fb-9d510856473e}</destination>
+            <destination>{8284a7be-aa76-4942-87f5-89cae519861b}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{ea3faf00-5b5b-44ae-91cf-22315ea27327}"/>
@@ -193,6 +194,17 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{2f0de876-7766-4adf-90fb-9d510856473e}"/>
+    <object class="MultibandEqEffect" id="{8284a7be-aa76-4942-87f5-89cae519861b}">
+        <property name="filterTypeA">
+            <value>2</value>
+        </property>
+        <property name="frequencyA">
+            <value>4555.7417</value>
+        </property>
+        <property name="qualityA">
+            <value>0.372103453</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{7d7ce19b-83bb-4455-a1c3-f5c03b006ca6}">
         <property name="position">
             <value>0.14386652693117113</value>

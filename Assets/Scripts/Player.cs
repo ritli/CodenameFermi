@@ -53,6 +53,7 @@ public class Player : MonoBehaviour {
     bool inDialogue = false;
 
     float landingCooldown = 0.1f, landingCooldownMax = 0.3f;
+    private float landingSpeedMultiplier;
 
     void Start ()
     {
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour {
         }
 
         //Actual velocity is calculated here
-        xVel = Mathf.SmoothDamp(xVel, input.x * speed, ref xVelCurrent, snappiness + airSnappiness + addForceSnappiness);
+        xVel = Mathf.SmoothDamp(xVel, input.x * speed * landingSpeedMultiplier, ref xVelCurrent, snappiness + airSnappiness + addForceSnappiness);
 
         addForceSnappiness = Mathf.Clamp01(addForceSnappiness - Time.deltaTime);
 
@@ -133,7 +134,7 @@ public class Player : MonoBehaviour {
                 float xVelSigned = Mathf.Clamp(xVel, -1, 1);
                 Vector2 origin = (Vector2)transform.position + new Vector2(feetOrigin.x * xVelSigned, Mathf.Lerp(feetOrigin.y + 0.4f, -feetOrigin.y + 0.1f, i / 2f));
 
-                if (Physics2D.Linecast(origin, origin + Vector2.right * xVelSigned * feetLength * 2, obstacleLayermask))
+                if (Physics2D.Linecast(origin, origin + Vector2.right * xVelSigned * feetLength * 4, obstacleLayermask))
                 {
                     xVel = 0;            
                     break;
@@ -184,6 +185,8 @@ public class Player : MonoBehaviour {
 
             isJumping = false;
         }
+
+        landingSpeedMultiplier = Mathf.Clamp01(landingSpeedMultiplier + Time.deltaTime * 3);
     }
 
     void AnimationUpdate()
@@ -271,6 +274,8 @@ public class Player : MonoBehaviour {
 
     void OnLanding()
     {
+        landingSpeedMultiplier = 0.5f;
+
         addForceSnappiness = 0;
         landingCooldown = landingCooldownMax;
     }

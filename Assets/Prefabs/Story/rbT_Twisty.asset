@@ -64,8 +64,10 @@ MonoBehaviour:
     expression: 0
     content: '...'
     endDialogue: 0
-    triggers: []
-    playTriggerAtEndInstead: 0
+    triggers:
+    - {fileID: 1603090151477806, guid: 3b0eecbb83055ee4d8ff9920ebd9ffe7, type: 2}
+    - {fileID: 1084261521612870, guid: d053a11a40854e74ead2a12690a93145, type: 2}
+    playTriggerAtEndInstead: 1
     delay: 0
     showStatic: 1
     skipConfirmation: 0

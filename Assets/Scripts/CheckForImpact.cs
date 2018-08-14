@@ -16,7 +16,7 @@ public class CheckForImpact : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (delay <= 0 && collision.collider.CompareTag("Player"))
+        if (delay <= 0 && !collision.collider.CompareTag("Player"))
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached(fmodEvent, gameObject);
             delay = maxDelay;
