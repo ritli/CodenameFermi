@@ -71,3 +71,21 @@ MonoBehaviour:
     delay: 0
     showStatic: 1
     skipConfirmation: 0
+  - character: 1
+    expression: 0
+    content: Velvet!?
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 1
+    delay: 0
+    showStatic: 0
+    skipConfirmation: 0
+  - character: 0
+    expression: 0
+    content: '...'
+    endDialogue: 0
+    triggers: []
+    playTriggerAtEndInstead: 1
+    delay: 0
+    showStatic: 1
+    skipConfirmation: 0
