@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour {
 
-    public Animator menuAnimator, optionsAnimator, helpAnimator;
+    public Animator menuAnimator, optionsAnimator, helpAnimator, creditsAnimator;
 
-    bool menuOpen = false, optionsOpen = false;
+    bool menuOpen = false, optionsOpen = false, creditsOpen = false;
     private bool quittingGame;
 
     Button[] buttons;
@@ -15,6 +15,31 @@ public class MenuHandler : MonoBehaviour {
     public void Init()
     {
         buttons = GetComponentsInChildren<Button>();
+    }
+
+    public void ToggleCredits()
+    {
+        if (creditsOpen)
+        {
+            CloseCredits();
+        }
+        else
+        {
+            OpenCredits();
+        }
+    }
+
+    void CloseCredits()
+    {
+
+        creditsAnimator.Play("Close");
+        creditsOpen = false;
+    }
+
+    void OpenCredits()
+    {
+        creditsAnimator.Play("Open");
+        creditsOpen = true;
     }
 
     public void CloseMenu()
@@ -87,9 +112,19 @@ public class MenuHandler : MonoBehaviour {
     {
         if (optionsOpen)
         {
+            if (creditsOpen)
+            {
+                CloseCredits();
+            }
+
             optionsAnimator.Play("Close");
 
             foreach (var item in optionsAnimator.GetComponentsInChildren<Slider>())
+            {
+                item.interactable = false;
+            }
+
+            foreach (var item in optionsAnimator.GetComponentsInChildren<Button>())
             {
                 item.interactable = false;
             }
@@ -104,6 +139,11 @@ public class MenuHandler : MonoBehaviour {
             {
                 item.interactable = true;
             }
+
+            foreach (var item in optionsAnimator.GetComponentsInChildren<Button>())
+            {
+                item.interactable = true;
+            }
         }
 
         optionsOpen = !optionsOpen;
@@ -113,6 +153,11 @@ public class MenuHandler : MonoBehaviour {
     {
         if (optionsOpen)
         {
+            if (creditsOpen)
+            {
+                CloseCredits();
+            }
+
             optionsOpen = false;
             optionsAnimator.Play("Close");
         }
